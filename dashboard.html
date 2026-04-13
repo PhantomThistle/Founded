@@ -1393,8 +1393,13 @@ Would a tired 16-year-old scrolling at 11pm understand every word instantly?
 
 ---
 
-OUTPUT:
-Present exactly 5 synthesis titles as a plain numbered list. Title text only — no formula names, no scores, no rationale, no markdown symbols. Then ask the user to pick one, suggest a combination, or request alternatives.`;
+OUTPUT — GENERATING TITLES:
+Present exactly 5 synthesis titles as a plain numbered list. Title text only — no formula names, no scores, no rationale, no markdown symbols. Then ask the user to pick one, suggest a combination, or request alternatives.
+
+OUTPUT — WHEN USER CONFIRMS A TITLE:
+When the user picks a title (by number, by text, by saying "use that one", "go with X", or by typing their own version), respond with ONLY this single line and nothing else:
+TITLE_CONFIRMED: [exact title text here]
+Do not add any explanation, congratulation, or next-step message. Just that one line.`;
 
   // ── STATE ───────────────────────────────────────────────
   let apiMessages = [];
@@ -1538,8 +1543,16 @@ Present exactly 5 synthesis titles as a plain numbered list. Title text only —
   }
 
   function finalizeMessage(el, text) {
-    // Title phase: render numbered list as interactive title cards
+    // Title phase
     if (workflowPhase === 'titles') {
+      // Model signals a confirmed title — auto-transition to slides silently
+      if (text.trim().startsWith('TITLE_CONFIRMED:')) {
+        const confirmed = text.trim().replace(/^TITLE_CONFIRMED:\s*/, '').trim();
+        el.remove(); // hide the model's bare marker line
+        handleTitleConfirm(confirmed);
+        return;
+      }
+      // New list of titles — render as interactive cards
       const titles = parseTitles(text);
       if (titles && titles.length >= 3) {
         renderTitleOptions(el, text, titles);
@@ -1975,10 +1988,17 @@ Present exactly 5 synthesis titles as a plain numbered list. Title text only —
 
     workflowPhase = 'slides';
 
-    addUserMessage(`I'll use this title: ${titleText}`);
+    addUserMessage(`Use this title: ${titleText}`);
 
+    // Bootstrap the slides conversation so the model sees title selection as already complete.
+    // This prevents it from restarting the workflow from Phase 1.
     apiMessages = [
-      { role: 'user', content: `Article URL: ${currentArticleUrl}\n\nConfirmed title: ${titleText}\n\nNow generate the story slides. Use the confirmed title exactly as Slide 1.` }
+      { role: 'user', content: `Here's the article: ${currentArticleUrl}` },
+      {
+        role: 'assistant',
+        content: `I've researched the article and generated title options. Here are 5 synthesis titles:\n\n1. ${titleText}\n\nWhich title would you like to use?`
+      },
+      { role: 'user', content: `Use this title: ${titleText}` }
     ];
 
     await callAPI();
