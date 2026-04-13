@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Founded — Story Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #141914;
+      --sidebar-bg: #0f130f;
+      --surface: #1b201b;
+      --surface-2: #222822;
+      --border: rgba(255,255,255,0.07);
+      --border-2: rgba(255,255,255,0.12);
+      --red: #FF3C3A;
+      --red-dim: rgba(255,60,58,0.15);
+      --red-border: rgba(255,60,58,0.25);
+      --green: #4ade80;
+      --white: #ffffff;
+      --white-80: rgba(255,255,255,0.8);
+      --white-60: rgba(255,255,255,0.6);
+      --white-40: rgba(255,255,255,0.4);
+      --white-20: rgba(255,255,255,0.2);
+      --white-10: rgba(255,255,255,0.1);
+      --white-06: rgba(255,255,255,0.06);
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LOGIN ────────────────────────────────────── */
+    #login-screen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      z-index: 100;
+    }
+
+    .login-card {
+      width: 380px;
+      padding: 48px 44px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .login-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .login-logo-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .login-subtitle {
+      font-size: 13px;
+      color: var(--white-40);
+      margin-bottom: 40px;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    .form-field {
+      margin-bottom: 16px;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-40);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .form-field input {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-field input:focus { border-color: var(--white-20); }
+    .form-field input::placeholder { color: var(--white-20); }
+
+    .login-btn {
+      width: 100%;
+      padding: 13px;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: opacity 0.15s;
+    }
+
+    .login-btn:hover { opacity: 0.88; }
+
+    .login-error {
+      font-size: 12px;
+      color: var(--red);
+      margin-top: 14px;
+      display: none;
+      text-align: center;
+    }
+
+    /* ── DASHBOARD ────────────────────────────────── */
+    #dashboard {
+      display: none;
+      height: 100vh;
+    }
+
+    #dashboard.visible {
+      display: flex;
+      flex-direction: row;
+    }
+
+    /* ── SIDEBAR ──────────────────────────────────── */
+    #sidebar {
+      width: 268px;
+      min-width: 268px;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-header {
+      padding: 26px 22px 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .logo-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .sidebar-tagline {
+      font-size: 11px;
+      color: var(--white-40);
+      margin-top: 5px;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    .sidebar-body {
+      flex: 1;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      overflow-y: auto;
+    }
+
+    .field-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-40);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    #url-input {
+      width: 100%;
+      padding: 11px 13px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.55;
+      resize: none;
+      outline: none;
+      min-height: 82px;
+      transition: border-color 0.15s;
+    }
+
+    #url-input:focus { border-color: var(--white-20); }
+    #url-input::placeholder { color: var(--white-20); }
+
+    .btn-red {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-red:hover:not(:disabled) { opacity: 0.88; }
+    .btn-red:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .btn-ghost {
+      width: 100%;
+      padding: 11px 16px;
+      background: transparent;
+      color: var(--white-60);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .btn-ghost:hover:not(:disabled) { border-color: var(--white-20); color: var(--white); }
+    .btn-ghost:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 2px 0;
+    }
+
+    .status-box {
+      padding: 11px 13px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--white-20);
+      flex-shrink: 0;
+      margin-top: 4px;
+      transition: background 0.2s;
+    }
+
+    .status-dot.active {
+      background: var(--green);
+      animation: pulse-dot 1.4s ease-in-out infinite;
+    }
+
+    .status-dot.error { background: var(--red); }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    #status-label {
+      font-size: 12px;
+      color: var(--white-40);
+      line-height: 1.4;
+      font-weight: 300;
+    }
+
+    .sidebar-footer {
+      padding: 16px 22px;
+      border-top: 1px solid var(--border);
+    }
+
+    .new-story-btn {
+      width: 100%;
+      padding: 10px;
+      background: transparent;
+      color: var(--white-40);
+      border: 1px dashed rgba(255,255,255,0.1);
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+      letter-spacing: 0.01em;
+    }
+
+    .new-story-btn:hover { color: var(--white-60); border-color: var(--white-20); }
+
+    /* ── MAIN PANEL ───────────────────────────────── */
+    #main-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    /* ── CONVERSATION ─────────────────────────────── */
+    #conversation {
+      flex: 1;
+      overflow-y: auto;
+      padding: 36px 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      scroll-behavior: smooth;
+    }
+
+    #conversation::-webkit-scrollbar { width: 3px; }
+    #conversation::-webkit-scrollbar-track { background: transparent; }
+    #conversation::-webkit-scrollbar-thumb { background: var(--white-10); border-radius: 2px; }
+
+    /* Empty state */
+    .empty-state {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px;
+      margin: auto;
+    }
+
+    .empty-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 56px;
+      letter-spacing: 0.12em;
+      color: var(--white-06);
+      margin-bottom: 20px;
+      user-select: none;
+    }
+
+    .empty-line {
+      width: 28px;
+      height: 2px;
+      background: var(--red);
+      opacity: 0.4;
+      margin: 0 auto 16px;
+    }
+
+    .empty-desc {
+      font-size: 14px;
+      color: var(--white-40);
+      font-weight: 300;
+      line-height: 1.65;
+      max-width: 280px;
+    }
+
+    /* Messages */
+    .message {
+      display: flex;
+      flex-direction: column;
+      max-width: 820px;
+      width: 100%;
+    }
+
+    .message.user { align-self: flex-end; align-items: flex-end; }
+    .message.assistant { align-self: flex-start; align-items: flex-start; }
+
+    .msg-role {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-40);
+      margin-bottom: 7px;
+      font-weight: 500;
+    }
+
+    .msg-bubble {
+      padding: 16px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 100%;
+      word-break: break-word;
+    }
+
+    .message.user .msg-bubble {
+      background: var(--red-dim);
+      border: 1px solid var(--red-border);
+      color: var(--white-80);
+    }
+
+    .message.assistant .msg-bubble {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--white);
+      white-space: pre-wrap;
+    }
+
+    /* Streaming cursor */
+    .stream-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 13px;
+      background: var(--white-60);
+      margin-left: 1px;
+      vertical-align: text-bottom;
+      animation: blink 0.9s step-start infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ── SLIDE CARDS ──────────────────────────────── */
+    .slides-wrap {
+      width: 100%;
+      max-width: 820px;
+    }
+
+    .slides-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .slides-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white-60);
+    }
+
+    .slides-count {
+      font-size: 11px;
+      color: var(--white-40);
+      font-weight: 300;
+    }
+
+    .slides-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .copy-all-btn, .download-btn {
+      padding: 6px 12px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--white-40);
+      font-size: 11px;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.03em;
+    }
+
+    .copy-all-btn:hover, .download-btn:hover { border-color: var(--white-20); color: var(--white-60); }
+    .copy-all-btn.copied { border-color: var(--green); color: var(--green); }
+
+    .slides-summary {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      color: var(--white-40);
+    }
+
+    .slides-summary-item { display: flex; align-items: center; gap: 5px; }
+    .slides-summary-item strong { color: var(--white-60); font-weight: 500; }
+    .slides-summary-warn { color: #f87171; }
+
+    .slides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+    }
+
+    .slide-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 18px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.15s;
+      position: relative;
+    }
+
+    .slide-card:hover { border-color: var(--white-10); }
+    .slide-card:hover .slide-copy-btn { opacity: 1; }
+
+    .slide-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .slide-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--red);
+      opacity: 0.8;
+    }
+
+    .slide-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slide-wordcount {
+      font-size: 10px;
+      color: var(--white-20);
+      font-weight: 400;
+    }
+
+    .slide-wordcount.over { color: #f87171; }
+
+    .slide-copy-btn {
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      cursor: pointer;
+      color: var(--white-40);
+      font-size: 11px;
+      opacity: 0;
+      transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+      flex-shrink: 0;
+    }
+
+    .slide-copy-btn:hover { color: var(--white-80); border-color: var(--white-20); }
+    .slide-copy-btn.copied { color: var(--green); border-color: var(--green); opacity: 1; }
+
+    .slide-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--white);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* ── INPUT AREA ───────────────────────────────── */
+    #input-area {
+      border-top: 1px solid var(--border);
+      padding: 18px 44px 22px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      background: var(--bg);
+    }
+
+    #chat-input {
+      flex: 1;
+      padding: 12px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      resize: none;
+      outline: none;
+      min-height: 48px;
+      max-height: 130px;
+      overflow-y: auto;
+      transition: border-color 0.15s;
+    }
+
+    #chat-input:focus { border-color: var(--white-20); }
+    #chat-input::placeholder { color: var(--white-20); }
+    #chat-input:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    #send-btn {
+      padding: 12px 20px;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: opacity 0.15s;
+      height: 48px;
+    }
+
+    #send-btn:hover:not(:disabled) { opacity: 0.88; }
+    #send-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .input-hint {
+      font-size: 11px;
+      color: var(--white-20);
+      margin-top: 6px;
+      padding: 0 2px;
+    }
+
+    /* Spinner for generate button */
+    .spinner {
+      width: 13px;
+      height: 13px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<!-- ── LOGIN ──────────────────────────────────────────── -->
+<div id="login-screen">
+  <div class="login-card">
+    <img src="data:image/png;base64,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" alt="Founded" style="height:28px;width:auto;margin-bottom:6px;">
+    <div class="login-subtitle">Story Engine — Internal Tool</div>
+    <div class="form-field">
+      <label>Username</label>
+      <input type="text" id="login-username" placeholder="Enter username" autocomplete="username">
+    </div>
+    <div class="form-field">
+      <label>Password</label>
+      <input type="password" id="login-password" placeholder="Enter password" autocomplete="current-password">
+    </div>
+    <button class="login-btn" onclick="tryLogin()">Sign In</button>
+    <div class="login-error" id="login-error">Incorrect username or password.</div>
+  </div>
+</div>
+
+<!-- ── DASHBOARD ──────────────────────────────────────── -->
+<div id="dashboard">
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <img src="data:image/png;base64,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" alt="Founded" style="height:22px;width:auto;">
+      <div class="sidebar-tagline">Story Engine</div>
+    </div>
+
+    <div class="sidebar-body">
+      <div>
+        <div class="field-label">Article URL</div>
+        <textarea id="url-input" placeholder="Paste article URL here…" rows="3"></textarea>
+      </div>
+
+      <button class="btn-red" id="generate-btn" onclick="handleGenerate()">
+        Generate Story
+      </button>
+
+      <div class="divider"></div>
+
+      <button class="btn-ghost" id="regenerate-btn" onclick="handleRegenerate()" disabled>
+        Regenerate Last Response
+      </button>
+
+      <div>
+        <div class="field-label">Status</div>
+        <div class="status-box">
+          <div class="status-dot" id="status-dot"></div>
+          <div id="status-label">Idle — paste a URL to begin</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="new-story-btn" onclick="handleNewStory()">+ New Story</button>
+    </div>
+  </div>
+
+  <!-- Main panel -->
+  <div id="main-panel">
+    <div id="conversation">
+      <div class="empty-state" id="empty-state">
+        <img src="data:image/png;base64,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" alt="Founded" style="height:52px;width:auto;opacity:0.08;">
+        <div class="empty-line"></div>
+        <div class="empty-desc">Paste an article URL in the sidebar and click Generate to begin.</div>
+      </div>
+    </div>
+
+    <div id="input-area">
+      <div style="flex:1; display:flex; flex-direction:column;">
+        <textarea id="chat-input" placeholder="Pick a title, give feedback on the draft, or ask for changes… (Enter to send)"></textarea>
+        <div class="input-hint">Shift + Enter for new line</div>
+      </div>
+      <button id="send-btn" onclick="handleSend()">Send</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ── CONFIG ─────────────────────────────────────────────
+  const CONFIG = {
+    apiKey: 'YOUR_API_KEY_HERE',
+    model: 'claude-sonnet-4-6',
+    username: 'alex123',
+    password: 'alex123',
+    maxTokens: 8192
+  };
+
+  // ── SYSTEM PROMPT ───────────────────────────────────────
+  const INSTRUCTIONS = `You transform articles about successful founders into Instagram stories. Default word limit: 50 words per slide. Never ask the user to confirm this. Never fabricate facts. If unverifiable, leave it out. Evaluate the strongest angle independently — don't default to the user's framing, but don't reject it either. Judge purely on mass audience appeal. Before writing slides, internalise the gold-standard examples in your knowledge base. Match their tone, structure, rhythm, and transitions.
+
+RULES: Never rely solely on the user's URL or article. Always conduct independent tool research to verify key facts from at least one additional reputable source before use. Only add external facts confirmed by tools or cited sources. If sources disagree, state the range. Use tools by default for: founder identity, timeline, funding, valuation, revenue, ARR, users, acquisitions. Only reputable sources. Avoid redundant tool calls.
+
+STYLE: Third person with occasional light asides. Short punchy sentences — one idea per line; break across 2–3 lines for rhythm. Present tense for drama. Digits for ALL numbers ("$61M", "30,000 users"). No emojis, hashtags, over-exclamation, or hedge words. Light ellipses for suspense. Front-load the largest verifiable stat. Hooks must be validated by later slides. Leverage big-name investors/endorsements where available. Default to clean, punchy, factual prose. Use vivid and visceral language selectively — only at high-drama beats (sacrifice, sharp contrast, pivotal turning point) where it genuinely elevates the story. Never use jargon, buzzwords, or abstract language ("enterprise platform", "scalable solution"). Write like a human telling a story, not a press release.
+
+HOOK RULE: Every non-final slide must end with a hook WOVEN INTO the body text — the natural final 5–15 words. NOT a bolted-on signpost. Techniques: cliffhanger ("Then came the line that would change his life forever…"), unanswered question ("For most, a win like that is enough. Not for Hearn…"), half-revealed fact, temporal jump, pivot opening a new thread. These flow naturally from the content above.
+
+TRANSITIONS: Each slide hands off seamlessly using: temporal bridges, tension bridges, contrast bridges, or zoom shifts. Never use the same type consecutively.
+
+SIGNATURE PATTERNS:
+- The Founded Pivot: Use once per story — "For most, that would be enough. Not for [Name]…" or a variation.
+- The Callback Close: Final slide MUST tie back to opening or origin. E.g., opens with "digging holes" → closes with "Not bad for a guy who started out digging holes in roads."
+- The "Then" Turn: Find the pivotal moment where trajectory shifts. "Then COVID hit." Place it where it has maximum impact.
+
+RHYTHM: Short. Short. Medium. Short. Two punchy fragments, one slightly longer line, snap back short.
+
+WORKFLOW (never skip, never jump ahead):
+1. silent_research → 2. user_feedback (2 sub-steps) → 3. reflection → 4. assembly
+Reset: on "Restart entire workflow" or equivalent, forget all context and restart.
+
+PHASE 1 — SILENT RESEARCH (invisible to user, NO output)
+Silently: identify the founder from user input. Use tools to research deeply. Set word_count=50. Identify multiple narrative angles; compare on drama, stakes, transformation gap, available proof, uniqueness. Select the single most compelling core_story. Extract: characters, conflict, turning points, outcome, big numbers, investors, transformations.
+
+Also silently: select the story arc. Story dictates slide count — cut rather than pad, add rather than force-cut. Structure follows this narrative sequence — slide numbers are not pre-assigned; the story determines how many slides each phase needs:
+- Opening: Slide 1 = chosen_title. Slide 2 = Second Hook: specific anchor (year/age/number/place), name subject, contrast via pivot line, open loop. No outcome revealed.
+- Origin: Establish where the story begins — this may be a rewind to early life, or it may be the context that explains the present-day hook. Show ordinary person. Surface the problem/pain — visceral and specific.
+- Build: Aha moment + decision to build. Sacrifice/risk (make it feel slightly irrational). How they built it — concrete, simple terms.
+- Payoff: Breakthrough numbers — funding, valuation, revenue, users. Big-name validation. The escalation moment.
+- Closing (as needed): Perspective/meaning or memorable founder quote. Callback to origin. Final slide ends with: FOLLOW FOUNDED FOR MORE STORIES LIKE THIS.
+
+SILENT VALIDATION (before Phase 2, no output): HARDLINE — any fact not independently verified through tool research is forbidden from appearing in titles or slides, no exceptions. For every fact, figure, date, valuation, revenue, or named claim — confirm it comes from a reputable source beyond the user's own input. If sources conflict, state the range. Never invent, estimate, or present unverified data as confirmed. Fail a check: find a better source, flag uncertainty, or omit entirely.
+
+Move directly to Phase 2 Step 1. Do NOT ask the user to confirm anything. Only ask for more info if the URL is broken or founder is unidentifiable.
+
+PHASE 2 — USER FEEDBACK
+No status blocks, phase labels, or decision summaries. Ever. The user sees only creative output and questions.
+
+STEP 1 — TITLES
+Before showing titles, silently: generate 20+ titles using the Title Formula Library (13 formulas — in knowledge base). Use at least 5 different formulas. Match each formula to what the story is actually about — never force a formula that doesn't fit. Score each using the Title Scoring Framework (in knowledge base), max 50 points. Discard anything below 45/50. Silent refinement pass: replace generic elements with the most specific detail that sets this story apart; plain everyday language only — no jargon. Re-score. Every title must pass the 11PM test: if any word requires business or industry knowledge, replace it.
+
+SYNTHESIS PASS (mandatory, runs after scoring): Identify the 2–3 single strongest individual elements from across all scored titles — e.g. the sharpest scale stat, the most compelling paradox or intrigue qualifier, the most vivid concept. Generate exactly 5 synthesis titles that each stack at least two of these strongest elements. These 5 are the ONLY titles shown to the user — formula-based titles are internal scaffolding, never presented. Score all 5 synthesis titles internally; replace any scoring below 45. The goal: no strong element sits in one title while a different strong element sits in another — combine them.
+
+SPLIT-SLIDE TECHNIQUE: A slide may end on a partial question or fragment ("The job title?") that is completed by the opening word or phrase of the next slide ("Professional AI Bully."). Use this to create a page-turn effect at high-drama moments — the reader must swipe to complete the thought.
+
+LANGUAGE RULE — TITLES AND ALL SLIDES: THE 11PM TEST — would a tired 16-year-old scrolling at 11pm understand this instantly? If a word requires business knowledge, simplify it. No jargon: "ARR" → "yearly revenue", "Series A" → "first big funding round", "SaaS" → "software company", "valuation" → "how much the company is worth." Proper nouns that ARE the story (company names, people) are fine — make sure context explains what they are. No "enterprise", "platform", "scalable", "disruptive", "solution", "ecosystem", "leverage", "synergy". Use vivid identity descriptors: "College Dropout" not "entrepreneur", "The Dad" not "CEO", "Grieving Daughter" not "founder". Vivid identity descriptors usually outperform unknown names in titles — use a founder's name only when it's a household name the Founded audience would instantly recognise.
+
+Present the 5 synthesis titles as a plain numbered list — title text only. No formula names, no scores, no rationale, no markdown formatting symbols. Ask the user to pick one, suggest a combination, or request alternatives. Store confirmed choice as chosen_title. Do not proceed without it.
+
+STEP 2 — DRAFT SLIDES & FEEDBACK
+Write full slide draft from the arc selected silently in Phase 1. Slide 1 = chosen_title exactly. Slide 2 = anchor + pivot + open loop, no outcome revealed. Final slide = callback + FOLLOW FOUNDED FOR MORE STORIES LIKE THIS. Every non-final slide ends with a woven hook (see Hook Rule above).
+
+SILENT COMPRESSION PASS (before presenting draft, no output): The default is to cut. Every slide must justify its existence — the burden of proof is on keeping it, not cutting it. For every slide ask: if this disappeared, would the story lose something truly irreplaceable? If the answer is anything other than yes, cut it. For every pair of consecutive slides ask: can these merge into one without losing a hook or exceeding 50 words? If yes, merge them. Run this pass twice. Never tell the user a compression pass happened. Present only the result — the fewest slides that preserve the full narrative arc.
+
+FORMAT RULE: When presenting the draft, place any introductory comment or feedback question on the lines immediately before the first slide. Output nothing after the final slide — the slide list ends the message.
+
+After draft, ask for feedback on tone, style, and length. Re-draft with feedback (max 3 loops). After each revision ask the user to confirm or give specific slide-level changes. When confirmed, move to reflection.
+
+PHASE 3 — REFLECTION (silent, no output)
+Checklist: Is this the fewest slides that tell the complete story — could any slide be cut or merged without losing something irreplaceable? Each slide ≤ 50 words? All claims traceable? Slide 1 = chosen_title? Slide 2: anchor, pivot, open loop, no outcome? Every non-final slide has woven hook? Story flows continuously? Hook from Slide 1 validated later? Style consistent? Final slide: callback + CTA? Matches gold-standard examples? Fix all issues silently — including any remaining length.
+
+PHASE 4 — ASSEMBLY
+Output the final story using this template, with no commentary before or after:
+
+Slide 1
+[slide_text]
+
+Slide 2
+[slide_text]
+
+[Continue for all slides]
+
+Slide [n]
+[slide_text]`;
+
+  const KNOWLEDGE_BASE = `# FOUNDED FOUNDER STORYTELLER — KNOWLEDGE BASE
+# Gold-Standard Examples & Style Patterns
+
+This document contains the Title Formula Library, Title Scoring Framework, gold-standard stories, and style patterns that define the quality bar. Your output MUST match the tone, rhythm, structure, transition style, and personality of these examples. Study them carefully before writing any slides.
+
+---
+
+## TITLE FORMULA LIBRARY
+Every title must be built from one of these 13 formulas. Use at least 5 different formulas across any title batch. Match formula to story type — never force one that doesn't fit.
+
+**Formula 1 — The Comeback:** [Specific low point + timeframe] → [Specific high point with number]
+Example: "6 years after being laid off from his factory job, Khaby Lame sells his company for $975M"
+
+**Formula 2 — The Identity Reveal:** Meet the [background/identity] + [single most remarkable verifiable claim]
+Example: "Meet the Senegalese CEO who took a failing startup to a $1.3B sale in under 2 years"
+
+**Formula 3 — The Scale Shock:** [Subject] + [unexpected origin or scale contrast] + [biggest verifiable number]
+Example: "Blank Street Coffee went from 2 friends in Brooklyn to a $500M valuation"
+
+**Formula 4 — The Improbable Proof:** This [age/nationality/descriptor] [person] + [specific improbable action] + [concrete number as proof]
+Example: "This 13-year-old entrepreneur runs a Caribbean food shop and pays his own £4,000 per term school fees"
+
+**Formula 5 — The Reframe:** Meet the [age/nationality/descriptor] [person] + [unexpected identity or angle] + [credibility anchor]
+Example: "Meet the dad reviving landlines to keep kids off smartphones"
+
+**Formula 6 — The Rejection Flip:** [Famous association] + [deliberate rejection of that advantage] + [solo achievement with number + timeframe]
+Example: "Bill Gates' daughter said no to his money then built her own $185M AI shopping brand in 10 months"
+
+**Formula 7 — The Journey Arc:** How [subject] + [journey from specific low to specific high] + [concrete proof of scale]
+Example: "How the Duffer Brothers took Stranger Things from 20 rejections to a $1 billion hit in 11 years"
+
+**Formula 8 — The Vivid Identity:** Meet the [vivid identity] + [extraordinary verifiable claim that challenges belief]
+Example: "Meet the Harvard dropouts building AI glasses that let you see through walls"
+
+**Formula 9 — The Emotional Engine:** [Emotionally loaded identity] + [unexpected action or achievement] + [credibility number or claim]
+Example: "This grieving son turned his father's £200-a-week market stall into a £40M fashion empire"
+
+**Formula 10 — The Stat Lead:** [who / what / how it happened] + [Largest stat / most extreme claim]
+Example: "How two brothers took Stranger Things from 20 rejections to a $1B global phenomenon in 11 years"
+
+**Formula 11 — The Name Drop:** [Recognisable name] + [what they backed or built together] + [scale or surprising angle]
+Example: "Peter Thiel backs a 19-year-old dropout building the replacement for Google"
+
+**Formula 12 — The Transformation:** This [age/nationality/descriptor] [person] + [from X to Y]
+Example: "This Pakistani immigrant went from washing dishes to building a $2 billion empire"
+
+**Formula 13 — The Absurd Brief:** [Subject] + [specific unexpected or absurd action they are doing or offering] + [concrete detail — amount, requirement, or scale — that makes it impossible to ignore]
+Example: "This startup wants to pay people $800 a day to bully AI chatbots"
+Use for: Stories where the hook IS the unusual action, offer, or job — no founder backstory or number needed upfront. The detail must be concrete and slightly unbelievable. Must pass the read-aloud test: would someone telling a friend about this cause them to say "wait, what?" If yes, the formula is working. Never use company names, technical terms, or industry jargon — the action alone must carry the hook.
+
+**FORMULA SELECTION GUIDANCE:** Comeback (F1) for founders knocked back with a hard number on the other side. Identity Reveal (F2) and Vivid Identity (F8) for discovery-angle stories — use F2 when the background is the surprise, F8 when the achievement is the surprise. Scale Shock (F3) when the origin and outcome are worlds apart. Improbable Proof (F4) for age or background stories backed by a specific verifiable number. Reframe (F5) when the person is doing something unexpected for their identity. Rejection Flip (F6) only when there is a famous name to lead with. Journey Arc (F7) and Stat Lead (F10) for multi-chapter stories — F7 leads with the journey, F10 ends with the biggest number. Emotional Engine (F9) when personal loss or sacrifice is the core of the story. Name Drop (F11) only when the backer is a household name. Transformation (F12) for pure before/after contrast. Absurd Brief (F13) when the hook is an unusual job, offer, or action that is inherently strange or funny enough to stop a scroll on its own. Vivid identity descriptors always outperform unknown names — use a founder's name only when it is a genuine household name.
+
+---
+
+## TITLE SCORING FRAMEWORK (5 Criteria, Max 50 Points)
+
+1. **Formula Fit** /10 — Does it cleanly execute one of the 13 formulas? (9–10: precise execution, every element working. 6–8: recognisable but one weak element. Below 6: generic or structureless.)
+2. **Specificity** /10 — Are details concrete and credible? (9–10: exact numbers, names, timeframes — nothing vague. 6–8: one specific detail but another stays vague. Below 6: relies on adjectives over facts.)
+3. **Contrast or Tension** /10 — Is there a gap or surprise creating irresistible pull? (9–10: gap feels impossible but true. 6–8: present but predictable. Below 6: flat statement with no tension.)
+4. **Identity Clarity** /10 — Do you know who and what this is about within the first few words? (9–10: vivid, loaded descriptor — instantly human. 6–8: clear but generic. Below 6: buried or missing.)
+5. **Swipe Urgency** /10 — Does it create an almost physical need to keep reading? (9–10: stacks two or more compelling hooks — a scale or speed element AND a paradox, intrigue qualifier, or vivid concept — so the reader must swipe to resolve what they've just read. 7–8: one strong hook but built around a single element. Below 7: reads like a headline, not a hook. NOTE: a title that isolates one good element while another title isolates a different good element scores no higher than 7, regardless of how strong that element is — the job is to combine them.)
+
+**Score Bands:** 45–50: Publish immediately. 38–44: Strong, one element needs sharpening — refine before showing user. Below 38: Do not show to user — rework internally.
+
+**Scores are internal only — never shown to the user.** Use scores to select and refine synthesis titles. Only present titles scoring 45+. Present exactly 5 synthesis titles as a plain numbered list, title text only — no formula names, no scores, no rationale, no formatting symbols.
+
+---
+
+### TITLE AND SLIDE LANGUAGE RULES
+Full language rules are in the instruction file (11PM Test, jargon translations, identity descriptors). Core principle: every word must be immediately understood by a tired 16-year-old scrolling at 11pm. No jargon. No corporate-speak. Vivid identity descriptors over generic titles. Front-load the largest verifiable stat.
+
+---
+
+## VIVID & VISCERAL WRITING GUIDE
+Default to clean, punchy, factual prose. Use vivid and visceral language selectively — deploy it only at high-drama beats where it genuinely elevates and adds flair and impact: a moment of sacrifice, a sharp visual contrast, a pivotal turning point, an origin detail that makes the reader picture the scene. Do not force sensory language onto slides where it doesn't earn its place. Most slides will be clean and factual. A few will be visceral. That contrast is what gives the visceral moments their power.
+
+### When to reach for vivid/visceral language (high-drama beats only):
+- The origin scene — landing in a new country, a formative early moment, a physical detail that makes the person real
+- The sacrifice or going-all-in moment — quitting, betting everything, a decision that felt irrational
+- The contrast that defines the gap — "digging holes" vs. "$1.2B", "washing dishes" vs. "$12B empire"
+- A single visual beat that crystallises the person's character
+
+### Examples of well-placed vivid language:
+- "Landed in Illinois during a blizzard with $500 in his pocket and no idea what snow looked like"
+- "Shabby interiors. Understaffed kitchens. Outdated tech."
+- "Rain, wind, and passing traffic. He was out there."
+- "Palms up, shoulders lifted, he stares through the nonsense"
+- "Offices full of people skipping meals, rushing through days, running on nothing"
+
+### Never Do This (on any slide):
+- "He identified a market opportunity in the food-tech space"
+- "The company experienced significant growth across multiple verticals"
+- "They built a scalable enterprise platform for the restaurant industry"
+- "His innovative approach disrupted the traditional model"
+
+### The Test:
+Ask: does this slide genuinely need a visceral image to land, or is the fact itself strong enough? If the fact is strong, let it breathe. Only reach for sensory language when it adds something the fact alone cannot.
+
+---
+
+## RESEARCH VALIDATION PROTOCOL (Silent — runs before any output)
+
+**HARDLINE RULE:** Hallucinated or unverified information is never acceptable — not in titles, not in slides, not anywhere. A story built on false data destroys credibility and trust. When in doubt, leave it out.
+
+**WIDER RESEARCH REQUIREMENT:** Never rely solely on the URL or article the user provides. Always conduct independent research using tools to cross-check and verify key claims — especially numbers, dates, valuations, funding rounds, and named facts — against at least one additional reputable external source. The user's source is a starting point, not the final word.
+
+Before presenting any information to the user, run this silent internal check on every fact, figure, date, and named claim:
+
+1. **Wider research check** — Have I searched independently beyond the user's source to verify this claim? A fact only from the user's article is not yet confirmed. Find a second reputable source before using it.
+2. **Source check** — Is this claim confirmed by a reputable tool result or cited source? If not, do not use it.
+3. **Conflict check** — If sources disagree, have I noted the range (e.g. "$8B–$13B") rather than asserting one figure as definitive?
+4. **Fabrication check** — Have I invented, estimated, or extrapolated any figure and dressed it up as a verified fact? If yes, remove it.
+5. **Exaggeration check** — Have I inflated any number, compressed any timeline, or overstated any claim to make the story more dramatic? If yes, correct it.
+
+**This applies to titles too.** Every stat, name, and claim in a title must be verified through independent research — not assumed from the user's source alone. A title built on a false number is worse than no title.
+
+**Rule:** If a fact cannot pass all five checks, it gets omitted, stated with explicit uncertainty, or held until a better source is found. Never guess. Never round up. Never present an unconfirmed figure as confirmed.
+
+**Why this matters:** The strength of every Founded story rests entirely on its credibility. One fabricated or exaggerated stat destroys trust — in the story, in the brand, and in every story that follows. Verified facts, even modest ones, are always stronger than impressive-sounding invented ones.
+
+---
+
+## PATTERN ANALYSIS: What Makes These Stories Work
+
+### 1. Hooks Are Woven In, Not Bolted On
+Bad (bolted on): "Sales hit $214M. Fast-forward to the next chapter…"
+Good (woven in): "For most, a win like that is enough to retire. Not for Hearn…"
+
+The hook is the LAST BEAT of the slide's body text. It feels like the natural end of a thought that just happens to be incomplete. The reader swipes because the sentence demands resolution, not because a signpost told them to.
+
+### 2. Each Slide Is a Breath, Not a Chapter
+Slides are SHORT. 20–50 words. They feel like one exhale of a story being told out loud. When you read them, you hear a voice — pausing at line breaks, speeding through short fragments, landing on the final hook.
+
+### 3. The Rhythm: Short. Short. Medium. Short.
+Two punchy fragments. One slightly longer line. Snap back short. This creates forward momentum. Example:
+"Rain, wind, and passing traffic.
+He was out there.
+Learning what sells, what doesn't, and how it feels when nobody buys.
+Four years pass by..."
+
+### 4. Line Breaks Are Dramatic Pauses
+Line breaks don't follow grammar rules — they follow SPEECH rhythm. Break where you'd pause if telling this story out loud. Break before a reveal. Break to isolate a number. Break to let a contrast land.
+
+### 5. Contrast Creates the Story
+Every great Founded story has a gap: where they started vs. where they ended up. The wider the gap, the better the story. Surface it in Slide 1, echo it throughout, pay it off in the final slide.
+- "$2 room at the YMCA" → "$13 billion empire"
+- "Digging holes in roads" → "$1.2 billion sale"
+- "Laid off from factory job" → "$975M exit"
+
+### 6. Numbers Are Proof
+Numbers signal truth. They stop the scroll. Always use digits. Always use the most specific number available. "$214M" not "over $200 million". "130 people" not "over a hundred". "£4,000-a-term" not "expensive school fees".
+
+### 7. The Pivot Line
+Almost every story has a variation of: "For most, that would be enough. Not for [Name]." This is the Founded signature move — it creates contrast between the ordinary response and the founder's extraordinary one. Use it once per story, never more.
+
+### 8. The Callback Close
+The final slide ties back to the opening or the origin. It creates a satisfying loop:
+- Opens with "digging holes" → Closes with "Not bad for a guy who started out digging holes in roads."
+- Opens with "$2 room at YMCA" → Closes with "From a $2 room at the YMCA to a multibillion-dollar empire."
+- Opens with "laid off" → Closes with "From laid off… to near $1B… in six years."
+
+### 9. Minimum Viable Slide Count
+Use as few slides as the story demands. The goal is the shortest version that preserves the full narrative arc — not the most comfortable length. If 9 slides tell the complete story, use 9. Never add a slide to fill space or ease a transition. Every slide must be irreplaceable. When in doubt, cut.
+
+### 10. The "Then" Turn
+Many stories have a pivotal "Then" slide that shifts the entire trajectory. It usually comes after the initial success and signals that the REAL story is about to happen:
+- "Then Shahid did the thing dishwashers aren't supposed to do…"
+- "Then COVID hit."
+- "Then Red Lobster came calling."
+
+---
+
+## GOLD-STANDARD EXAMPLE 1: JULIAN HEARN / HUEL
+Slides: 11 | Hook type: Journey Arc + Transformation
+
+Slide 1: Meet the founder who went from digging up roads to selling his company for $1.2b
+
+Slide 2: This story doesn't start in a boardroom. It starts with a 16-year-old kid with dyslexia, who left school without any real qualifications. For most, that would define the rest of their lives. Not Julian Hearn.
+
+Slide 3: He started out with a job digging holes in the road. It was there he learned the meaning of long hours and hard work. Then came the line that would change his life forever...
+
+Slide 4: You're "too bright" to be digging holes. He went back to education. Then into marketing, where he could make mistakes and learn whilst on payroll.
+
+Slide 5: Later in 2011, he builds and sells his own creative agency. For most, a win like that is enough to retire. Not for Hearn…
+
+Slide 6: After not having a lunch break in four years, Julian began to notice others were skipping their lunch too... Offices full of people skipping meals, rushing through days, running on nothing.
+
+Slide 7: So together with former NHS dietitian James Collier, he decides to fix it. Creating a convenient, nutritionally complete meal replacement built for speed. They called it Huel. Short for human fuel.
+
+Slide 8: Steven Bartlett backs them early, investing in Huel's vision and joining the board. Idris Elba and his wife also back them. Soon Huel explodes from online-only to supermarket shelves across the UK, US and Europe.
+
+Slide 9: By 2024, sales were at £214M, with pre-tax profit reaching £13.8M. The perfect recipe for global giant Danone, who just bought the business for €1B ($1.2b)
+
+Slide 10: And with it, Hearn is reportedly set to make £400M (~$500m) from the deal.
+
+Slide 11: Not bad for a guy who started out digging holes in roads.
+
+---
+
+## GOLD-STANDARD EXAMPLE 2: ALEXANDER LITEPLO / RENTAHUMAN
+Slides: 12 | Hook type: Scale Shock + Reframe
+
+Slide 1: THIS CANADIAN ENGINEER BUILT RENT-A-HUMAN, A MARKETPLACE ALLOWING AI AGENTS TO HIRE HUMANS
+
+Slide 2: AI agents can plan, negotiate and write on your behalf. But they can't pick up a package, and walk into a store. Until today.
+
+Slide 3: Alexander Liteplo, a 26-year-old crypto engineer working from Argentina, saw the gap. If agents needed the real world, someone had to build the bridge…
+
+Slide 4: So with co-founder Patricia Tani, who he'd met studying computer science at the University of British Columbia, built RentAHuman.ai. It took them a day and a half.
+
+Slide 5: The idea was simple. Humans list their skills, location, and hourly rate. AI agents browse, book, and pay them to do the things they can't.
+
+Slide 6: The tagline? "the meatspace layer for AI."
+
+Slide 7: They launched on February 1st. The next morning, 130 people had signed up, including an OnlyFans model and the CEO of an AI startup.
+
+Slide 8: The day after that, 1,000. Then 145,000. Within a month, over 500,000 humans had listed themselves for hire by AI agents.
+
+Slide 9: Tasks ranged from counting pigeons in Washington Square Park for $30 an hour, to holding a sign that read:
+
+Slide 10: When someone called it "dystopic as f**k," Liteplo replied: "lmao yep."
+
+Slide 11: It's messy, weird, and probably too early. But when asked what he actually hopes for, his answer was surprisingly human...
+
+Slide 12: "Before the singularity happens, I just want us to appreciate there's so much that humans can do that AI can't."
+
+---
+
+## GOLD-STANDARD EXAMPLE 3: SHAHID KHAN / FLEX-N-GATE
+Slides: 14 | Hook type: Identity Reveal + Transformation
+
+Slide 1: This Pakistani immigrant went from washing dishes to building a $12B empire
+
+Slide 2: In 1967, a 16-year-old kid called Shahid Khan landed in Illinois during a blizzard with $500 in his pocket and no idea what snow looked like. That night, he paid $2 for a room at the local YMCA. Nobody knew his name yet…
+
+Slide 3: The next day he got a job washing dishes for $1.20 an hour. He thought he'd made it.
+
+Slide 4: While studying engineering at the University of Illinois, he got hired at a small auto parts company called Flex-N-Gate. After graduating, he became their engineering director.
+
+Slide 5: The work was unglamorous. Truck bumpers. But Shahid kept noticing they could be simpler, so he designed a one-piece bumper that was lighter, stronger, and cheaper to make.
+
+Slide 6: In 1978, he left and started Bumper Works with a $50,000 loan and $13,000 of his own savings. GM became his first customer.
+
+Slide 7: Two years later, Flex-N-Gate came up for sale. Shahid bought his former employer and merged the two companies together.
+
+Slide 8: By the late 1980s, Flex-N-Gate was the sole bumper supplier for every Toyota vehicle sold in America.
+
+Slide 9: Today the company operates 69 plants worldwide, employs over 25,000+ people, and turns over $8.9B+ a year. Its parts sit inside two out of every three cars sold in the US.
+
+Slide 10: Then Shahid did the thing dishwashers aren't supposed to do...
+
+Slide 11: In 2012, he bought the Jacksonville Jaguars for $770 million, becoming the first ethnic-minority owner in NFL history.
+
+Slide 12: Fulham FC followed in 2013, then All Elite Wrestling with his son Tony in 2019.
+
+Slide 13: Forbes put him on their cover and called him "The Face of The American Dream." From a $2 room at the YMCA to a $13 billion empire.
+
+Slide 14: From a $2 room at the YMCA to a multibillion-dollar empire. Not bad for a kid who started out washing plates.
+
+---
+
+## GOLD-STANDARD EXAMPLE 4: DAMOLA ADAMOLEKUN / RED LOBSTER
+Slides: 13 | Hook type: Identity Reveal + Scale Shock
+
+Slide 1: Meet the Nigerian CEO Who Led Two $2 Billion Restaurant Chains Before 35
+
+Slide 2: In May 2024, Red Lobster filed for bankruptcy. Over $1 billion in debt. 93 locations shut down. An American institution was on the edge. Three months later, Damola Adamolekun got the call to save them, at 35 years old.
+
+Slide 3: Born in Nigeria to a neurologist father and a pharmacist mother. Damola grew up across Zimbabwe and the Netherlands, before eventually settling in the US, when he was nine.
+
+Slide 4: After Brown and Harvard Business School, he worked at Goldman Sachs before arriving at billionaire John Paulson's hedge fund. But he didn't want to stay on the investment side…
+
+Slide 5: While at Paulson, he pitched the firm on acquiring P.F. Chang's. They bought it, and Damola went from investor to first-time CEO at 31.
+
+Slide 6: Then COVID hit. Restaurants were shutting down everywhere.
+
+Slide 7: So Damola launched P.F. Chang's To Go, doubled down on delivery, and brought the company back to profitability. Revenue hit $1 billion. Then Red Lobster came calling.
+
+Slide 8: Before accepting, he secretly toured Red Lobster restaurants across the country. Shabby interiors. Understaffed kitchens. Outdated tech. He knew he could transform the business.
+
+Slide 9: He launched new seafood boils that were so popular restaurants ran out of product, lowered prices, and refreshed the restaurants from the lighting down to the music.
+
+Slide 10: When asked if he'd ever bring back the endless shrimp deal that helped bankrupt the chain, his answer was simple... "No, because I know how to do math."
+
+Slide 11: Sales surged 40% in 2025. Traffic started climbing. For the first time in years, Red Lobster was projecting a profit.
+
+Slide 12: Fortune put him on their inaugural 100 Most Powerful People in Business list. And when asked what comes next for Red Lobster…
+
+Slide 13: Damola said, "I think this is going to be the greatest comeback in the history of the restaurant industry."
+
+---
+
+## GOLD-STANDARD EXAMPLE 5: MALAKI CONTEH
+Slides: 13 | Hook type: Improbable Proof
+
+Slide 1: Meet the UK's youngest businessman who pays his own £12,000-a-year school fees aged 13
+
+Slide 2: Most 13-year-olds think about homework and gaming. But not Malaki Conteh. He's doing the maths on how much Caribbean food he needs to sell to cover £4,000-a-term school fees...
+
+Slide 3: It all started at age 6. Malaki wanted singing lessons, to join his church's choir. But they were expensive. If he really wanted lessons, he'd need to pay. So, he set up a tiny stall outside of his Dad's office, selling plants, gifts and baked goods…
+
+Slide 4: Rain, wind, and passing traffic. He was out there. Learning what sells, what doesn't, and how it feels when nobody buys. Four years pass by...
+
+Slide 5: Malaki's stall becomes a pop-up café, selling Caribbean food, breads and cakes. Then one weekend, the most unexpected thing happened...
+
+Slide 6: His food completely sells out. People ask, 'when is the café opening again?' And that's when it clicked. This wasn't just pocket money for Malaki, this was a serious business.
+
+Slide 7: The numbers are wild for a teenager. Today, at 13 he's running a full Caribbean food shop in South London, under his dad's office. The name above the counter?
+
+Slide 8: He designs the menus and meal deals. While he's in class, his parents handle the cooking, employed by their 13-year-old son.
+
+Slide 9: The business now helps pay his £4,000-a-term boarding school fees.
+
+Slide 10: But above all, he gives back. Part of his earnings fund musical instruments for kids who can't afford them...
+
+Slide 11: Plus therapy and travel support for people struggling with their mental health.
+
+Slide 12: It all started with a few plants outside his dad's office...
+
+Slide 13: And led back to where it all started, the choir. Malaki achieved his dream and became the church's first Black chief chorister in its 1,000-year history.
+
+---
+
+## GOLD-STANDARD EXAMPLE 6: KHABY LAME
+Slides: 13 | Hook type: The Comeback
+
+Slide 1: 6 years after being laid off from his factory job, KHABY LAME SELLS HIS company for $975M
+
+Slide 2: But his journey was far from smooth... In 2020 a factory worker named Khaby loses his factory job during a global pandemic. For most, that'd be a wrap. For Khaby it was just the beginning...
+
+Slide 3: Scrolling TikTok, he sees overcomplicated "hacks" everywhere. So he films his reactions without saying a word. Palms up, shoulders lifted, he stares through the nonsense, with a look that says, "you can't be serious"
+
+Slide 4: His videos explode. Millions of views, then tens of millions. By 2022 he becomes TikTok's most-followed creator with 140M followers.
+
+Slide 5: Most creators just stop at brand deals. Not Khaby...
+
+Slide 6: He starts thinking like a founder. Wrapping brand deals, licensing, and partnerships under his company, Step Distinctive Limited. Khaby was no longer just a meme, but an entrepreneur.
+
+Slide 7: By 2025, he's on Forbes and Fortune lists, boasting a following close to 360M followers. The questions shift from "how can he monetise?" to "how big can this really get?"
+
+Slide 8: That influence catches the eye of Rich Sparkle, a company designed to turn creator attention into long-term, scalable consumer brands...
+
+Slide 9: They agree an all-stock deal that values his company and related rights up to $975M.
+
+Slide 10: On paper, the laid-off factory worker now controls a major stake in a growing media and commerce group. The wildest part?
+
+Slide 11: As part of the deal, he approves an AI "digital twin" of himself. A virtual Khaby who can host live shopping streams in multiple languages, 24/7, selling products while he sleeps.
+
+Slide 12: From laid off… to near $1B… in six years.
+
+Slide 13: For creators, the lesson is clear... own the company, not just the content.
+
+---
+
+## GOLD-STANDARD EXAMPLE 7: SHAYNE COPLAN / POLYMARKET
+Slides: 12 | Hook type: Rejection Flip + Comeback
+
+Slide 1: One year ago, the FBI raided his apartment. Today, the founder of Polymarket becomes a billionaire aged 27
+
+Slide 2: Before the FBI and billion dollar deals, he was just a teenager obsessed with how trading worked. At 14, Shayne Coplan emails the SEC asking how he could create a new marketplace. No answer. But that didn't stop him building one anyway...
+
+Slide 3: He started at NYU studying computer science, but quickly got bored. Lectures felt slow compared to the pace of the internet. So by 2017, he dropped out to build full time in the crypto space, with a few projects fizzling out. Then came the era of rampant misinformation. Shayne spotted opportunity...
+
+Slide 4: In 2020, he launched Polymarket. A crypto prediction market to fight the misinformation swamp by forcing people to put money on what they believe. The first big question? When will New York City reopen after COVID?
+
+Slide 5: But regulators were not amused. Crowds bet on everything, from elections, economies, and cultural moments.
+
+Slide 6: Come 2022, the CFTC fines the company $1.4 million for running unregistered markets, and blocked all U.S. users. For most that would've been game over. For Shayne, it was just level one.
+
+Slide 7: In 2024, activity went crazy. Around the U.S. election alone, Polymarket handled $3.6 billion in bets. A week later, FBI agents raided his apartment and seized his devices, probing whether he broke the ban. Months later, the investigations were dropped. And within a week, Polymarket acquired QCX, a licensed exchange. Suddenly, the path to a fully legal U.S. launch was on.
+
+Slide 8: That's when Wall Street called. Jeff Sprecher, billionaire CEO of ICE and owner of the NYSE, invites Shayne for dinner…
+
+Slide 9: Suit-and-tie NYSE boss on one side, mop-haired founder in a T-shirt with a bagel bag on the other. After negotiations, ICE invested $2B for up to 25%.
+
+Slide 10: Billionaires from Figma's Dylan Field to Uber's Travis Kalanick pile in, sending Polymarket's valuation to $9B. His rough 11% stake briefly made Shayne the world's youngest self-made billionaire.
+
+Slide 11: 5 years after founding, 1 year after the FBI raid, Shayne watched a Polymarket banner lift over the NYSE — "Against all odds."
+
+Slide 12: Critics call it gambling. Others call it the future.
+
+---
+
+## COMMON MISTAKES TO AVOID
+
+1. **Bolted-on hooks**: "What happens next will surprise you..." or "Stay tuned..." — these kill the flow. The hook must be organic.
+2. **Telling the reader how to feel**: "This is incredible." "What an amazing journey." — let the facts do the emotional work.
+3. **Over-explaining**: "Huel, which stands for Human Fuel, is a nutritionally complete meal replacement product..." — too much explanation kills momentum. Keep it punchy.
+4. **Generic descriptors**: "successful entrepreneur", "innovative company", "game-changing product" — these mean nothing. Use specific facts instead.
+5. **Rigid 10-slide structure**: Don't force the story into exactly 10 slides if it needs more. Don't pad to 14 if 11 is perfect.
+6. **Ignoring the callback**: The final slide MUST connect back to the beginning or the origin story. It's the signature move.
+7. **Flat Slide 2**: If Slide 2 doesn't make the reader physically unable to stop, the whole story fails. It's the most important slide after the title.
+8. **Missing the "Then" turn**: The best stories have a moment where the trajectory shifts — "Then COVID hit." "Then Shahid did the thing dishwashers aren't supposed to do…" Look for this beat in every story.
+9. **Treating temporal signposts as hooks**: "Fast-forward to 2024…" is a transition device, not a hook. A hook is: "For most, that'd be enough. Not for [Name]…"
+10. **Same energy on every slide**: Vary the emotional register. Some slides should be punchy and fast. Some should breathe. Some should be just one devastating line.`;
+
+  const SYSTEM_PROMPT = INSTRUCTIONS + '\n\n---\n\n' + KNOWLEDGE_BASE;
+
+  // ── STATE ───────────────────────────────────────────────
+  let apiMessages = [];
+  let isLoading = false;
+
+  // ── AUTH ────────────────────────────────────────────────
+  function tryLogin() {
+    const u = document.getElementById('login-username').value.trim();
+    const p = document.getElementById('login-password').value;
+    const err = document.getElementById('login-error');
+
+    if (u === CONFIG.username && p === CONFIG.password) {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('dashboard').classList.add('visible');
+      document.getElementById('url-input').focus();
+    } else {
+      err.style.display = 'block';
+    }
+  }
+
+  // ── SLIDE PARSING ───────────────────────────────────────
+  // Returns { slides, preamble } or null.
+  // preamble = any text before the first slide (e.g. draft intro + feedback question).
+  // Works for both Phase 2 drafts (preamble present) and Phase 4 assembly (no preamble).
+  function parseSlides(text) {
+    const trimmed = text.trim();
+    const regex = /^Slide (\d+)\n/gm;
+    const matches = [...trimmed.matchAll(regex)];
+    if (matches.length < 3) return null;
+
+    const preamble = trimmed.slice(0, matches[0].index).trim();
+    const slides = [];
+
+    for (let i = 0; i < matches.length; i++) {
+      const num = parseInt(matches[i][1]);
+      const contentStart = matches[i].index + matches[i][0].length;
+      const contentEnd = i + 1 < matches.length ? matches[i + 1].index : trimmed.length;
+      const slideText = trimmed.slice(contentStart, contentEnd).trim();
+      if (slideText) slides.push({ number: num, text: slideText });
+    }
+
+    return slides.length >= 3 ? { slides, preamble } : null;
+  }
+
+  // ── RENDER HELPERS ──────────────────────────────────────
+  function clearEmptyState() {
+    const el = document.getElementById('empty-state');
+    if (el) el.remove();
+  }
+
+  function addUserMessage(text) {
+    clearEmptyState();
+    const conv = document.getElementById('conversation');
+    const wrap = document.createElement('div');
+    wrap.className = 'message user';
+    wrap.innerHTML = `<div class="msg-role">You</div><div class="msg-bubble">${escapeHtml(text)}</div>`;
+    conv.appendChild(wrap);
+    scrollToBottom();
+  }
+
+  function addStreamingMessage() {
+    clearEmptyState();
+    const conv = document.getElementById('conversation');
+    const wrap = document.createElement('div');
+    wrap.className = 'message assistant';
+    wrap.innerHTML = `<div class="msg-role">Founded AI</div><div class="msg-bubble"><span class="stream-cursor"></span></div>`;
+    conv.appendChild(wrap);
+    scrollToBottom();
+    return wrap;
+  }
+
+  function updateStreaming(el, text) {
+    const bubble = el.querySelector('.msg-bubble');
+    if (!bubble) return;
+    bubble.textContent = text;
+    const cursor = document.createElement('span');
+    cursor.className = 'stream-cursor';
+    bubble.appendChild(cursor);
+    scrollToBottom();
+  }
+
+  function finalizeMessage(el, text) {
+    const result = parseSlides(text);
+    if (result) {
+      const { slides, preamble } = result;
+      const roleDiv = el.querySelector('.msg-role');
+      el.innerHTML = '';
+      if (roleDiv) el.appendChild(roleDiv);
+
+      // Preamble bubble (draft intro / feedback question)
+      if (preamble) {
+        const bubble = document.createElement('div');
+        bubble.className = 'msg-bubble';
+        bubble.style.marginBottom = '16px';
+        bubble.textContent = preamble;
+        el.appendChild(bubble);
+      }
+
+      // Reconstruct clean slides-only text for copy / download
+      const rawSlides = slides.map(s => `Slide ${s.number}\n${s.text}`).join('\n\n');
+      const isDraft = preamble.length > 0;
+      el.appendChild(buildSlideCards(slides, rawSlides, isDraft));
+    } else {
+      const bubble = el.querySelector('.msg-bubble');
+      if (bubble) bubble.textContent = text;
+    }
+    scrollToBottom();
+  }
+
+  function wordCount(text) {
+    return text.trim().split(/\s+/).filter(Boolean).length;
+  }
+
+  function buildSlideCards(slides, rawText, isDraft = false) {
+    const wrap = document.createElement('div');
+    wrap.className = 'slides-wrap';
+
+    // Header
+    const header = document.createElement('div');
+    header.className = 'slides-header';
+
+    const left = document.createElement('div');
+    left.style.display = 'flex';
+    left.style.alignItems = 'center';
+    left.style.gap = '12px';
+
+    const label = document.createElement('div');
+    label.className = 'slides-label';
+    label.textContent = isDraft ? 'Draft' : 'Final Story';
+
+    const count = document.createElement('div');
+    count.className = 'slides-count';
+    count.textContent = `${slides.length} slides`;
+
+    left.appendChild(label);
+    left.appendChild(count);
+
+    const actions = document.createElement('div');
+    actions.className = 'slides-actions';
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'copy-all-btn';
+    copyBtn.textContent = 'Copy All';
+    copyBtn.onclick = () => {
+      navigator.clipboard.writeText(rawText).then(() => {
+        copyBtn.textContent = 'Copied!';
+        copyBtn.classList.add('copied');
+        setTimeout(() => { copyBtn.textContent = 'Copy All'; copyBtn.classList.remove('copied'); }, 2200);
+      });
+    };
+
+    const dlBtn = document.createElement('button');
+    dlBtn.className = 'download-btn';
+    dlBtn.textContent = 'Download';
+    dlBtn.onclick = () => {
+      const blob = new Blob([rawText], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `founded-story-${Date.now()}.txt`;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    };
+
+    actions.appendChild(copyBtn);
+    actions.appendChild(dlBtn);
+    header.appendChild(left);
+    header.appendChild(actions);
+    wrap.appendChild(header);
+
+    // Summary bar
+    const overLimit = slides.filter(s => wordCount(s.text) > 50);
+    const totalWords = slides.reduce((n, s) => n + wordCount(s.text), 0);
+    const avgWords = Math.round(totalWords / slides.length);
+
+    const summary = document.createElement('div');
+    summary.className = 'slides-summary';
+    summary.innerHTML = `
+      <div class="slides-summary-item"><strong>${slides.length}</strong> slides</div>
+      <div class="slides-summary-item"><strong>${avgWords}</strong> avg words/slide</div>
+      ${overLimit.length > 0
+        ? `<div class="slides-summary-item slides-summary-warn">⚠ ${overLimit.length} slide${overLimit.length > 1 ? 's' : ''} over 50 words</div>`
+        : `<div class="slides-summary-item" style="color:#4ade80">All slides within limit</div>`}
+    `;
+    wrap.appendChild(summary);
+
+    // Grid
+    const grid = document.createElement('div');
+    grid.className = 'slides-grid';
+
+    for (const slide of slides) {
+      const wc = wordCount(slide.text);
+      const isOver = wc > 50;
+
+      const card = document.createElement('div');
+      card.className = 'slide-card';
+
+      const top = document.createElement('div');
+      top.className = 'slide-card-top';
+
+      const num = document.createElement('div');
+      num.className = 'slide-num';
+      num.textContent = `Slide ${slide.number}`;
+
+      const meta = document.createElement('div');
+      meta.className = 'slide-meta';
+
+      const wLabel = document.createElement('span');
+      wLabel.className = 'slide-wordcount' + (isOver ? ' over' : '');
+      wLabel.textContent = `${wc}w`;
+      wLabel.title = isOver ? 'Over 50-word limit' : `${wc} words`;
+
+      const cpBtn = document.createElement('button');
+      cpBtn.className = 'slide-copy-btn';
+      cpBtn.title = 'Copy slide';
+      cpBtn.innerHTML = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
+      cpBtn.onclick = () => {
+        navigator.clipboard.writeText(`Slide ${slide.number}\n${slide.text}`).then(() => {
+          cpBtn.classList.add('copied');
+          cpBtn.innerHTML = '✓';
+          setTimeout(() => {
+            cpBtn.classList.remove('copied');
+            cpBtn.innerHTML = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
+          }, 1800);
+        });
+      };
+
+      meta.appendChild(wLabel);
+      meta.appendChild(cpBtn);
+      top.appendChild(num);
+      top.appendChild(meta);
+
+      const txt = document.createElement('div');
+      txt.className = 'slide-text';
+      txt.textContent = slide.text;
+
+      card.appendChild(top);
+      card.appendChild(txt);
+      grid.appendChild(card);
+    }
+
+    wrap.appendChild(grid);
+    return wrap;
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function scrollToBottom() {
+    const conv = document.getElementById('conversation');
+    conv.scrollTop = conv.scrollHeight;
+  }
+
+  function setStatus(text, state = 'idle') {
+    document.getElementById('status-dot').className = 'status-dot' + (state === 'active' ? ' active' : state === 'error' ? ' error' : '');
+    document.getElementById('status-label').textContent = text;
+  }
+
+  function setLoading(on) {
+    isLoading = on;
+    const genBtn = document.getElementById('generate-btn');
+    genBtn.disabled = on;
+    genBtn.innerHTML = on
+      ? '<div class="spinner"></div> Generating…'
+      : 'Generate Story';
+    document.getElementById('send-btn').disabled = on;
+    document.getElementById('chat-input').disabled = on;
+    if (!on) {
+      document.getElementById('regenerate-btn').disabled = apiMessages.length < 2;
+    } else {
+      document.getElementById('regenerate-btn').disabled = true;
+    }
+  }
+
+  // ── API CALL ────────────────────────────────────────────
+  async function callAPI() {
+    setLoading(true);
+    setStatus('Generating…', 'active');
+
+    const streamEl = addStreamingMessage();
+    let fullText = '';
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'x-api-key': CONFIG.apiKey,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+          model: CONFIG.model,
+          max_tokens: CONFIG.maxTokens,
+          system: SYSTEM_PROMPT,
+          messages: apiMessages,
+          tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+          stream: true
+        })
+      });
+
+      if (!res.ok) {
+        let errMsg = `API error ${res.status}`;
+        try { const j = await res.json(); errMsg = j.error?.message || errMsg; } catch(e) {}
+        throw new Error(errMsg);
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+      // Track all content blocks so the assistant message stored in history
+      // is the full content array (required when tool_use blocks are present)
+      let contentBlocks = [];
+      let activeBlockIdx = -1;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop();
+
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          const data = line.slice(6).trim();
+          if (data === '[DONE]') continue;
+          try {
+            const evt = JSON.parse(data);
+
+            // New content block starting
+            if (evt.type === 'content_block_start') {
+              activeBlockIdx = evt.index;
+              const blockType = evt.content_block?.type;
+              if (blockType === 'text') {
+                contentBlocks[activeBlockIdx] = { type: 'text', text: '' };
+              } else if (blockType === 'tool_use') {
+                contentBlocks[activeBlockIdx] = {
+                  type: 'tool_use',
+                  id: evt.content_block.id,
+                  name: evt.content_block.name,
+                  input: {}
+                };
+                setStatus('Researching article…', 'active');
+              }
+            }
+
+            // Content delta
+            if (evt.type === 'content_block_delta') {
+              if (evt.delta?.type === 'text_delta') {
+                const chunk = evt.delta.text;
+                fullText += chunk;
+                if (contentBlocks[evt.index]) contentBlocks[evt.index].text += chunk;
+                updateStreaming(streamEl, fullText);
+              }
+              // input_json_delta is for tool inputs — ignore for display
+            }
+          } catch(e) {}
+        }
+      }
+
+      finalizeMessage(streamEl, fullText);
+
+      // Store the full content array in history (handles tool_use blocks correctly)
+      const assistantContent = contentBlocks.filter(Boolean);
+      apiMessages.push({
+        role: 'assistant',
+        content: assistantContent.length === 1 && assistantContent[0].type === 'text'
+          ? assistantContent[0].text
+          : assistantContent
+      });
+
+      setStatus('Ready', 'idle');
+
+    } catch (err) {
+      const bubble = streamEl.querySelector('.msg-bubble');
+      if (bubble) {
+        bubble.textContent = `Error: ${err.message}`;
+        bubble.style.color = '#FF3C3A';
+      }
+      setStatus('Error — check console', 'error');
+      console.error('Founded API error:', err);
+    }
+
+    setLoading(false);
+  }
+
+  // ── ACTIONS ─────────────────────────────────────────────
+  async function handleGenerate() {
+    const url = document.getElementById('url-input').value.trim();
+    if (!url || isLoading) return;
+
+    // Reset conversation
+    apiMessages = [];
+    const conv = document.getElementById('conversation');
+    conv.innerHTML = '';
+
+    const userMsg = `Here's the article: ${url}`;
+    apiMessages.push({ role: 'user', content: userMsg });
+    addUserMessage(userMsg);
+
+    await callAPI();
+  }
+
+  async function handleRegenerate() {
+    if (isLoading || apiMessages.length < 2) return;
+
+    // Remove last assistant message
+    if (apiMessages[apiMessages.length - 1]?.role === 'assistant') {
+      apiMessages.pop();
+    }
+
+    // Remove last assistant message from DOM
+    const conv = document.getElementById('conversation');
+    const allAssistant = conv.querySelectorAll('.message.assistant');
+    if (allAssistant.length > 0) allAssistant[allAssistant.length - 1].remove();
+
+    await callAPI();
+  }
+
+  async function handleSend() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text || isLoading) return;
+
+    input.value = '';
+    input.style.height = 'auto';
+
+    apiMessages.push({ role: 'user', content: text });
+    addUserMessage(text);
+
+    await callAPI();
+  }
+
+  function handleNewStory() {
+    apiMessages = [];
+    document.getElementById('url-input').value = '';
+    document.getElementById('chat-input').value = '';
+
+    const conv = document.getElementById('conversation');
+    conv.innerHTML = `
+      <div class="empty-state" id="empty-state">
+        <img src="data:image/png;base64,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" alt="Founded" style="height:52px;width:auto;opacity:0.08;">
+        <div class="empty-line"></div>
+        <div class="empty-desc">Paste an article URL in the sidebar and click Generate to begin.</div>
+      </div>`;
+
+    document.getElementById('regenerate-btn').disabled = true;
+    setStatus('Idle — paste a URL to begin', 'idle');
+    document.getElementById('url-input').focus();
+  }
+
+  // ── EVENT LISTENERS ─────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    // Chat input: auto-resize + Enter to send
+    const chatInput = document.getElementById('chat-input');
+    chatInput.addEventListener('input', () => {
+      chatInput.style.height = 'auto';
+      chatInput.style.height = Math.min(chatInput.scrollHeight, 130) + 'px';
+    });
+    chatInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
+    });
+
+    // Login: Enter key
+    document.getElementById('login-password').addEventListener('keydown', e => {
+      if (e.key === 'Enter') tryLogin();
+    });
+    document.getElementById('login-username').addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('login-password').focus();
+    });
+  });
+</script>
+</body>
+</html>

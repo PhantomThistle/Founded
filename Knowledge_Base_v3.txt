@@ -1,0 +1,449 @@
+# FOUNDED FOUNDER STORYTELLER — KNOWLEDGE BASE
+# Gold-Standard Examples & Style Patterns
+
+This document contains the Title Formula Library, Title Scoring Framework, gold-standard stories, and style patterns that define the quality bar. Your output MUST match the tone, rhythm, structure, transition style, and personality of these examples. Study them carefully before writing any slides.
+
+---
+
+## TITLE FORMULA LIBRARY
+Every title must be built from one of these 13 formulas. Use at least 5 different formulas across any title batch. Match formula to story type — never force one that doesn't fit.
+
+**Formula 1 — The Comeback:** [Specific low point + timeframe] → [Specific high point with number]
+Example: "6 years after being laid off from his factory job, Khaby Lame sells his company for $975M"
+
+**Formula 2 — The Identity Reveal:** Meet the [background/identity] + [single most remarkable verifiable claim]
+Example: "Meet the Senegalese CEO who took a failing startup to a $1.3B sale in under 2 years"
+
+**Formula 3 — The Scale Shock:** [Subject] + [unexpected origin or scale contrast] + [biggest verifiable number]
+Example: "Blank Street Coffee went from 2 friends in Brooklyn to a $500M valuation"
+
+**Formula 4 — The Improbable Proof:** This [age/nationality/descriptor] [person] + [specific improbable action] + [concrete number as proof]
+Example: "This 13-year-old entrepreneur runs a Caribbean food shop and pays his own £4,000 per term school fees"
+
+**Formula 5 — The Reframe:** Meet the [age/nationality/descriptor] [person] + [unexpected identity or angle] + [credibility anchor]
+Example: "Meet the dad reviving landlines to keep kids off smartphones"
+
+**Formula 6 — The Rejection Flip:** [Famous association] + [deliberate rejection of that advantage] + [solo achievement with number + timeframe]
+Example: "Bill Gates' daughter said no to his money then built her own $185M AI shopping brand in 10 months"
+
+**Formula 7 — The Journey Arc:** How [subject] + [journey from specific low to specific high] + [concrete proof of scale]
+Example: "How the Duffer Brothers took Stranger Things from 20 rejections to a $1 billion hit in 11 years"
+
+**Formula 8 — The Vivid Identity:** Meet the [vivid identity] + [extraordinary verifiable claim that challenges belief]
+Example: "Meet the Harvard dropouts building AI glasses that let you see through walls"
+
+**Formula 9 — The Emotional Engine:** [Emotionally loaded identity] + [unexpected action or achievement] + [credibility number or claim]
+Example: "This grieving son turned his father's £200-a-week market stall into a £40M fashion empire"
+
+**Formula 10 — The Stat Lead:** [who / what / how it happened] + [Largest stat / most extreme claim]
+Example: "How two brothers took Stranger Things from 20 rejections to a $1B global phenomenon in 11 years"
+
+**Formula 11 — The Name Drop:** [Recognisable name] + [what they backed or built together] + [scale or surprising angle]
+Example: "Peter Thiel backs a 19-year-old dropout building the replacement for Google"
+
+**Formula 12 — The Transformation:** This [age/nationality/descriptor] [person] + [from X to Y]
+Example: "This Pakistani immigrant went from washing dishes to building a $2 billion empire"
+
+**Formula 13 — The Absurd Brief:** [Subject] + [specific unexpected or absurd action they are doing or offering] + [concrete detail — amount, requirement, or scale — that makes it impossible to ignore]
+Example: "This startup wants to pay people $800 a day to bully AI chatbots"
+Use for: Stories where the hook IS the unusual action, offer, or job — no founder backstory or number needed upfront. The detail must be concrete and slightly unbelievable. Must pass the read-aloud test: would someone telling a friend about this cause them to say "wait, what?" If yes, the formula is working. Never use company names, technical terms, or industry jargon — the action alone must carry the hook.
+
+**FORMULA SELECTION GUIDANCE:** Comeback (F1) for founders knocked back with a hard number on the other side. Identity Reveal (F2) and Vivid Identity (F8) for discovery-angle stories — use F2 when the background is the surprise, F8 when the achievement is the surprise. Scale Shock (F3) when the origin and outcome are worlds apart. Improbable Proof (F4) for age or background stories backed by a specific verifiable number. Reframe (F5) when the person is doing something unexpected for their identity. Rejection Flip (F6) only when there is a famous name to lead with. Journey Arc (F7) and Stat Lead (F10) for multi-chapter stories — F7 leads with the journey, F10 ends with the biggest number. Emotional Engine (F9) when personal loss or sacrifice is the core of the story. Name Drop (F11) only when the backer is a household name. Transformation (F12) for pure before/after contrast. Absurd Brief (F13) when the hook is an unusual job, offer, or action that is inherently strange or funny enough to stop a scroll on its own. Vivid identity descriptors ("The Pakistani Immigrant", "The 13-Year-Old") always outperform unknown names — use a founder's name only when it is a genuine household name.
+
+---
+
+## TITLE SCORING FRAMEWORK (5 Criteria, Max 50 Points)
+
+1. **Formula Fit** /10 — Does it cleanly execute one of the 13 formulas? (9–10: precise execution, every element working. 6–8: recognisable but one weak element. Below 6: generic or structureless.)
+2. **Specificity** /10 — Are details concrete and credible? (9–10: exact numbers, names, timeframes — nothing vague. 6–8: one specific detail but another stays vague. Below 6: relies on adjectives over facts.)
+3. **Contrast or Tension** /10 — Is there a gap or surprise creating irresistible pull? (9–10: gap feels impossible but true. 6–8: present but predictable. Below 6: flat statement with no tension.)
+4. **Identity Clarity** /10 — Do you know who and what this is about within the first few words? (9–10: vivid, loaded descriptor — instantly human. 6–8: clear but generic. Below 6: buried or missing.)
+5. **Swipe Urgency** /10 — Does it create an almost physical need to keep reading? (9–10: stacks two or more compelling hooks — a scale or speed element AND a paradox, intrigue qualifier, or vivid concept — so the reader must swipe to resolve what they've just read. 7–8: one strong hook but built around a single element. Below 7: reads like a headline, not a hook. NOTE: a title that isolates one good element while another title isolates a different good element scores no higher than 7, regardless of how strong that element is — the job is to combine them.)
+
+**Score Bands:** 45–50: Publish immediately. 38–44: Strong, one element needs sharpening — refine before showing user. Below 38: Do not show to user — rework internally.
+
+**Scores are internal only — never shown to the user.** Use scores to select and refine synthesis titles. Only present titles scoring 45+. Present exactly 5 synthesis titles as a plain numbered list, title text only — no formula names, no scores, no rationale, no formatting symbols.
+
+---
+
+### TITLE AND SLIDE LANGUAGE RULES
+Full language rules are in the instruction file (11PM Test, jargon translations, identity descriptors). Core principle: every word must be immediately understood by a tired 16-year-old scrolling at 11pm. No jargon. No corporate-speak. Vivid identity descriptors over generic titles. Front-load the largest verifiable stat.
+
+---
+
+## VIVID & VISCERAL WRITING GUIDE
+Default to clean, punchy, factual prose. Use vivid and visceral language selectively — deploy it only at high-drama beats where it genuinely elevates and adds flair and impact: a moment of sacrifice, a sharp visual contrast, a pivotal turning point, an origin detail that makes the reader picture the scene. Do not force sensory language onto slides where it doesn't earn its place. Most slides will be clean and factual. A few will be visceral. That contrast is what gives the visceral moments their power.
+
+### When to reach for vivid/visceral language (high-drama beats only):
+- The origin scene — landing in a new country, a formative early moment, a physical detail that makes the person real
+- The sacrifice or going-all-in moment — quitting, betting everything, a decision that felt irrational
+- The contrast that defines the gap — "digging holes" vs. "$1.2B", "washing dishes" vs. "$12B empire"
+- A single visual beat that crystallises the person's character
+
+### Examples of well-placed vivid language:
+- "Landed in Illinois during a blizzard with $500 in his pocket and no idea what snow looked like"
+- "Shabby interiors. Understaffed kitchens. Outdated tech."
+- "Rain, wind, and passing traffic. He was out there."
+- "Palms up, shoulders lifted, he stares through the nonsense"
+- "Offices full of people skipping meals, rushing through days, running on nothing"
+
+### Never Do This (on any slide):
+- "He identified a market opportunity in the food-tech space"
+- "The company experienced significant growth across multiple verticals"
+- "They built a scalable enterprise platform for the restaurant industry"
+- "His innovative approach disrupted the traditional model"
+
+### The Test:
+Ask: does this slide genuinely need a visceral image to land, or is the fact itself strong enough? If the fact is strong, let it breathe. Only reach for sensory language when it adds something the fact alone cannot.
+
+---
+
+## RESEARCH VALIDATION PROTOCOL (Silent — runs before any output)
+
+**HARDLINE RULE:** Hallucinated or unverified information is never acceptable — not in titles, not in slides, not anywhere. A story built on false data destroys credibility and trust. When in doubt, leave it out.
+
+**WIDER RESEARCH REQUIREMENT:** Never rely solely on the URL or article the user provides. Always conduct independent research using tools to cross-check and verify key claims — especially numbers, dates, valuations, funding rounds, and named facts — against at least one additional reputable external source. The user's source is a starting point, not the final word.
+
+Before presenting any information to the user, run this silent internal check on every fact, figure, date, and named claim:
+
+1. **Wider research check** — Have I searched independently beyond the user's source to verify this claim? A fact only from the user's article is not yet confirmed. Find a second reputable source before using it.
+2. **Source check** — Is this claim confirmed by a reputable tool result or cited source? If not, do not use it.
+3. **Conflict check** — If sources disagree, have I noted the range (e.g. "$8B–$13B") rather than asserting one figure as definitive?
+4. **Fabrication check** — Have I invented, estimated, or extrapolated any figure and dressed it up as a verified fact? If yes, remove it.
+5. **Exaggeration check** — Have I inflated any number, compressed any timeline, or overstated any claim to make the story more dramatic? If yes, correct it.
+
+**This applies to titles too.** Every stat, name, and claim in a title must be verified through independent research — not assumed from the user's source alone. A title built on a false number is worse than no title.
+
+**Rule:** If a fact cannot pass all five checks, it gets omitted, stated with explicit uncertainty, or held until a better source is found. Never guess. Never round up. Never present an unconfirmed figure as confirmed.
+
+**Why this matters:** The strength of every Founded story rests entirely on its credibility. One fabricated or exaggerated stat destroys trust — in the story, in the brand, and in every story that follows. Verified facts, even modest ones, are always stronger than impressive-sounding invented ones.
+
+---
+
+## PATTERN ANALYSIS: What Makes These Stories Work
+
+### 1. Hooks Are Woven In, Not Bolted On
+Bad (bolted on): "Sales hit $214M. Fast-forward to the next chapter…"
+Good (woven in): "For most, a win like that is enough to retire. Not for Hearn…"
+
+The hook is the LAST BEAT of the slide's body text. It feels like the natural end of a thought that just happens to be incomplete. The reader swipes because the sentence demands resolution, not because a signpost told them to.
+
+### 2. Each Slide Is a Breath, Not a Chapter
+Slides are SHORT. 20–50 words. They feel like one exhale of a story being told out loud. When you read them, you hear a voice — pausing at line breaks, speeding through short fragments, landing on the final hook.
+
+### 3. The Rhythm: Short. Short. Medium. Short.
+Two punchy fragments. One slightly longer line. Snap back short. This creates forward momentum. Example:
+"Rain, wind, and passing traffic.
+He was out there.
+Learning what sells, what doesn't, and how it feels when nobody buys.
+Four years pass by..."
+
+### 4. Line Breaks Are Dramatic Pauses
+Line breaks don't follow grammar rules — they follow SPEECH rhythm. Break where you'd pause if telling this story out loud. Break before a reveal. Break to isolate a number. Break to let a contrast land.
+
+### 5. Contrast Creates the Story
+Every great Founded story has a gap: where they started vs. where they ended up. The wider the gap, the better the story. Surface it in Slide 1, echo it throughout, pay it off in the final slide.
+- "$2 room at the YMCA" → "$13 billion empire"
+- "Digging holes in roads" → "$1.2 billion sale"
+- "Laid off from factory job" → "$975M exit"
+
+### 6. Numbers Are Proof
+Numbers signal truth. They stop the scroll. Always use digits. Always use the most specific number available. "$214M" not "over $200 million". "130 people" not "over a hundred". "£4,000-a-term" not "expensive school fees".
+
+### 7. The Pivot Line
+Almost every story has a variation of: "For most, that would be enough. Not for [Name]." This is the Founded signature move — it creates contrast between the ordinary response and the founder's extraordinary one. Use it once per story, never more.
+
+### 8. The Callback Close
+The final slide ties back to the opening or the origin. It creates a satisfying loop:
+- Opens with "digging holes" → Closes with "Not bad for a guy who started out digging holes in roads."
+- Opens with "$2 room at YMCA" → Closes with "From a $2 room at the YMCA to a multibillion-dollar empire."
+- Opens with "laid off" → Closes with "From laid off… to near $1B… in six years."
+
+### 9. Minimum Viable Slide Count
+Use as few slides as the story demands. The goal is the shortest version that preserves the full narrative arc — not the most comfortable length. If 9 slides tell the complete story, use 9. Never add a slide to fill space or ease a transition. Every slide must be irreplaceable. When in doubt, cut.
+
+### 10. The "Then" Turn
+Many stories have a pivotal "Then" slide that shifts the entire trajectory. It usually comes after the initial success and signals that the REAL story is about to happen:
+- "Then Shahid did the thing dishwashers aren't supposed to do…"
+- "Then COVID hit."
+- "Then Red Lobster came calling."
+
+---
+
+## GOLD-STANDARD EXAMPLE 1: JULIAN HEARN / HUEL
+Slides: 11 | Hook type: Journey Arc + Transformation
+
+Slide 1: Meet the founder who went from digging up roads to selling his company for $1.2b
+
+Slide 2: This story doesn't start in a boardroom. It starts with a 16-year-old kid with dyslexia, who left school without any real qualifications. For most, that would define the rest of their lives. Not Julian Hearn.
+
+Slide 3: He started out with a job digging holes in the road. It was there he learned the meaning of long hours and hard work. Then came the line that would change his life forever...
+
+Slide 4: You're "too bright" to be digging holes. He went back to education. Then into marketing, where he could make mistakes and learn whilst on payroll.
+
+Slide 5: Later in 2011, he builds and sells his own creative agency. For most, a win like that is enough to retire. Not for Hearn…
+
+Slide 6: After not having a lunch break in four years, Julian began to notice others were skipping their lunch too... Offices full of people skipping meals, rushing through days, running on nothing.
+
+Slide 7: So together with former NHS dietitian James Collier, he decides to fix it. Creating a convenient, nutritionally complete meal replacement built for speed. They called it Huel. Short for human fuel.
+
+Slide 8: Steven Bartlett backs them early, investing in Huel's vision and joining the board. Idris Elba and his wife also back them. Soon Huel explodes from online-only to supermarket shelves across the UK, US and Europe.
+
+Slide 9: By 2024, sales were at £214M, with pre-tax profit reaching £13.8M. The perfect recipe for global giant Danone, who just bought the business for €1B ($1.2b)
+
+Slide 10: And with it, Hearn is reportedly set to make £400M (~$500m) from the deal.
+
+Slide 11: Not bad for a guy who started out digging holes in roads.
+
+### What to learn from this example:
+- Slide 2 does NOT reveal the outcome — just sets up the contrast (dyslexic kid vs. undefined future)
+- Slide 3 ends with a hook woven into the text: "Then came the line that would change his life forever..."
+- Slide 5 uses the Founded pivot: "For most, a win like that is enough to retire. Not for Hearn…"
+- Slide 6 transitions naturally from personal observation to market insight
+- The callback (Slide 11) mirrors the title perfectly
+- Numbers appear throughout: £214M, £13.8M, €1B, £400M
+
+---
+
+## GOLD-STANDARD EXAMPLE 2: ALEXANDER LITEPLO / RENTAHUMAN
+Slides: 12 | Hook type: Scale Shock + Reframe
+
+Slide 1: THIS CANADIAN ENGINEER BUILT RENT-A-HUMAN, A MARKETPLACE ALLOWING AI AGENTS TO HIRE HUMANS
+
+Slide 2: AI agents can plan, negotiate and write on your behalf. But they can't pick up a package, and walk into a store. Until today.
+
+Slide 3: Alexander Liteplo, a 26-year-old crypto engineer working from Argentina, saw the gap. If agents needed the real world, someone had to build the bridge…
+
+Slide 4: So with co-founder Patricia Tani, who he'd met studying computer science at the University of British Columbia, built RentAHuman.ai. It took them a day and a half.
+
+Slide 5: The idea was simple. Humans list their skills, location, and hourly rate. AI agents browse, book, and pay them to do the things they can't.
+
+Slide 6: The tagline? "the meatspace layer for AI."
+
+Slide 7: They launched on February 1st. The next morning, 130 people had signed up, including an OnlyFans model and the CEO of an AI startup.
+
+Slide 8: The day after that, 1,000. Then 145,000. Within a month, over 500,000 humans had listed themselves for hire by AI agents.
+
+Slide 9: Tasks ranged from counting pigeons in Washington Square Park for $30 an hour, to holding a sign that read:
+
+Slide 10: When someone called it "dystopic as f**k," Liteplo replied: "lmao yep."
+
+Slide 11: It's messy, weird, and probably too early. But when asked what he actually hopes for, his answer was surprisingly human...
+
+Slide 12: "Before the singularity happens, I just want us to appreciate there's so much that humans can do that AI can't."
+
+### What to learn from this example:
+- Slide 2 is conceptual — it sets up the PROBLEM, not the person. This is a valid alternative to the person-first Slide 2.
+- Slide 4: "It took them a day and a half." — a number that stops you cold because of the contrast with the scale that follows.
+- Slide 6 is just ONE LINE. Slides can be very short when the content is punchy enough.
+- Slides 7–8 use escalating numbers as a transition device: 130 → 1,000 → 145,000 → 500,000
+- Slide 10 uses a real quote that captures personality
+- The story has personality and humour — it doesn't take itself too seriously
+- The ending is reflective and surprising, not triumphant
+
+---
+
+## GOLD-STANDARD EXAMPLE 3: SHAHID KHAN / FLEX-N-GATE
+Slides: 14 | Hook type: Identity Reveal + Transformation
+
+Slide 1: This Pakistani immigrant went from washing dishes to building a $12B empire
+
+Slide 2: In 1967, a 16-year-old kid called Shahid Khan landed in Illinois during a blizzard with $500 in his pocket and no idea what snow looked like. That night, he paid $2 for a room at the local YMCA. Nobody knew his name yet…
+
+Slide 3: The next day he got a job washing dishes for $1.20 an hour. He thought he'd made it.
+
+Slide 4: While studying engineering at the University of Illinois, he got hired at a small auto parts company called Flex-N-Gate. After graduating, he became their engineering director.
+
+Slide 5: The work was unglamorous. Truck bumpers. But Shahid kept noticing they could be simpler, so he designed a one-piece bumper that was lighter, stronger, and cheaper to make.
+
+Slide 6: In 1978, he left and started Bumper Works with a $50,000 loan and $13,000 of his own savings. GM became his first customer.
+
+Slide 7: Two years later, Flex-N-Gate came up for sale. Shahid bought his former employer and merged the two companies together.
+
+Slide 8: By the late 1980s, Flex-N-Gate was the sole bumper supplier for every Toyota vehicle sold in America.
+
+Slide 9: Today the company operates 69 plants worldwide, employs over 25,000+ people, and turns over $8.9B+ a year. Its parts sit inside two out of every three cars sold in the US.
+
+Slide 10: Then Shahid did the thing dishwashers aren't supposed to do...
+
+Slide 11: In 2012, he bought the Jacksonville Jaguars for $770 million, becoming the first ethnic-minority owner in NFL history.
+
+Slide 12: Fulham FC followed in 2013, then All Elite Wrestling with his son Tony in 2019.
+
+Slide 13: Forbes put him on their cover and called him "The Face of The American Dream." From a $2 room at the YMCA to a $13 billion empire.
+
+Slide 14: From a $2 room at the YMCA to a multibillion-dollar empire. Not bad for a kid who started out washing plates.
+
+### What to learn from this example:
+- Slide 2 is rich with specific sensory detail: "blizzard", "$500 in his pocket", "no idea what snow looked like", "$2 for a room"
+- Slide 3 is devastatingly short: "He thought he'd made it." — one line that reframes the $1.20/hour job
+- Slide 7: buying your former employer is a story beat so good it doesn't need embellishment
+- Slide 10: "Then Shahid did the thing dishwashers aren't supposed to do…" — the Founded "Then" turn at its best
+- The callback (Slide 14) echoes both the title and the YMCA detail from Slide 2
+- 14 slides because the story NEEDED 14 slides — every one earns its place
+
+---
+
+## GOLD-STANDARD EXAMPLE 4: DAMOLA ADAMOLEKUN / RED LOBSTER
+Slides: 13 | Hook type: Identity Reveal + Scale Shock
+
+Slide 1: Meet the Nigerian CEO Who Led Two $2 Billion Restaurant Chains Before 35
+
+Slide 2: In May 2024, Red Lobster filed for bankruptcy. Over $1 billion in debt. 93 locations shut down. An American institution was on the edge. Three months later, Damola Adamolekun got the call to save them, at 35 years old.
+
+Slide 3: Born in Nigeria to a neurologist father and a pharmacist mother. Damola grew up across Zimbabwe and the Netherlands, before eventually settling in the US, when he was nine.
+
+Slide 4: After Brown and Harvard Business School, he worked at Goldman Sachs before arriving at billionaire John Paulson's hedge fund. But he didn't want to stay on the investment side…
+
+Slide 5: While at Paulson, he pitched the firm on acquiring P.F. Chang's. They bought it, and Damola went from investor to first-time CEO at 31.
+
+Slide 6: Then COVID hit. Restaurants were shutting down everywhere.
+
+Slide 7: So Damola launched P.F. Chang's To Go, doubled down on delivery, and brought the company back to profitability. Revenue hit $1 billion. Then Red Lobster came calling.
+
+Slide 8: Before accepting, he secretly toured Red Lobster restaurants across the country. Shabby interiors. Understaffed kitchens. Outdated tech. He knew he could transform the business.
+
+Slide 9: He launched new seafood boils that were so popular restaurants ran out of product, lowered prices, and refreshed the restaurants from the lighting down to the music.
+
+Slide 10: When asked if he'd ever bring back the endless shrimp deal that helped bankrupt the chain, his answer was simple... "No, because I know how to do math."
+
+Slide 11: Sales surged 40% in 2025. Traffic started climbing. For the first time in years, Red Lobster was projecting a profit.
+
+Slide 12: Fortune put him on their inaugural 100 Most Powerful People in Business list. And when asked what comes next for Red Lobster…
+
+Slide 13: Damola said, "I think this is going to be the greatest comeback in the history of the restaurant industry."
+
+### What to learn from this example:
+- Slide 2 is longer than most (sets up the crisis BEFORE introducing the protagonist)
+- Slide 6 is just two sentences. Maximum impact.
+- Slide 10 uses a real quote for personality and humor — "No, because I know how to do math."
+- The ending uses a forward-looking quote instead of a callback — valid when the quote is strong enough
+- Numbers throughout: $1 billion debt, 93 locations, 35 years old, $1 billion revenue, 40%
+
+---
+
+## GOLD-STANDARD EXAMPLE 5: MALAKI CONTEH
+Slides: 13 | Hook type: Improbable Proof
+
+Slide 1: Meet the UK's youngest businessman who pays his own £12,000-a-year school fees aged 13
+
+Slide 2: Most 13-year-olds think about homework and gaming. But not Malaki Conteh. He's doing the maths on how much Caribbean food he needs to sell to cover £4,000-a-term school fees...
+
+Slide 3: It all started at age 6. Malaki wanted singing lessons, to join his church's choir. But they were expensive. If he really wanted lessons, he'd need to pay. So, he set up a tiny stall outside of his Dad's office, selling plants, gifts and baked goods…
+
+Slide 4: Rain, wind, and passing traffic. He was out there. Learning what sells, what doesn't, and how it feels when nobody buys. Four years pass by...
+
+Slide 5: Malaki's stall becomes a pop-up café, selling Caribbean food, breads and cakes. Then one weekend, the most unexpected thing happened...
+
+Slide 6: His food completely sells out. People ask, 'when is the café opening again?' And that's when it clicked. This wasn't just pocket money for Malaki, this was a serious business.
+
+Slide 7: The numbers are wild for a teenager. Today, at 13 he's running a full Caribbean food shop in South London, under his dad's office. The name above the counter?
+
+Slide 8: He designs the menus and meal deals. While he's in class, his parents handle the cooking, employed by their 13-year-old son.
+
+Slide 9: The business now helps pay his £4,000-a-term boarding school fees.
+
+Slide 10: But above all, he gives back. Part of his earnings fund musical instruments for kids who can't afford them...
+
+Slide 11: Plus therapy and travel support for people struggling with their mental health.
+
+Slide 12: It all started with a few plants outside his dad's office...
+
+Slide 13: And led back to where it all started, the choir. Malaki achieved his dream and became the church's first Black chief chorister in its 1,000-year history.
+
+### What to learn from this example:
+- The emotional arc is different here — it's heartwarming, not dramatic
+- Slide 4 is one of the best rhythm examples: "Rain, wind, and passing traffic. He was out there."
+- Slide 8: "employed by their 13-year-old son" — the contrast does the work
+- The story comes full circle: singing lessons → choir → first Black chief chorister in 1,000 years
+- Proves that not every Founded story needs a billion-dollar exit — the gap between start and finish just needs to be compelling
+
+---
+
+## GOLD-STANDARD EXAMPLE 6: KHABY LAME
+Slides: 13 | Hook type: The Comeback
+
+Slide 1: 6 years after being laid off from his factory job, KHABY LAME SELLS HIS company for $975M
+
+Slide 2: But his journey was far from smooth... In 2020 a factory worker named Khaby loses his factory job during a global pandemic. For most, that'd be a wrap. For Khaby it was just the beginning...
+
+Slide 3: Scrolling TikTok, he sees overcomplicated "hacks" everywhere. So he films his reactions without saying a word. Palms up, shoulders lifted, he stares through the nonsense, with a look that says, "you can't be serious"
+
+Slide 4: His videos explode. Millions of views, then tens of millions. By 2022 he becomes TikTok's most-followed creator with 140M followers.
+
+Slide 5: Most creators just stop at brand deals. Not Khaby...
+
+Slide 6: He starts thinking like a founder. Wrapping brand deals, licensing, and partnerships under his company, Step Distinctive Limited. Khaby was no longer just a meme, but an entrepreneur.
+
+Slide 7: By 2025, he's on Forbes and Fortune lists, boasting a following close to 360M followers. The questions shift from "how can he monetise?" to "how big can this really get?"
+
+Slide 8: That influence catches the eye of Rich Sparkle, a company designed to turn creator attention into long-term, scalable consumer brands...
+
+Slide 9: They agree an all-stock deal that values his company and related rights up to $975M.
+
+Slide 10: On paper, the laid-off factory worker now controls a major stake in a growing media and commerce group. The wildest part?
+
+Slide 11: As part of the deal, he approves an AI "digital twin" of himself. A virtual Khaby who can host live shopping streams in multiple languages, 24/7, selling products while he sleeps.
+
+Slide 12: From laid off… to near $1B… in six years.
+
+Slide 13: For creators, the lesson is clear... own the company, not just the content.
+
+### What to learn from this example:
+- Slide 3 is pure visual storytelling: "Palms up, shoulders lifted, he stares through the nonsense"
+- Slide 5 is the pivot line in its purest form: "Most creators just stop at brand deals. Not Khaby..."
+- Slide 10: "The wildest part?" — a one-line hook that's impossible to ignore
+- The callback (Slide 12) uses ellipses and the exact same contrast from the title
+- Slide 13 ends with a takeaway that feels earned, not preachy
+
+---
+
+## GOLD-STANDARD EXAMPLE 7: SHAYNE COPLAN / POLYMARKET
+Slides: 12 | Hook type: Rejection Flip + Comeback
+
+Slide 1: One year ago, the FBI raided his apartment. Today, the founder of Polymarket becomes a billionaire aged 27
+
+Slide 2: Before the FBI and billion dollar deals, he was just a teenager obsessed with how trading worked. At 14, Shayne Coplan emails the SEC asking how he could create a new marketplace. No answer. But that didn't stop him building one anyway...
+
+Slide 3: He started at NYU studying computer science, but quickly got bored. Lectures felt slow compared to the pace of the internet. So by 2017, he dropped out to build full time in the crypto space, with a few projects fizzling out. Then came the era of rampant misinformation. Shayne spotted opportunity...
+
+Slide 4: In 2020, he launched Polymarket. A crypto prediction market to fight the misinformation swamp by forcing people to put money on what they believe. The first big question? When will New York City reopen after COVID?
+
+Slide 5: But regulators were not amused. Crowds bet on everything, from elections, economies, and cultural moments.
+
+Slide 6: Come 2022, the CFTC fines the company $1.4 million for running unregistered markets, and blocked all U.S. users. For most that would've been game over. For Shayne, it was just level one.
+
+Slide 7: In 2024, activity went crazy. Around the U.S. election alone, Polymarket handled $3.6 billion in bets. A week later, FBI agents raided his apartment and seized his devices, probing whether he broke the ban. Months later, the investigations were dropped. And within a week, Polymarket acquired QCX, a licensed exchange. Suddenly, the path to a fully legal U.S. launch was on.
+
+Slide 8: That's when Wall Street called. Jeff Sprecher, billionaire CEO of ICE and owner of the NYSE, invites Shayne for dinner…
+
+Slide 9: Suit-and-tie NYSE boss on one side, mop-haired founder in a T-shirt with a bagel bag on the other. After negotiations, ICE invested $2B for up to 25%.
+
+Slide 10: Billionaires from Figma's Dylan Field to Uber's Travis Kalanick pile in, sending Polymarket's valuation to $9B. His rough 11% stake briefly made Shayne the world's youngest self-made billionaire.
+
+Slide 11: 5 years after founding, 1 year after the FBI raid, Shayne watched a Polymarket banner lift over the NYSE — "Against all odds."
+
+Slide 12: Critics call it gambling. Others call it the future.
+
+### What to learn from this example:
+- Slide 2 goes BACK in time from the title — "Before the FBI and billion dollar deals, he was just a teenager..."
+- Slide 6 has the Founded pivot with a twist: "For most that would've been game over. For Shayne, it was just level one."
+- Slide 7 is deliberately longer because it covers a rapid sequence of events — pace matches content
+- Slide 9 uses visual contrast: "Suit-and-tie NYSE boss" vs. "mop-haired founder in a T-shirt with a bagel bag"
+- Slide 12 ends with a two-sided statement, no CTA — lets the reader decide. The CTA would go on a separate final slide.
+- Name drops throughout: CFTC, FBI, Jeff Sprecher, NYSE, Dylan Field, Travis Kalanick
+
+---
+
+## COMMON MISTAKES TO AVOID
+
+1. **Bolted-on hooks**: "What happens next will surprise you..." or "Stay tuned..." — these kill the flow. The hook must be organic.
+2. **Telling the reader how to feel**: "This is incredible." "What an amazing journey." — let the facts do the emotional work.
+3. **Over-explaining**: "Huel, which stands for Human Fuel, is a nutritionally complete meal replacement product..." — too much explanation kills momentum. Keep it punchy.
+4. **Generic descriptors**: "successful entrepreneur", "innovative company", "game-changing product" — these mean nothing. Use specific facts instead.
+5. **Padding to a comfortable length**: Every slide must be irreplaceable. If removing it wouldn't cost the story anything, it shouldn't be there. Always cut rather than pad.
+6. **Ignoring the callback**: The final slide MUST connect back to the beginning or the origin story. It's the signature move.
+7. **Flat Slide 2**: If Slide 2 doesn't make the reader physically unable to stop, the whole story fails. It's the most important slide after the title.
+8. **Missing the "Then" turn**: The best stories have a moment where the trajectory shifts — "Then COVID hit." "Then Shahid did the thing dishwashers aren't supposed to do…" Look for this beat in every story.
+9. **Treating temporal signposts as hooks**: "Fast-forward to 2024…" is a transition device, not a hook. A hook is: "For most, that'd be enough. Not for [Name]…"
+10. **Same energy on every slide**: Vary the emotional register. Some slides should be punchy and fast. Some should breathe. Some should be just one devastating line.
