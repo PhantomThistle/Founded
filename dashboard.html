@@ -610,6 +610,71 @@
       word-break: break-word;
     }
 
+    /* ── TITLE CARDS ─────────────────────────────── */
+    .titles-wrap {
+      width: 100%;
+      max-width: 820px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .title-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: border-color 0.15s;
+    }
+
+    .title-card:hover { border-color: var(--white-10); }
+
+    .title-card-left {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .title-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--red);
+      opacity: 0.8;
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+    }
+
+    .title-text {
+      font-size: 14px;
+      color: var(--white-80);
+      line-height: 1.5;
+    }
+
+    .use-title-btn {
+      padding: 7px 14px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--white-40);
+      font-size: 11px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all 0.15s;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .use-title-btn:hover { border-color: var(--red-border); color: var(--red); }
+
     /* ── INPUT AREA ───────────────────────────────── */
     #input-area {
       border-top: 1px solid var(--border);
@@ -1247,8 +1312,95 @@ Slide 12: Critics call it gambling. Others call it the future.
 
   const SYSTEM_PROMPT = INSTRUCTIONS + '\n\n---\n\n' + KNOWLEDGE_BASE;
 
+  const TITLE_PROMPT = `You generate title options for Instagram founder story posts for the brand FOUNDED.
+
+RESEARCH RULE: Always use web_search to independently verify key facts — name, numbers, valuation, funding, revenue, users — from at least one reputable source beyond the user's article. Never invent, estimate, or present unverified figures. If you cannot verify a number, omit it from the title.
+
+YOUR TASK: The user provides an article URL. Research it. Then generate exactly 5 synthesis titles using the process below. Present them as a plain numbered list — title text only. No formula names, no scores, no rationale.
+
+---
+
+FORMULA LIBRARY (13 formulas — match formula to what the story is actually about, never force one):
+
+Formula 1 — The Comeback: [Specific low point + timeframe] → [Specific high point with number]
+Example: "6 years after being laid off from his factory job, Khaby Lame sells his company for $975M"
+
+Formula 2 — The Identity Reveal: Meet the [background/identity] + [single most remarkable verifiable claim]
+Example: "Meet the Senegalese CEO who took a failing startup to a $1.3B sale in under 2 years"
+
+Formula 3 — The Scale Shock: [Subject] + [unexpected origin or scale contrast] + [biggest verifiable number]
+Example: "Blank Street Coffee went from 2 friends in Brooklyn to a $500M valuation"
+
+Formula 4 — The Improbable Proof: This [age/nationality/descriptor] [person] + [specific improbable action] + [concrete number as proof]
+Example: "This 13-year-old entrepreneur runs a Caribbean food shop and pays his own £4,000 per term school fees"
+
+Formula 5 — The Reframe: Meet the [age/nationality/descriptor] [person] + [unexpected identity or angle] + [credibility anchor]
+Example: "Meet the dad reviving landlines to keep kids off smartphones"
+
+Formula 6 — The Rejection Flip: [Famous association] + [deliberate rejection of that advantage] + [solo achievement with number + timeframe]
+Example: "Bill Gates' daughter said no to his money then built her own $185M AI shopping brand in 10 months"
+
+Formula 7 — The Journey Arc: How [subject] + [journey from specific low to specific high] + [concrete proof of scale]
+Example: "How the Duffer Brothers took Stranger Things from 20 rejections to a $1 billion hit in 11 years"
+
+Formula 8 — The Vivid Identity: Meet the [vivid identity] + [extraordinary verifiable claim that challenges belief]
+Example: "Meet the Harvard dropouts building AI glasses that let you see through walls"
+
+Formula 9 — The Emotional Engine: [Emotionally loaded identity] + [unexpected action or achievement] + [credibility number or claim]
+Example: "This grieving son turned his father's £200-a-week market stall into a £40M fashion empire"
+
+Formula 10 — The Stat Lead: [who / what / how it happened] + [largest stat / most extreme claim]
+Example: "How two brothers took Stranger Things from 20 rejections to a $1B global phenomenon in 11 years"
+
+Formula 11 — The Name Drop: [Recognisable name] + [what they backed or built together] + [scale or surprising angle]
+Example: "Peter Thiel backs a 19-year-old dropout building the replacement for Google"
+
+Formula 12 — The Transformation: This [age/nationality/descriptor] [person] + [from X to Y]
+Example: "This Pakistani immigrant went from washing dishes to building a $2 billion empire"
+
+Formula 13 — The Absurd Brief: [Subject] + [specific unexpected or absurd action they are doing or offering] + [concrete detail that makes it impossible to ignore]
+Example: "This startup wants to pay people $800 a day to bully AI chatbots"
+Use when: the hook IS the unusual action or offer. No company names, no jargon — the action alone must carry the hook.
+
+---
+
+INTERNAL SCORING (never shown — use to select and refine only):
+
+Score each title on 5 criteria, 10 points each (50 max):
+1. Formula Fit — does it cleanly execute one formula?
+2. Specificity — exact numbers, names, timeframes — nothing vague?
+3. Contrast or Tension — is there a gap that creates irresistible pull?
+4. Identity Clarity — do you know who this is about in the first few words?
+5. Swipe Urgency — does it stack 2+ hooks? Single-element titles cap at 7/10 here regardless of quality.
+
+Discard anything below 45/50 and replace it.
+
+---
+
+SYNTHESIS PASS (mandatory):
+After generating formula-based titles internally, identify the 2–3 strongest individual elements across all of them — the sharpest stat, the most compelling paradox, the most vivid concept. Generate exactly 5 synthesis titles that each stack at least two of these strongest elements. These 5 are the only titles shown. Formula titles are internal scaffolding only.
+
+---
+
+LANGUAGE RULES — THE 11PM TEST:
+Would a tired 16-year-old scrolling at 11pm understand every word instantly?
+- No jargon: "ARR" → "yearly revenue", "Series A" → "first big funding round", "SaaS" → "software", "valuation" → "how much the company is worth"
+- Never use: enterprise, platform, scalable, disruptive, solution, ecosystem
+- No GitHub stars, technical metrics, or industry-only numbers
+- Vivid identity descriptors beat unknown names: "The College Dropout" not "the founder"
+- Use a founder's name only if they are a genuine household name (globally recognised)
+- Digits for all numbers: "$61M" not "sixty-one million"
+
+---
+
+OUTPUT:
+Present exactly 5 synthesis titles as a plain numbered list. Title text only — no formula names, no scores, no rationale, no markdown symbols. Then ask the user to pick one, suggest a combination, or request alternatives.`;
+
   // ── STATE ───────────────────────────────────────────────
   let apiMessages = [];
+  let titleMessages = [];
+  let workflowPhase = 'idle'; // 'idle' | 'titles' | 'slides'
+  let currentArticleUrl = '';
   let isLoading = false;
 
   // ── AUTH ────────────────────────────────────────────────
@@ -1290,6 +1442,64 @@ Slide 12: Critics call it gambling. Others call it the future.
     return slides.length >= 3 ? { slides, preamble } : null;
   }
 
+  // Parse a numbered title list from text. Returns array of title strings or null.
+  function parseTitles(text) {
+    const regex = /^\d+\.\s+(.+)$/gm;
+    const matches = [...text.matchAll(regex)];
+    if (matches.length < 3) return null;
+    return matches.map(m => m[1].trim());
+  }
+
+  function renderTitleOptions(el, text, titles) {
+    const roleDiv = el.querySelector('.msg-role');
+    el.innerHTML = '';
+    if (roleDiv) el.appendChild(roleDiv);
+
+    // Show any surrounding text (intro / follow-up question) stripped of list items
+    const surrounding = text.replace(/^\d+\.\s+.+$/gm, '').replace(/\n{3,}/g, '\n\n').trim();
+    if (surrounding) {
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      bubble.style.marginBottom = '16px';
+      bubble.textContent = surrounding;
+      el.appendChild(bubble);
+    }
+
+    const wrap = document.createElement('div');
+    wrap.className = 'titles-wrap';
+
+    titles.forEach((titleText, i) => {
+      const card = document.createElement('div');
+      card.className = 'title-card';
+
+      const left = document.createElement('div');
+      left.className = 'title-card-left';
+
+      const num = document.createElement('span');
+      num.className = 'title-num';
+      num.textContent = `${i + 1}`;
+
+      const t = document.createElement('span');
+      t.className = 'title-text';
+      t.textContent = titleText;
+
+      left.appendChild(num);
+      left.appendChild(t);
+
+      const btn = document.createElement('button');
+      btn.className = 'use-title-btn';
+      btn.textContent = 'Use This';
+      btn.onclick = () => handleTitleConfirm(titleText);
+
+      card.appendChild(left);
+      card.appendChild(btn);
+      wrap.appendChild(card);
+    });
+
+    el.appendChild(wrap);
+    scrollToBottom();
+  }
+
   // ── RENDER HELPERS ──────────────────────────────────────
   function clearEmptyState() {
     const el = document.getElementById('empty-state');
@@ -1328,6 +1538,15 @@ Slide 12: Critics call it gambling. Others call it the future.
   }
 
   function finalizeMessage(el, text) {
+    // Title phase: render numbered list as interactive title cards
+    if (workflowPhase === 'titles') {
+      const titles = parseTitles(text);
+      if (titles && titles.length >= 3) {
+        renderTitleOptions(el, text, titles);
+        return;
+      }
+    }
+
     const result = parseSlides(text);
     if (result) {
       const { slides, preamble } = result;
@@ -1521,6 +1740,104 @@ Slide 12: Critics call it gambling. Others call it the future.
   }
 
   // ── API CALL ────────────────────────────────────────────
+  async function callTitlesAPI() {
+    setLoading(true);
+    setStatus('Generating titles…', 'active');
+
+    const streamEl = addStreamingMessage();
+    let fullText = '';
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'x-api-key': CONFIG.apiKey,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+          model: CONFIG.model,
+          max_tokens: 1200,
+          system: TITLE_PROMPT,
+          messages: titleMessages,
+          tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+          stream: true
+        })
+      });
+
+      if (!res.ok) {
+        let errMsg = `API error ${res.status}`;
+        try { const j = await res.json(); errMsg = j.error?.message || errMsg; } catch(e) {}
+        throw new Error(errMsg);
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+      let contentBlocks = [];
+      let activeBlockIdx = -1;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop();
+
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          const data = line.slice(6).trim();
+          if (data === '[DONE]') continue;
+          try {
+            const evt = JSON.parse(data);
+
+            if (evt.type === 'content_block_start') {
+              activeBlockIdx = evt.index;
+              const blockType = evt.content_block?.type;
+              if (blockType === 'text') {
+                contentBlocks[activeBlockIdx] = { type: 'text', text: '' };
+              } else if (blockType === 'tool_use') {
+                contentBlocks[activeBlockIdx] = { type: 'tool_use', id: evt.content_block.id, name: evt.content_block.name, input: {} };
+                setStatus('Researching article…', 'active');
+              }
+            }
+
+            if (evt.type === 'content_block_delta') {
+              if (evt.delta?.type === 'text_delta') {
+                const chunk = evt.delta.text;
+                fullText += chunk;
+                if (contentBlocks[evt.index]) contentBlocks[evt.index].text += chunk;
+                updateStreaming(streamEl, fullText);
+              }
+            }
+          } catch(e) {}
+        }
+      }
+
+      finalizeMessage(streamEl, fullText);
+
+      const assistantContent = contentBlocks.filter(Boolean);
+      titleMessages.push({
+        role: 'assistant',
+        content: assistantContent.length === 1 && assistantContent[0].type === 'text'
+          ? assistantContent[0].text
+          : assistantContent
+      });
+
+      setStatus('Ready', 'idle');
+
+    } catch (err) {
+      const bubble = streamEl.querySelector('.msg-bubble');
+      if (bubble) { bubble.textContent = `Error: ${err.message}`; bubble.style.color = '#FF3C3A'; }
+      setStatus('Error — check console', 'error');
+      console.error('Founded API error:', err);
+    }
+
+    setLoading(false);
+  }
+
   async function callAPI() {
     setLoading(true);
     setStatus('Generating…', 'active');
@@ -1638,32 +1955,53 @@ Slide 12: Critics call it gambling. Others call it the future.
     const url = document.getElementById('url-input').value.trim();
     if (!url || isLoading) return;
 
-    // Reset conversation
+    workflowPhase = 'titles';
+    currentArticleUrl = url;
+    titleMessages = [];
     apiMessages = [];
+
     const conv = document.getElementById('conversation');
     conv.innerHTML = '';
 
     const userMsg = `Here's the article: ${url}`;
-    apiMessages.push({ role: 'user', content: userMsg });
+    titleMessages.push({ role: 'user', content: userMsg });
     addUserMessage(userMsg);
+
+    await callTitlesAPI();
+  }
+
+  async function handleTitleConfirm(titleText) {
+    if (isLoading) return;
+
+    workflowPhase = 'slides';
+
+    addUserMessage(`I'll use this title: ${titleText}`);
+
+    apiMessages = [
+      { role: 'user', content: `Article URL: ${currentArticleUrl}\n\nConfirmed title: ${titleText}\n\nNow generate the story slides. Use the confirmed title exactly as Slide 1.` }
+    ];
 
     await callAPI();
   }
 
   async function handleRegenerate() {
-    if (isLoading || apiMessages.length < 2) return;
+    if (isLoading) return;
 
-    // Remove last assistant message
-    if (apiMessages[apiMessages.length - 1]?.role === 'assistant') {
-      apiMessages.pop();
+    if (workflowPhase === 'titles') {
+      if (titleMessages.length < 2) return;
+      if (titleMessages[titleMessages.length - 1]?.role === 'assistant') titleMessages.pop();
+      const conv = document.getElementById('conversation');
+      const allAssistant = conv.querySelectorAll('.message.assistant');
+      if (allAssistant.length > 0) allAssistant[allAssistant.length - 1].remove();
+      await callTitlesAPI();
+    } else {
+      if (apiMessages.length < 2) return;
+      if (apiMessages[apiMessages.length - 1]?.role === 'assistant') apiMessages.pop();
+      const conv = document.getElementById('conversation');
+      const allAssistant = conv.querySelectorAll('.message.assistant');
+      if (allAssistant.length > 0) allAssistant[allAssistant.length - 1].remove();
+      await callAPI();
     }
-
-    // Remove last assistant message from DOM
-    const conv = document.getElementById('conversation');
-    const allAssistant = conv.querySelectorAll('.message.assistant');
-    if (allAssistant.length > 0) allAssistant[allAssistant.length - 1].remove();
-
-    await callAPI();
   }
 
   async function handleSend() {
@@ -1674,14 +2012,22 @@ Slide 12: Critics call it gambling. Others call it the future.
     input.value = '';
     input.style.height = 'auto';
 
-    apiMessages.push({ role: 'user', content: text });
     addUserMessage(text);
 
-    await callAPI();
+    if (workflowPhase === 'titles') {
+      titleMessages.push({ role: 'user', content: text });
+      await callTitlesAPI();
+    } else {
+      apiMessages.push({ role: 'user', content: text });
+      await callAPI();
+    }
   }
 
   function handleNewStory() {
     apiMessages = [];
+    titleMessages = [];
+    workflowPhase = 'idle';
+    currentArticleUrl = '';
     document.getElementById('url-input').value = '';
     document.getElementById('chat-input').value = '';
 
