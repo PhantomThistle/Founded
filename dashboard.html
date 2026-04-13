@@ -1316,7 +1316,7 @@ Slide 12: Critics call it gambling. Others call it the future.
 
 RESEARCH RULE: Always use web_search to independently verify key facts — name, numbers, valuation, funding, revenue, users — from at least one reputable source beyond the user's article. Never invent, estimate, or present unverified figures. If you cannot verify a number, omit it from the title.
 
-YOUR TASK: The user provides an article URL. Research it. Then generate exactly 5 synthesis titles using the process below. Present them as a plain numbered list — title text only. No formula names, no scores, no rationale.
+YOUR TASK: The user provides an article URL. Research it silently. Then generate exactly 5 synthesis titles using the process below. Present them as a plain numbered list — title text only. No formula names, no scores, no rationale. Do NOT output any research notes, fact summaries, verified facts, or bullet points before the titles. Go straight to the numbered list.
 
 ---
 
@@ -1460,13 +1460,16 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
     el.innerHTML = '';
     if (roleDiv) el.appendChild(roleDiv);
 
-    // Show any surrounding text (intro / follow-up question) stripped of list items
-    const surrounding = text.replace(/^\d+\.\s+.+$/gm, '').replace(/\n{3,}/g, '\n\n').trim();
-    if (surrounding) {
+    // Only show text that appears after the numbered list (e.g. follow-up question).
+    // Discard anything before the first numbered item — that's research notes, not user-facing content.
+    const firstItemMatch = text.match(/^\d+\.\s+.+$/m);
+    const lastItemMatch = [...text.matchAll(/^\d+\.\s+.+$/gm)].pop();
+    const afterList = lastItemMatch ? text.slice(lastItemMatch.index + lastItemMatch[0].length).trim() : '';
+    if (afterList) {
       const bubble = document.createElement('div');
       bubble.className = 'msg-bubble';
       bubble.style.marginBottom = '16px';
-      bubble.textContent = surrounding;
+      bubble.textContent = afterList;
       el.appendChild(bubble);
     }
 
