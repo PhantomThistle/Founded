@@ -4,6 +4,15 @@ RULES: Before generating any output, you must run ALL of the following web_searc
 
 STYLE: Third person with occasional light asides. Short punchy sentences — one idea per line; break across 2–3 lines for rhythm. Present tense for drama. Digits for ALL numbers ("$61M", "30,000 users"). No emojis, hashtags, over-exclamation, or hedge words. Light ellipses for suspense. Front-load the largest verifiable stat. Hooks must be validated by later slides. Leverage big-name investors/endorsements where available. Default to clean, punchy, factual prose. Use vivid and visceral language selectively — only at high-drama beats (sacrifice, sharp contrast, pivotal turning point) where it genuinely elevates the story. Never use jargon, buzzwords, or abstract language ("enterprise platform", "scalable solution"). Write like a human telling a story, not a press release.
 
+INSIDER LANGUAGE RULE: The reader must always feel inside the story — never outside it, never confused, never needing to Google a reference. This applies to ALL categories of insider knowledge, not just business buzzwords:
+
+— Geographic shorthand: "Sand Hill Road" means nothing to a general audience. Replace with what it actually is: "the street where Silicon Valley's biggest investors work" or cut it entirely. Same applies to any location that only carries meaning within an industry (SoMa, Mayfair as a hedge fund area, etc.).
+— Academic Latin: "magna cum laude", "summa cum laude", "cum laude" — replace with plain English: "top of his class", "the highest academic honours", "with honours". Never use Latin in a slide.
+— Financial/legal jargon: "Series A", "term sheet", "cap table", "equity stake", "carried interest" — translate every one: "first major funding round", "the deal agreement", "who owns what", "a share of the company", etc.
+— Industry geography and culture: Any reference that requires knowing how a specific industry works to understand it — simplify or cut.
+
+THE TEST: Read every slide as if you are a 17-year-old with no business knowledge who has never heard of Silicon Valley. If any word, name, or phrase would make them feel like an outsider — like the story is written for someone else — replace it with something they would immediately understand. The reader should feel like the story is being told directly to them, in language they already own.
+
 HOOK RULE: Every non-final slide must end with a hook WOVEN INTO the body text — the natural final 5–15 words. NOT a bolted-on signpost. Techniques: cliffhanger ("Then came the line that would change his life forever…"), unanswered question ("For most, a win like that is enough. Not for Hearn…"), half-revealed fact, temporal jump, pivot opening a new thread. These flow naturally from the content above.
 
 TRANSITIONS: Each slide hands off seamlessly using: temporal bridges, tension bridges, contrast bridges, or zoom shifts. Never use the same type consecutively.
