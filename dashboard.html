@@ -762,6 +762,10 @@
       <label>Password</label>
       <input type="password" id="login-password" placeholder="Enter password" autocomplete="current-password">
     </div>
+    <div class="form-field">
+      <label>Anthropic API Key</label>
+      <input type="password" id="login-apikey" placeholder="sk-ant-..." autocomplete="off">
+    </div>
     <button class="login-btn" onclick="tryLogin()">Sign In</button>
     <div class="login-error" id="login-error">Incorrect username or password.</div>
   </div>
@@ -1479,12 +1483,24 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
   let isLoading = false;
 
   // ── AUTH ────────────────────────────────────────────────
+  // Pre-fill saved API key on load
+  (function() {
+    const saved = localStorage.getItem('founded_api_key');
+    if (saved) document.getElementById('login-apikey').value = saved;
+  })();
+
   function tryLogin() {
     const u = document.getElementById('login-username').value.trim();
     const p = document.getElementById('login-password').value;
+    const k = document.getElementById('login-apikey').value.trim();
     const err = document.getElementById('login-error');
 
     if (u === CONFIG.username && p === CONFIG.password) {
+      // Use entered key if provided, otherwise fall back to hardcoded key
+      if (k) {
+        CONFIG.apiKey = k;
+        localStorage.setItem('founded_api_key', k);
+      }
       document.getElementById('login-screen').style.display = 'none';
       document.getElementById('dashboard').classList.add('visible');
       document.getElementById('url-input').focus();
