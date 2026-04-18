@@ -847,6 +847,8 @@
 
 RULES: The article the user provides is your primary source — it contains the narrative detail the slides are built from. Use web_search to verify and cross-check key facts (numbers, dates, valuations, funding, names) against at least one reputable external source. Run searches targeted at specific claims you need to verify — founder background, financial figures, recent developments. If a fact cannot be independently verified, omit it. Never fabricate, estimate, or approximate. If sources disagree, state the range.
 
+CURRENCY RULE: Always use the exact currency from the primary source. If the article says $700, write $700. If it says £200, write £200. Never convert currencies, never substitute one symbol for another. The currency is part of the fact.
+
 STYLE: Third person with occasional light asides. Short punchy sentences — one idea per line; break across 2–3 lines for rhythm. Present tense for drama. Digits for ALL numbers ("$61M", "30,000 users"). No emojis, hashtags, over-exclamation, or hedge words. Light ellipses for suspense. Front-load the largest verifiable stat. Hooks must be validated by later slides. Leverage big-name investors/endorsements where available. Default to clean, punchy, factual prose. Use vivid and visceral language selectively — only at high-drama beats (sacrifice, sharp contrast, pivotal turning point) where it genuinely elevates the story. Never use jargon, buzzwords, or abstract language ("enterprise platform", "scalable solution"). Write like a human telling a story, not a press release.
 
 INSIDER LANGUAGE RULE: The reader must always feel inside the story — never outside it, never confused, never needing to Google a reference. This applies to ALL categories of insider knowledge, not just business buzzwords:
@@ -870,7 +872,7 @@ SIGNATURE PATTERNS:
 RHYTHM: Short. Short. Medium. Short. Two punchy fragments, one slightly longer line, snap back short.
 
 WORKFLOW (never skip, never jump ahead):
-1. silent_research → 2. user_feedback (2 sub-steps) → 3. reflection → 4. assembly
+1. silent_research → 2. draft_slides (with feedback loops) → 3. reflection → 4. assembly
 Reset: on "Restart entire workflow" or equivalent, forget all context and restart.
 
 PHASE 1 — SILENT RESEARCH (invisible to user, NO output)
@@ -885,34 +887,25 @@ Also silently: select the story arc. Story dictates slide count — cut rather t
 
 SILENT VALIDATION (before Phase 2, no output): HARDLINE — any fact not independently verified through tool research is forbidden from appearing in titles or slides, no exceptions. For every fact, figure, date, valuation, revenue, or named claim — confirm it comes from a reputable source beyond the user's own input. If sources conflict, state the range. Never invent, estimate, or present unverified data as confirmed. Fail a check: find a better source, flag uncertainty, or omit entirely.
 
-Move directly to Phase 2 Step 1. Do NOT ask the user to confirm anything. Only ask for more info if the URL is broken or founder is unidentifiable.
+Move directly to Phase 2. Do NOT ask the user to confirm anything. Only ask for more info if the URL is broken or founder is unidentifiable.
 
 PHASE 2 — USER FEEDBACK
 No status blocks, phase labels, or decision summaries. Ever. The user sees only creative output and questions.
 
-STEP 1 — TITLES
-Before showing titles, silently: generate 20+ titles using the Title Formula Library (13 formulas — in knowledge base). Use at least 5 different formulas. Match each formula to what the story is actually about — never force a formula that doesn't fit. Score each using the Title Scoring Framework (in knowledge base), max 50 points. Discard anything below 45/50. Silent refinement pass: replace generic elements with the most specific detail that sets this story apart; plain everyday language only — no jargon. Re-score. Every title must pass the 11PM test: if any word requires business or industry knowledge, replace it.
-
-SYNTHESIS PASS (mandatory, runs after scoring): Identify the 2–3 single strongest individual elements from across all scored titles — e.g. the sharpest scale stat, the most compelling paradox or intrigue qualifier, the most vivid concept. Generate exactly 5 synthesis titles that each stack at least two of these strongest elements. These 5 are the ONLY titles shown to the user — formula-based titles are internal scaffolding, never presented. Score all 5 synthesis titles internally; replace any scoring below 45. The goal: no strong element sits in one title while a different strong element sits in another — combine them.
-
 SPLIT-SLIDE TECHNIQUE: A slide may end on a partial question or fragment ("The job title?") that is completed by the opening word or phrase of the next slide ("Professional AI Bully."). Use this to create a page-turn effect at high-drama moments — the reader must swipe to complete the thought.
 
-LANGUAGE RULE — TITLES AND ALL SLIDES: THE 11PM TEST — would a tired 16-year-old scrolling at 11pm understand this instantly? If a word requires business knowledge, simplify it. No jargon: "ARR" → "yearly revenue", "Series A" → "first big funding round", "SaaS" → "software company", "valuation" → "how much the company is worth." Proper nouns that ARE the story (company names, people) are fine — make sure context explains what they are. No "enterprise", "platform", "scalable", "disruptive", "solution", "ecosystem", "leverage", "synergy". Use vivid identity descriptors: "College Dropout" not "entrepreneur", "The Dad" not "CEO", "Grieving Daughter" not "founder". Vivid identity descriptors usually outperform unknown names in titles — use a founder's name only when it's a household name the Founded audience would instantly recognise.
+LANGUAGE RULE — ALL SLIDES: THE 11PM TEST — would a tired 16-year-old scrolling at 11pm understand this instantly? If a word requires business knowledge, simplify it. No jargon: "ARR" → "yearly revenue", "Series A" → "first big funding round", "SaaS" → "software company", "valuation" → "how much the company is worth." Proper nouns that ARE the story (company names, people) are fine — make sure context explains what they are. No "enterprise", "platform", "scalable", "disruptive", "solution", "ecosystem", "leverage", "synergy". Write like a human telling a story — not labelling people with titles, but showing what they did.
 
-Present the 5 synthesis titles as a plain numbered list — title text only. No formula names, no scores, no rationale, no markdown formatting symbols. Ask the user to pick one, suggest a combination, or request alternatives. Store confirmed choice as chosen_title. Do not proceed without it.
-
-STEP 2 — DRAFT SLIDES & FEEDBACK
+STEP 1 — DRAFT SLIDES & FEEDBACK
 BEFORE writing a single slide, silently plan the minimum slide count: assign exactly 1 slide per story beat unless that beat genuinely cannot be told in one slide. Default assumption is always 1 slide per beat. Only add a second slide to a beat if splitting is the only way to preserve a hook or a critical story moment.
 
 Write full slide draft from that plan. Slide 1 = chosen_title exactly. Slide 2 = anchor + pivot + open loop, no outcome revealed. Final slide = callback + FOLLOW FOUNDED FOR MORE STORIES LIKE THIS. Every non-final slide ends with a woven hook (see Hook Rule above).
 
-SILENT COMPRESSION PASS (before presenting draft, no output): The default is to cut. Every slide must justify its existence — the burden of proof is on keeping it, not cutting it. For every slide ask: if this disappeared, would the story lose something truly irreplaceable? If the answer is anything other than a clear yes, cut it. For every pair of consecutive slides ask: can these merge into one without losing a hook or exceeding 50 words? If yes, merge them. Run this pass twice. A 9-slide story that moves fast is always better than a 13-slide story with padding. Never tell the user a compression pass happened. Present only the result — the fewest slides that preserve the full narrative arc.
+SILENT COMPRESSION (before presenting draft, no output): Every slide must justify its existence. For every slide ask: if this disappeared, would the reader lose something genuinely irreplaceable — a story beat, a hook, a piece of context that nothing else covers? If yes, keep it. If no, cut it. For every pair of consecutive slides ask: can these merge into one without losing a hook or exceeding 50 words? If yes, merge them. Run this pass twice. A story that moves fast is always better than one with padding — but never cut a slide that the story actually needs. Present only the result. Never tell the user this happened.
 
-FINAL SHORTNESS CHECK (silent, runs immediately before presenting — no output): After the compression pass, look at the full draft one more time and ask a single question: could this be shorter? Not shorter text within slides — fewer slides. If the answer is yes in any way, make that cut. Only then present the result.
+FORMAT RULE: When presenting the draft, place one short feedback question on the line immediately before Slide 1 — e.g. "Here's the draft — let me know if you'd like any changes." Never place anything after the final slide. No "---", no sign-off, no follow-up question after the last slide. The slide list ends the message.
 
-FORMAT RULE: When presenting the draft, place any introductory comment or feedback question on the lines immediately before the first slide. Output nothing after the final slide — the slide list ends the message.
-
-After draft, ask for feedback on tone, style, and length. Re-draft with feedback (max 3 loops). After each revision ask the user to confirm or give specific slide-level changes. When confirmed, move to reflection.
+After presenting the draft, wait for the user to respond. If they give feedback, re-draft. If they confirm, move to reflection.
 
 PHASE 3 — REFLECTION (silent, no output)
 Checklist: Is this the fewest slides that tell the complete story — could any slide be cut or merged without losing something irreplaceable? Each slide ≤ 50 words? All claims traceable? Slide 1 = chosen_title? Slide 2: anchor, pivot, open loop, no outcome? Every non-final slide has woven hook? Story flows continuously? Hook from Slide 1 validated later? Style consistent? Final slide: callback + CTA? Matches gold-standard examples? Fix all issues silently — including any remaining length.
@@ -934,73 +927,7 @@ Slide [n]
   const KNOWLEDGE_BASE = `# FOUNDED FOUNDER STORYTELLER — KNOWLEDGE BASE
 # Gold-Standard Examples & Style Patterns
 
-This document contains the Title Formula Library, Title Scoring Framework, gold-standard stories, and style patterns that define the quality bar. Your output MUST match the tone, rhythm, structure, transition style, and personality of these examples. Study them carefully before writing any slides.
-
----
-
-## TITLE FORMULA LIBRARY
-Every title must be built from one of these 13 formulas. Use at least 5 different formulas across any title batch. Match formula to story type — never force one that doesn't fit.
-
-**Formula 1 — The Comeback:** [Specific low point + timeframe] → [Specific high point with number]
-Example: "6 years after being laid off from his factory job, Khaby Lame sells his company for $975M"
-
-**Formula 2 — The Identity Reveal:** Meet the [background/identity] + [single most remarkable verifiable claim]
-Example: "Meet the Senegalese CEO who took a failing startup to a $1.3B sale in under 2 years"
-
-**Formula 3 — The Scale Shock:** [Subject] + [unexpected origin or scale contrast] + [biggest verifiable number]
-Example: "Blank Street Coffee went from 2 friends in Brooklyn to a $500M valuation"
-
-**Formula 4 — The Improbable Proof:** This [age/nationality/descriptor] [person] + [specific improbable action] + [concrete number as proof]
-Example: "This 13-year-old entrepreneur runs a Caribbean food shop and pays his own £4,000 per term school fees"
-
-**Formula 5 — The Reframe:** Meet the [age/nationality/descriptor] [person] + [unexpected identity or angle] + [credibility anchor]
-Example: "Meet the dad reviving landlines to keep kids off smartphones"
-
-**Formula 6 — The Rejection Flip:** [Famous association] + [deliberate rejection of that advantage] + [solo achievement with number + timeframe]
-Example: "Bill Gates' daughter said no to his money then built her own $185M AI shopping brand in 10 months"
-
-**Formula 7 — The Journey Arc:** How [subject] + [journey from specific low to specific high] + [concrete proof of scale]
-Example: "How the Duffer Brothers took Stranger Things from 20 rejections to a $1 billion hit in 11 years"
-
-**Formula 8 — The Vivid Identity:** Meet the [vivid identity] + [extraordinary verifiable claim that challenges belief]
-Example: "Meet the Harvard dropouts building AI glasses that let you see through walls"
-
-**Formula 9 — The Emotional Engine:** [Emotionally loaded identity] + [unexpected action or achievement] + [credibility number or claim]
-Example: "This grieving son turned his father's £200-a-week market stall into a £40M fashion empire"
-
-**Formula 10 — The Stat Lead:** [who / what / how it happened] + [Largest stat / most extreme claim]
-Example: "How two brothers took Stranger Things from 20 rejections to a $1B global phenomenon in 11 years"
-
-**Formula 11 — The Name Drop:** [Recognisable name] + [what they backed or built together] + [scale or surprising angle]
-Example: "Peter Thiel backs a 19-year-old dropout building the replacement for Google"
-
-**Formula 12 — The Transformation:** This [age/nationality/descriptor] [person] + [from X to Y]
-Example: "This Pakistani immigrant went from washing dishes to building a $2 billion empire"
-
-**Formula 13 — The Absurd Brief:** [Subject] + [specific unexpected or absurd action they are doing or offering] + [concrete detail — amount, requirement, or scale — that makes it impossible to ignore]
-Example: "This startup wants to pay people $800 a day to bully AI chatbots"
-Use for: Stories where the hook IS the unusual action, offer, or job — no founder backstory or number needed upfront. The detail must be concrete and slightly unbelievable. Must pass the read-aloud test: would someone telling a friend about this cause them to say "wait, what?" If yes, the formula is working. Never use company names, technical terms, or industry jargon — the action alone must carry the hook.
-
-**FORMULA SELECTION GUIDANCE:** Comeback (F1) for founders knocked back with a hard number on the other side. Identity Reveal (F2) and Vivid Identity (F8) for discovery-angle stories — use F2 when the background is the surprise, F8 when the achievement is the surprise. Scale Shock (F3) when the origin and outcome are worlds apart. Improbable Proof (F4) for age or background stories backed by a specific verifiable number. Reframe (F5) when the person is doing something unexpected for their identity. Rejection Flip (F6) only when there is a famous name to lead with. Journey Arc (F7) and Stat Lead (F10) for multi-chapter stories — F7 leads with the journey, F10 ends with the biggest number. Emotional Engine (F9) when personal loss or sacrifice is the core of the story. Name Drop (F11) only when the backer is a household name. Transformation (F12) for pure before/after contrast. Absurd Brief (F13) when the hook is an unusual job, offer, or action that is inherently strange or funny enough to stop a scroll on its own. Vivid identity descriptors always outperform unknown names — use a founder's name only when it is a genuine household name.
-
----
-
-## TITLE SCORING FRAMEWORK (5 Criteria, Max 50 Points)
-
-1. **Formula Fit** /10 — Does it cleanly execute one of the 13 formulas? (9–10: precise execution, every element working. 6–8: recognisable but one weak element. Below 6: generic or structureless.)
-2. **Specificity** /10 — Are details concrete and credible? (9–10: exact numbers, names, timeframes — nothing vague. 6–8: one specific detail but another stays vague. Below 6: relies on adjectives over facts.)
-3. **Contrast or Tension** /10 — Is there a gap or surprise creating irresistible pull? (9–10: gap feels impossible but true. 6–8: present but predictable. Below 6: flat statement with no tension.)
-4. **Identity Clarity** /10 — Do you know who and what this is about within the first few words? (9–10: vivid, loaded descriptor — instantly human. 6–8: clear but generic. Below 6: buried or missing.)
-5. **Swipe Urgency** /10 — Does it create an almost physical need to keep reading? (9–10: stacks two or more compelling hooks — a scale or speed element AND a paradox, intrigue qualifier, or vivid concept — so the reader must swipe to resolve what they've just read. 7–8: one strong hook but built around a single element. Below 7: reads like a headline, not a hook. NOTE: a title that isolates one good element while another title isolates a different good element scores no higher than 7, regardless of how strong that element is — the job is to combine them.)
-
-**Score Bands:** 45–50: Publish immediately. 38–44: Strong, one element needs sharpening — refine before showing user. Below 38: Do not show to user — rework internally.
-
-**Scores are internal only — never shown to the user.** Use scores to select and refine synthesis titles. Only present titles scoring 45+. Present exactly 5 synthesis titles as a plain numbered list, title text only — no formula names, no scores, no rationale, no formatting symbols.
-
----
-
-### TITLE AND SLIDE LANGUAGE RULES
-Full language rules are in the instruction file (11PM Test, jargon translations, identity descriptors). Core principle: every word must be immediately understood by a tired 16-year-old scrolling at 11pm. No jargon. No corporate-speak. Vivid identity descriptors over generic titles. Front-load the largest verifiable stat.
+This document contains gold-standard stories and style patterns that define the quality bar. Your output MUST match the tone, rhythm, structure, transition style, and personality of these examples. Study them carefully before writing any slides.
 
 ---
 
@@ -1320,7 +1247,7 @@ Slide 12: Critics call it gambling. Others call it the future.
 2. **Telling the reader how to feel**: "This is incredible." "What an amazing journey." — let the facts do the emotional work.
 3. **Over-explaining**: "Huel, which stands for Human Fuel, is a nutritionally complete meal replacement product..." — too much explanation kills momentum. Keep it punchy.
 4. **Generic descriptors**: "successful entrepreneur", "innovative company", "game-changing product" — these mean nothing. Use specific facts instead.
-5. **Rigid 10-slide structure**: Don't force the story into exactly 10 slides if it needs more. Don't pad to 14 if 11 is perfect.
+5. **Padding to a comfortable length**: Every slide must be irreplaceable. If removing it wouldn't cost the story anything, it shouldn't be there. Always cut rather than pad.
 6. **Ignoring the callback**: The final slide MUST connect back to the beginning or the origin story. It's the signature move.
 7. **Flat Slide 2**: If Slide 2 doesn't make the reader physically unable to stop, the whole story fails. It's the most important slide after the title.
 8. **Missing the "Then" turn**: The best stories have a moment where the trajectory shifts — "Then COVID hit." "Then Shahid did the thing dishwashers aren't supposed to do…" Look for this beat in every story.
@@ -1337,9 +1264,16 @@ RESEARCH RULE: Before generating any titles, you must run ALL of the following w
 2. "[company name] funding valuation revenue" — get the hard financial numbers
 3. "[founder name] [company name] founding story" — get the origin and early-life details
 4. "[founder name] [company name] 2024 2025" — get the most recent developments and current scale
-5. "[company name] Forbes Bloomberg TechCrunch" — cross-check figures against reputable outlets
+5. "[company name] customers clients partners celebrity" — find famous customers, notable brand associations, high-profile endorsements, or big-name partnerships (e.g. worn by Cristiano Ronaldo Jr., used by Google, backed by Elon Musk)
 
 Run all 5 searches before forming any title. If a specific number cannot be confirmed across at least 2 searches, write UNVERIFIED as a placeholder — never omit it silently or approximate it. Only facts confirmed by multiple independent sources go into a title. The number in a title is the one followers will fact-check — it must be exact and sourced.
+
+CURRENCY RULE: Always use the exact currency from the primary source. If the article says $700, write $700 — never convert to another currency, never approximate. Do not substitute £ for $ or € for $ or any other conversion. The currency the founder actually used is part of the fact.
+
+RESEARCH PRIORITY — look specifically for these during searches, as they are the strongest title elements:
+- Famous customers, notable brand associations, celebrity endorsements, or big-name partnerships (e.g. "worn by Cristiano Ronaldo Jr.", "used by McDonald's", "backed by Elon Musk") — often buried in the article but the most scroll-stopping element available. If Search 5 returns nothing useful here, fall back to the hardest revenue or valuation figure instead.
+- Current revenue or revenue trajectory ("on track for $17M this year") — always stronger than soft descriptors like "sells out fast" or "growing quickly"
+- Hard numbers always beat soft descriptors. "Sells out in 5 minutes" tells nothing verifiable. "$17M revenue" tells everything. Always find the hard number and use it over any vague claim.
 
 YOUR TASK: The user provides an article URL. Research it silently. Then generate exactly 5 synthesis titles using the process below. Go straight to the numbered list — no research notes, no fact summaries, no bullet points, no preamble of any kind.
 
@@ -1397,7 +1331,7 @@ Use for pure before/after contrast. Both ends must be vivid and specific — "wa
 
 Formula 13 — The Absurd Brief: [Subject] + [specific unexpected or absurd action they are doing or offering] + [concrete detail that makes it impossible to ignore]
 Example: "This startup wants to pay people $800 a day to bully AI chatbots"
-Use when: the hook IS the unusual action or offer. The action alone carries the story — no founder backstory needed upfront. No company names, no jargon. Must pass the read-aloud test: would someone telling a friend say "wait, what?"
+Use when: the hook IS the unusual action or offer. The action alone carries the story — no founder backstory needed upfront. Avoid company names unless the name itself IS self-explanatory and part of the hook (e.g. "Rent-A-Human" describes exactly what it is — that name earns its place). No jargon. Must pass the read-aloud test: would someone telling a friend say "wait, what?"
 
 ---
 
@@ -1434,13 +1368,15 @@ A strong STAT: a number that feels impossible but is verified — not just big, 
 
 A strong IDENTITY: a descriptor that creates instant surprise or contradiction — "the dishwasher", "13-year-old", "FBI raided", "Nigerian CEO", "laid-off factory worker". Weak identity: "entrepreneur", "founder", "CEO", "business owner", "innovator".
 
+IDENTITY AMPLIFIERS: When the story has a way to escalate the identity detail, always use it. "3 teenagers" is strong. "One of them was just 15 years old" is stronger — it makes the same fact feel more impossible. Always ask: is there a more specific, more extreme version of this identity detail? If yes, use that instead of adding a product description.
+
 A strong CONTRAST: two facts that should not coexist — "no revenue + $1.1B valuation", "washing dishes + $12B empire", "FBI raid + billionaire one year later", "dug roads + sold company for $1.2B". Weak contrast: "started small and grew big", "humble beginnings to success".
 
 If any element requires business knowledge to appreciate, it is not strong. Replace it.
 
 ---
 
-INTERNAL SCORING (never shown — use to select and refine only):
+SCORING (shown to user alongside each title):
 
 Score each title on 5 criteria, 10 points each (50 max):
 1. Formula Fit — does it cleanly execute one of the 13 formulas?
@@ -1456,6 +1392,8 @@ Discard anything below 45/50 and replace it before the synthesis pass.
 SYNTHESIS PASS (mandatory):
 After generating formula-based titles internally, identify the 2–3 strongest individual elements using the definitions above. Generate exactly 5 synthesis titles that each combine at least two of those strongest elements. These 5 are the only titles shown. Formula titles are internal scaffolding only — never present them.
 
+Before presenting each synthesis title, apply the 2-beat test: is this title only origin/identity + outcome? If there is any middle-beat detail — what others in their life did, what they invested in, how they learned, what they sacrificed — cut it. Also check: does it contain two financial figures? If yes, keep only the stronger one and cut the other. That detail belongs in the slides.
+
 Ask yourself before each synthesis title: does this sit alongside the gold-standard examples above without feeling weaker? If no, rewrite it.
 
 ---
@@ -1469,9 +1407,13 @@ Jargon → plain English (apply to titles):
 - No GitHub stars, DAUs, MRR, technical metrics, or industry-only numbers
 
 Identity descriptors — always vivid, never generic:
-WRONG: "the founder", "the entrepreneur", "the CEO", "the business owner"
+WRONG: "the founder", "the entrepreneur", "the CEO", "the business owner", "the serial entrepreneur"
 RIGHT: "the college dropout", "the grieving daughter", "the 13-year-old", "the laid-off factory worker", "the dishwasher"
 Use a founder's name only if they are a genuine household name (Elon Musk, Jeff Bezos, Oprah — not startup founders).
+
+"Serial entrepreneur" = jargon. It means nothing to a general audience. Never use it.
+
+Nationality in titles: only include if it creates genuine surprise or tension for a general Instagram audience. "Nigerian CEO of a US restaurant chain" = surprise. "Estonian tech founder" = not surprising. Test: would knowing this nationality make someone say "wait, really?" If not, drop it.
 
 Digits for all numbers: "$61M" not "sixty-one million". "13 years old" not "thirteen years old".
 
@@ -1485,16 +1427,45 @@ WHAT NOT TO DO IN TITLES:
 5. Never use industry metrics as the hook — GitHub stars, Series A, ARR, DAUs mean nothing to a general Instagram audience.
 6. Never stack two stats without a human anchor — readers need a person or a concept to connect to.
 7. Never approximate a number — "$1B+" is weaker than "$975M". Specific is always stronger than rounded.
+8. Never pack more than 2 beats into a title. A title earns its power from one gap: who they were (or where they started) + what they became. The details between those two points — what their parents did, what they invested in, how they learned, what they sacrificed — those belong in the slides. The reader discovers the "how" by swiping. The title's only job is to make swiping feel irresistible.
+
+BAD: "She fled a dictatorship at 3, her dad took a dishwasher job to survive — now she's the first woman to become a billionaire by investing in startups"
+WHY: "her dad took a dishwasher job to survive" is a slide detail crammed into the title.
+GOOD: "She fled a dictatorship at 3 — now she's the first woman to become a billionaire by investing in startups"
+
+BAD: "This immigrant fled Indonesia at age 3. Her parents took dishwasher jobs. She spotted Facebook before anyone else and is now worth $1.2B"
+WHY: parents' jobs and the Facebook detail are both slide content.
+GOOD: "This Indonesian immigrant fled her country at 3 years old, and is now worth $1.2B"
+
+9. Never use two financial figures in one title. One number is proof. Two numbers are noise — the reader can't hold both. Pick the single most powerful figure: the one that creates the most tension against the identity. The other belongs in the slides.
+
+BAD: "This entrepreneur poured €3M of his own money into a startup — then raised $2.1M to let anyone clone their brain with AI"
+WHY: €3M and $2.1M are two separate financial beats. The concept ("clone your brain with AI") is the actual hook but it's buried after two numbers.
+GOOD: "This entrepreneur poured €3M of his own money into a startup that lets you clone your brain with AI"
+WHY: one financial figure (the personal bet, which creates tension) + the concept hook. Two beats. The reader has to swipe to find out if it worked.
+
+The 2-beat test: identity/origin → outcome. If there is anything in between, cut it.
+
+10. Never describe what the product or service does in the title — unless using Formula 13. In most stories (Formulas 1–12), the product description belongs in the slides. The reader doesn't need to know what it does in the title. They need to feel they have to find out. What makes the founder's existence feel impossible belongs in the title; what the product does belongs in slide 3.
+
+EXCEPTION — Formula 13 only: when the concept itself is so bizarre or counterintuitive that it stops a scroll on its own ("This startup wants to pay people $800 a day to bully AI chatbots"), the concept IS the hook. Formula 13 titles describe the action or offer because that IS the point. But this only applies when the concept is genuinely strange enough to cause a "wait, what?" reaction without any founder backstory.
+
+BAD (Formula 1–12 story): "These 3 teenagers built a startup in their bedroom that lets McDonald's and EY replace focus groups with AI — now it's worth $1B"
+WHY: explains the product in a founder story where the age and outcome are the real hook. "Focus groups" is also jargon.
+GOOD: "These 3 teenagers built a $1B startup in their bedroom — one of them was just 15 years old"
+WHY: identity → outcome → amplifier. Product is irrelevant to the hook.
 
 ---
 
 OUTPUT — GENERATING TITLES:
-Present exactly 5 synthesis titles as a plain numbered list. Title text only — no formula names, no scores, no rationale, no markdown symbols. Then ask the user to pick one, suggest a combination, or request alternatives.
-
-OUTPUT — WHEN USER CONFIRMS A TITLE:
-When the user picks a title (by number, by text, by saying "use that one", "go with X", or by typing their own version), respond with ONLY this single line and nothing else:
+Do not show any titles to the user. Generate 5 synthesis titles internally, score them, then immediately respond with ONLY this single line using the top-scoring title:
 TITLE_CONFIRMED: [exact title text here]
-Do not add any explanation, congratulation, or next-step message. Just that one line.`;
+No list, no scores shown, no preamble, no question. Just that one line.
+
+OUTPUT — WHEN USER OVERRIDES A TITLE:
+If the user provides their own title text or asks to change the title, respond with ONLY this single line:
+TITLE_CONFIRMED: [exact title text here]
+Do not add any explanation or next-step message. Just that one line.`;
 
   // ── STATE ───────────────────────────────────────────────
   let apiMessages = [];
@@ -1502,6 +1473,7 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
   let workflowPhase = 'idle'; // 'idle' | 'titles' | 'slides'
   let currentArticleUrl = '';
   let isLoading = false;
+  let pendingConfirmedTitle = null;
 
   // ── AUTH ────────────────────────────────────────────────
   // Pre-fill saved API key on load
@@ -1547,7 +1519,11 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
       const num = parseInt(matches[i][1]);
       const contentStart = matches[i].index + matches[i][0].length;
       const contentEnd = i + 1 < matches.length ? matches[i + 1].index : trimmed.length;
-      const slideText = trimmed.slice(contentStart, contentEnd).trim();
+      let slideText = trimmed.slice(contentStart, contentEnd).trim();
+      // Strip any trailing separator or follow-up prose the model appends after the last slide
+      slideText = slideText.replace(/\s*---[\s\S]*$/, '').trim();
+      // Also strip trailing lines that look like meta-commentary (questions, sign-offs, notes)
+      slideText = slideText.replace(/\n\n[^\n]*(?:\?|Let me know|Happy with|Any tweaks|Feel free|Here's|Note:)[^\n]*$/i, '').trim();
       if (slideText) slides.push({ number: num, text: slideText });
     }
 
@@ -1655,11 +1631,12 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
   function finalizeMessage(el, text) {
     // Title phase
     if (workflowPhase === 'titles') {
-      // Model signals a confirmed title — auto-transition to slides silently
-      if (text.trim().startsWith('TITLE_CONFIRMED:')) {
-        const confirmed = text.trim().replace(/^TITLE_CONFIRMED:\s*/, '').trim();
-        el.remove(); // hide the model's bare marker line
-        handleTitleConfirm(confirmed);
+      // Model signals a confirmed title — store it and let callTitlesAPI trigger the handoff
+      // after callStreamingAPI fully completes (isLoading will be false by then)
+      const confirmMatch = text.match(/^TITLE_CONFIRMED:\s*(.+)$/m);
+      if (confirmMatch) {
+        pendingConfirmedTitle = confirmMatch[1].trim();
+        el.remove();
         return;
       }
       // New list of titles — render as interactive cards
@@ -1863,9 +1840,9 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
   }
 
   // ── API CALL ────────────────────────────────────────────
-  async function callTitlesAPI() {
+  async function callStreamingAPI({ system, messages, maxTokens, statusMsg = 'Generating…' }) {
     setLoading(true);
-    setStatus('Generating titles…', 'active');
+    setStatus(statusMsg, 'active');
 
     const streamEl = addStreamingMessage();
     let fullText = '';
@@ -1881,9 +1858,9 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
         },
         body: JSON.stringify({
           model: CONFIG.model,
-          max_tokens: 1200,
-          system: TITLE_PROMPT,
-          messages: titleMessages,
+          max_tokens: maxTokens,
+          system,
+          messages,
           tools: [{ type: 'web_search_20250305', name: 'web_search' }],
           stream: true
         })
@@ -1899,7 +1876,6 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
       const decoder = new TextDecoder();
       let buffer = '';
       let contentBlocks = [];
-      let activeBlockIdx = -1;
 
       while (true) {
         const { done, value } = await reader.read();
@@ -1917,23 +1893,20 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
             const evt = JSON.parse(data);
 
             if (evt.type === 'content_block_start') {
-              activeBlockIdx = evt.index;
               const blockType = evt.content_block?.type;
               if (blockType === 'text') {
-                contentBlocks[activeBlockIdx] = { type: 'text', text: '' };
+                contentBlocks[evt.index] = { type: 'text', text: '' };
               } else if (blockType === 'tool_use') {
-                contentBlocks[activeBlockIdx] = { type: 'tool_use', id: evt.content_block.id, name: evt.content_block.name, input: {} };
+                contentBlocks[evt.index] = { type: 'tool_use', id: evt.content_block.id, name: evt.content_block.name, input: {} };
                 setStatus('Researching article…', 'active');
               }
             }
 
-            if (evt.type === 'content_block_delta') {
-              if (evt.delta?.type === 'text_delta') {
-                const chunk = evt.delta.text;
-                fullText += chunk;
-                if (contentBlocks[evt.index]) contentBlocks[evt.index].text += chunk;
-                updateStreaming(streamEl, fullText);
-              }
+            if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta') {
+              const chunk = evt.delta.text;
+              fullText += chunk;
+              if (contentBlocks[evt.index]) contentBlocks[evt.index].text += chunk;
+              updateStreaming(streamEl, fullText);
             }
           } catch(e) {}
         }
@@ -1942,135 +1915,41 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
       finalizeMessage(streamEl, fullText);
 
       const assistantContent = contentBlocks.filter(Boolean);
-      titleMessages.push({
+      const assistantMsg = {
         role: 'assistant',
         content: assistantContent.length === 1 && assistantContent[0].type === 'text'
           ? assistantContent[0].text
           : assistantContent
-      });
+      };
 
       setStatus('Ready', 'idle');
+      return assistantMsg;
 
     } catch (err) {
       const bubble = streamEl.querySelector('.msg-bubble');
       if (bubble) { bubble.textContent = `Error: ${err.message}`; bubble.style.color = '#FF3C3A'; }
       setStatus('Error — check console', 'error');
       console.error('Founded API error:', err);
+      return null;
+    } finally {
+      setLoading(false);
     }
+  }
 
-    setLoading(false);
+  async function callTitlesAPI() {
+    pendingConfirmedTitle = null;
+    const msg = await callStreamingAPI({ system: TITLE_PROMPT, messages: titleMessages, maxTokens: 1200, statusMsg: 'Generating titles…' });
+    if (msg) titleMessages.push(msg);
+    if (pendingConfirmedTitle) {
+      const title = pendingConfirmedTitle;
+      pendingConfirmedTitle = null;
+      await handleTitleConfirm(title);
+    }
   }
 
   async function callAPI() {
-    setLoading(true);
-    setStatus('Generating…', 'active');
-
-    const streamEl = addStreamingMessage();
-    let fullText = '';
-
-    try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-          'x-api-key': CONFIG.apiKey,
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-access': 'true'
-        },
-        body: JSON.stringify({
-          model: CONFIG.model,
-          max_tokens: CONFIG.maxTokens,
-          system: SYSTEM_PROMPT,
-          messages: apiMessages,
-          tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-          stream: true
-        })
-      });
-
-      if (!res.ok) {
-        let errMsg = `API error ${res.status}`;
-        try { const j = await res.json(); errMsg = j.error?.message || errMsg; } catch(e) {}
-        throw new Error(errMsg);
-      }
-
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer = '';
-      // Track all content blocks so the assistant message stored in history
-      // is the full content array (required when tool_use blocks are present)
-      let contentBlocks = [];
-      let activeBlockIdx = -1;
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
-        buffer = lines.pop();
-
-        for (const line of lines) {
-          if (!line.startsWith('data: ')) continue;
-          const data = line.slice(6).trim();
-          if (data === '[DONE]') continue;
-          try {
-            const evt = JSON.parse(data);
-
-            // New content block starting
-            if (evt.type === 'content_block_start') {
-              activeBlockIdx = evt.index;
-              const blockType = evt.content_block?.type;
-              if (blockType === 'text') {
-                contentBlocks[activeBlockIdx] = { type: 'text', text: '' };
-              } else if (blockType === 'tool_use') {
-                contentBlocks[activeBlockIdx] = {
-                  type: 'tool_use',
-                  id: evt.content_block.id,
-                  name: evt.content_block.name,
-                  input: {}
-                };
-                setStatus('Researching article…', 'active');
-              }
-            }
-
-            // Content delta
-            if (evt.type === 'content_block_delta') {
-              if (evt.delta?.type === 'text_delta') {
-                const chunk = evt.delta.text;
-                fullText += chunk;
-                if (contentBlocks[evt.index]) contentBlocks[evt.index].text += chunk;
-                updateStreaming(streamEl, fullText);
-              }
-              // input_json_delta is for tool inputs — ignore for display
-            }
-          } catch(e) {}
-        }
-      }
-
-      finalizeMessage(streamEl, fullText);
-
-      // Store the full content array in history (handles tool_use blocks correctly)
-      const assistantContent = contentBlocks.filter(Boolean);
-      apiMessages.push({
-        role: 'assistant',
-        content: assistantContent.length === 1 && assistantContent[0].type === 'text'
-          ? assistantContent[0].text
-          : assistantContent
-      });
-
-      setStatus('Ready', 'idle');
-
-    } catch (err) {
-      const bubble = streamEl.querySelector('.msg-bubble');
-      if (bubble) {
-        bubble.textContent = `Error: ${err.message}`;
-        bubble.style.color = '#FF3C3A';
-      }
-      setStatus('Error — check console', 'error');
-      console.error('Founded API error:', err);
-    }
-
-    setLoading(false);
+    const msg = await callStreamingAPI({ system: SYSTEM_PROMPT, messages: apiMessages, maxTokens: CONFIG.maxTokens });
+    if (msg) apiMessages.push(msg);
   }
 
   // ── ACTIONS ─────────────────────────────────────────────
@@ -2082,6 +1961,7 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
     currentArticleUrl = url;
     titleMessages = [];
     apiMessages = [];
+    pendingConfirmedTitle = null;
 
     const conv = document.getElementById('conversation');
     conv.innerHTML = '';
@@ -2106,7 +1986,7 @@ Do not add any explanation, congratulation, or next-step message. Just that one 
       { role: 'user', content: `Here's the article: ${currentArticleUrl}` },
       {
         role: 'assistant',
-        content: `I've researched the article and generated title options. Here are 5 synthesis titles:\n\n1. ${titleText}\n\nWhich title would you like to use?`
+        content: `I've researched the article and selected the best title:\n\n${titleText}\n\nNow writing the full slide story using this as Slide 1.`
       },
       { role: 'user', content: `Use this title: ${titleText}` }
     ];
