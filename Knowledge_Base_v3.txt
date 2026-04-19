@@ -129,14 +129,6 @@ Slide 10: And with it, Hearn is reportedly set to make £400M (~$500m) from the 
 
 Slide 11: Not bad for a guy who started out digging holes in roads.
 
-### What to learn from this example:
-- Slide 2 does NOT reveal the outcome — just sets up the contrast (dyslexic kid vs. undefined future)
-- Slide 3 ends with a hook woven into the text: "Then came the line that would change his life forever..."
-- Slide 5 uses the Founded pivot: "For most, a win like that is enough to retire. Not for Hearn…"
-- Slide 6 transitions naturally from personal observation to market insight
-- The callback (Slide 11) mirrors the title perfectly
-- Numbers appear throughout: £214M, £13.8M, €1B, £400M
-
 ---
 
 ## GOLD-STANDARD EXAMPLE 2: ALEXANDER LITEPLO / RENTAHUMAN
@@ -165,15 +157,6 @@ Slide 10: When someone called it "dystopic as f**k," Liteplo replied: "lmao yep.
 Slide 11: It's messy, weird, and probably too early. But when asked what he actually hopes for, his answer was surprisingly human...
 
 Slide 12: "Before the singularity happens, I just want us to appreciate there's so much that humans can do that AI can't."
-
-### What to learn from this example:
-- Slide 2 is conceptual — it sets up the PROBLEM, not the person. This is a valid alternative to the person-first Slide 2.
-- Slide 4: "It took them a day and a half." — a number that stops you cold because of the contrast with the scale that follows.
-- Slide 6 is just ONE LINE. Slides can be very short when the content is punchy enough.
-- Slides 7–8 use escalating numbers as a transition device: 130 → 1,000 → 145,000 → 500,000
-- Slide 10 uses a real quote that captures personality
-- The story has personality and humour — it doesn't take itself too seriously
-- The ending is reflective and surprising, not triumphant
 
 ---
 
@@ -208,14 +191,6 @@ Slide 13: Forbes put him on their cover and called him "The Face of The American
 
 Slide 14: From a $2 room at the YMCA to a multibillion-dollar empire. Not bad for a kid who started out washing plates.
 
-### What to learn from this example:
-- Slide 2 is rich with specific sensory detail: "blizzard", "$500 in his pocket", "no idea what snow looked like", "$2 for a room"
-- Slide 3 is devastatingly short: "He thought he'd made it." — one line that reframes the $1.20/hour job
-- Slide 7: buying your former employer is a story beat so good it doesn't need embellishment
-- Slide 10: "Then Shahid did the thing dishwashers aren't supposed to do…" — the Founded "Then" turn at its best
-- The callback (Slide 14) echoes both the title and the YMCA detail from Slide 2
-- 14 slides because the story NEEDED 14 slides — every one earns its place
-
 ---
 
 ## GOLD-STANDARD EXAMPLE 4: DAMOLA ADAMOLEKUN / RED LOBSTER
@@ -246,13 +221,6 @@ Slide 11: Sales surged 40% in 2025. Traffic started climbing. For the first time
 Slide 12: Fortune put him on their inaugural 100 Most Powerful People in Business list. And when asked what comes next for Red Lobster…
 
 Slide 13: Damola said, "I think this is going to be the greatest comeback in the history of the restaurant industry."
-
-### What to learn from this example:
-- Slide 2 is longer than most (sets up the crisis BEFORE introducing the protagonist)
-- Slide 6 is just two sentences. Maximum impact.
-- Slide 10 uses a real quote for personality and humor — "No, because I know how to do math."
-- The ending uses a forward-looking quote instead of a callback — valid when the quote is strong enough
-- Numbers throughout: $1 billion debt, 93 locations, 35 years old, $1 billion revenue, 40%
 
 ---
 
@@ -285,13 +253,6 @@ Slide 12: It all started with a few plants outside his dad's office...
 
 Slide 13: And led back to where it all started, the choir. Malaki achieved his dream and became the church's first Black chief chorister in its 1,000-year history.
 
-### What to learn from this example:
-- The emotional arc is different here — it's heartwarming, not dramatic
-- Slide 4 is one of the best rhythm examples: "Rain, wind, and passing traffic. He was out there."
-- Slide 8: "employed by their 13-year-old son" — the contrast does the work
-- The story comes full circle: singing lessons → choir → first Black chief chorister in 1,000 years
-- Proves that not every Founded story needs a billion-dollar exit — the gap between start and finish just needs to be compelling
-
 ---
 
 ## GOLD-STANDARD EXAMPLE 6: KHABY LAME
@@ -323,13 +284,6 @@ Slide 12: From laid off… to near $1B… in six years.
 
 Slide 13: For creators, the lesson is clear... own the company, not just the content.
 
-### What to learn from this example:
-- Slide 3 is pure visual storytelling: "Palms up, shoulders lifted, he stares through the nonsense"
-- Slide 5 is the pivot line in its purest form: "Most creators just stop at brand deals. Not Khaby..."
-- Slide 10: "The wildest part?" — a one-line hook that's impossible to ignore
-- The callback (Slide 12) uses ellipses and the exact same contrast from the title
-- Slide 13 ends with a takeaway that feels earned, not preachy
-
 ---
 
 ## GOLD-STANDARD EXAMPLE 7: SHAYNE COPLAN / POLYMARKET
@@ -358,14 +312,6 @@ Slide 10: Billionaires from Figma's Dylan Field to Uber's Travis Kalanick pile i
 Slide 11: 5 years after founding, 1 year after the FBI raid, Shayne watched a Polymarket banner lift over the NYSE — "Against all odds."
 
 Slide 12: Critics call it gambling. Others call it the future.
-
-### What to learn from this example:
-- Slide 2 goes BACK in time from the title — "Before the FBI and billion dollar deals, he was just a teenager..."
-- Slide 6 has the Founded pivot with a twist: "For most that would've been game over. For Shayne, it was just level one."
-- Slide 7 is deliberately longer because it covers a rapid sequence of events — pace matches content
-- Slide 9 uses visual contrast: "Suit-and-tie NYSE boss" vs. "mop-haired founder in a T-shirt with a bagel bag"
-- Slide 12 ends with a two-sided statement, no CTA — lets the reader decide. The CTA would go on a separate final slide.
-- Name drops throughout: CFTC, FBI, Jeff Sprecher, NYSE, Dylan Field, Travis Kalanick
 
 ---
 
