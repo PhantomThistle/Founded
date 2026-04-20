@@ -835,7 +835,7 @@
 <script>
   // ── CONFIG ─────────────────────────────────────────────
   const CONFIG = {
-    apiKey: 'YOUR_API_KEY_HERE',
+    apiKey: '',
     model: 'claude-sonnet-4-6',
     username: 'alex123',
     password: 'alex123',
@@ -1848,13 +1848,10 @@ Do not add any explanation or next-step message. Just that one line.`;
     let fullText = '';
 
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const res = await fetch('/api/claude', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          'x-api-key': CONFIG.apiKey,
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-access': 'true'
         },
         body: JSON.stringify({
           model: CONFIG.model,
