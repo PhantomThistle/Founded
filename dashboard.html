@@ -872,6 +872,8 @@ WORKFLOW (never skip, never jump ahead):
 Reset: on "Restart entire workflow" or equivalent, forget all context and restart.
 
 PHASE 1 — SILENT RESEARCH (invisible to user, NO output)
+FIRST ACTION — search the article URL directly before doing anything else. Paste the full URL as your search query to retrieve the specific story, founder, and facts the article covers. This is your anchor. The story you write must be the story in that article — not a different story about the same person, not the founder's older or more famous achievements, not a story from training data. If the URL search returns no results, search for the article headline. Establish the correct story before any other research.
+
 Silently: identify the founder from user input. Use tools to research deeply. Set word_count=30. Identify multiple narrative angles; compare on drama, stakes, transformation gap, available proof, uniqueness. Select the single most compelling core_story. Extract: characters, conflict, turning points, outcome, big numbers, investors, transformations.
 
 For creator, athlete, or celebrity stories: map the FULL career arc before selecting an angle. Do not treat the most recent or most famous business achievement as the automatic core story. Research every major chapter — group collaborations, collectives, earlier ventures, platform-building eras — and include any that generated significant audience, revenue, or cultural impact. A chapter that produced 155M combined subscribers or raised £4.7M at Wembley is never a footnote, no matter how large the headline that follows. The business payoff is the end of the story, not the whole story.
@@ -1270,6 +1272,7 @@ Slide 12: Critics call it gambling. Others call it the future.
   const TITLE_PROMPT = `You generate title options for Instagram founder story posts for the brand FOUNDED.
 
 RESEARCH RULE: Before generating any titles, you must run ALL of the following web_search calls in sequence — do not skip any:
+0. Search the article URL directly as your first action — paste the full URL as the search query. This retrieves the specific story, founder, company, and facts the article covers. Read the results carefully. Extract: the exact founder name, the exact company name, and the specific story angle this article is about. Everything that follows must relate to THIS article and THIS founder only. Do not research a different story about the same person, do not substitute an older or more famous story, do not rely on what you already know about this person from training data. The article is the anchor. If the search returns no useful results for the URL, search for the article headline instead.
 1. "[founder name] net worth biography" — establish who they are and their background
 2. "[company name] funding valuation revenue" — get the hard financial numbers
 3. "[founder name] [company name] founding story" — get the origin and early-life details
@@ -1982,7 +1985,7 @@ Do not add any explanation or next-step message. Just that one line.`;
 
   async function callTitlesAPI() {
     pendingConfirmedTitle = null;
-    const msg = await callStreamingAPI({ system: TITLE_PROMPT, messages: titleMessages, maxTokens: 1200, statusMsg: 'Generating titles…' });
+    const msg = await callStreamingAPI({ system: TITLE_PROMPT, messages: titleMessages, maxTokens: 2500, statusMsg: 'Generating titles…' });
     if (msg) titleMessages.push(msg);
     if (pendingConfirmedTitle) {
       const title = pendingConfirmedTitle;
@@ -2010,7 +2013,7 @@ Do not add any explanation or next-step message. Just that one line.`;
     const conv = document.getElementById('conversation');
     conv.innerHTML = '';
 
-    const userMsg = `Here's the article: ${url}`;
+    const userMsg = `Here's the article to cover: ${url}\n\nSearch this URL first to identify the exact story, founder, and company. Write titles about this specific article only.`;
     titleMessages.push({ role: 'user', content: userMsg });
     addUserMessage(userMsg);
 
@@ -2031,8 +2034,7 @@ Do not add any explanation or next-step message. Just that one line.`;
       {
         role: 'assistant',
         content: `I've researched the article and selected the best title:\n\n${titleText}\n\nNow writing the full slide story using this as Slide 1.`
-      },
-      { role: 'user', content: `Use this title: ${titleText}` }
+      }
     ];
 
     await callAPI();
