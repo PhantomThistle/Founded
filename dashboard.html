@@ -2034,7 +2034,8 @@ Do not add any explanation or next-step message. Just that one line.`;
       {
         role: 'assistant',
         content: `I've researched the article and selected the best title:\n\n${titleText}\n\nNow writing the full slide story using this as Slide 1.`
-      }
+      },
+      { role: 'user', content: `Use this title: ${titleText}` }
     ];
 
     await callAPI();
