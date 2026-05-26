@@ -1890,110 +1890,136 @@ Do not add any explanation or next-step message. Just that one line.`;
 
   // ── API CALL ────────────────────────────────────────────
   async function callStreamingAPI({ system, messages, maxTokens, statusMsg = 'Generating…' }) {
+    const MAX_ATTEMPTS = 3;
+    const RETRY_DELAY_MS = 3000;
+
     setLoading(true);
-    setStatus(statusMsg, 'active');
-
-    const streamEl = addStreamingMessage();
-    let fullText = '';
-
     document.getElementById('reset-btn').style.display = 'none';
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 90000);
 
-    try {
-      const onNetlify = window.location.protocol !== 'file:' && !window.location.hostname.includes('localhost');
-      const apiUrl = onNetlify ? '/api/claude' : 'https://api.anthropic.com/v1/messages';
-      const apiHeaders = onNetlify
-        ? { 'content-type': 'application/json' }
-        : { 'content-type': 'application/json', 'x-api-key': CONFIG.apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' };
+    const onNetlify = window.location.protocol !== 'file:' && !window.location.hostname.includes('localhost');
+    const apiUrl = onNetlify ? '/api/claude' : 'https://api.anthropic.com/v1/messages';
+    const apiHeaders = onNetlify
+      ? { 'content-type': 'application/json' }
+      : { 'content-type': 'application/json', 'x-api-key': CONFIG.apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' };
 
-      const res = await fetch(apiUrl, {
-        method: 'POST',
-        headers: apiHeaders,
-        signal: controller.signal,
-        body: JSON.stringify({
-          model: CONFIG.model,
-          max_tokens: maxTokens,
-          system,
-          messages,
-          tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-          stream: true
-        })
-      });
+    let streamEl = null;
+    let lastErr = null;
 
-      if (!res.ok) {
-        let errMsg = `API error ${res.status}`;
-        try { const j = await res.json(); errMsg = j.error?.message || errMsg; } catch(e) {}
-        throw new Error(errMsg);
-      }
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      // Remove previous failed bubble before retrying
+      if (streamEl) { streamEl.remove(); streamEl = null; }
 
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer = '';
-      let contentBlocks = [];
+      setStatus(attempt === 1 ? statusMsg : `Retrying… (attempt ${attempt} of ${MAX_ATTEMPTS})`, 'active');
+      streamEl = addStreamingMessage();
+      let fullText = '';
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 90000);
 
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
-        buffer = lines.pop();
+      try {
+        const res = await fetch(apiUrl, {
+          method: 'POST',
+          headers: apiHeaders,
+          signal: controller.signal,
+          body: JSON.stringify({
+            model: CONFIG.model,
+            max_tokens: maxTokens,
+            system,
+            messages,
+            tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+            stream: true
+          })
+        });
 
-        for (const line of lines) {
-          if (!line.startsWith('data: ')) continue;
-          const data = line.slice(6).trim();
-          if (data === '[DONE]') continue;
-          try {
-            const evt = JSON.parse(data);
+        if (!res.ok) {
+          let errMsg = `API error ${res.status}`;
+          try { const j = await res.json(); errMsg = j.error?.message || errMsg; } catch(e) {}
+          const err = new Error(errMsg);
+          err.status = res.status;
+          throw err;
+        }
 
-            if (evt.type === 'content_block_start') {
-              const blockType = evt.content_block?.type;
-              if (blockType === 'text') {
-                contentBlocks[evt.index] = { type: 'text', text: '' };
-              } else if (blockType === 'tool_use') {
-                contentBlocks[evt.index] = { type: 'tool_use', id: evt.content_block.id, name: evt.content_block.name, input: {} };
-                setStatus('Researching article…', 'active');
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        let contentBlocks = [];
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split('\n');
+          buffer = lines.pop();
+
+          for (const line of lines) {
+            if (!line.startsWith('data: ')) continue;
+            const data = line.slice(6).trim();
+            if (data === '[DONE]') continue;
+            try {
+              const evt = JSON.parse(data);
+
+              if (evt.type === 'content_block_start') {
+                const blockType = evt.content_block?.type;
+                if (blockType === 'text') {
+                  contentBlocks[evt.index] = { type: 'text', text: '' };
+                } else if (blockType === 'tool_use') {
+                  contentBlocks[evt.index] = { type: 'tool_use', id: evt.content_block.id, name: evt.content_block.name, input: {} };
+                  setStatus('Researching article…', 'active');
+                }
               }
-            }
 
-            if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta') {
-              const chunk = evt.delta.text;
-              fullText += chunk;
-              if (contentBlocks[evt.index]) contentBlocks[evt.index].text += chunk;
-              updateStreaming(streamEl, fullText);
-            }
-          } catch(e) {}
+              if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta') {
+                const chunk = evt.delta.text;
+                fullText += chunk;
+                if (contentBlocks[evt.index]) contentBlocks[evt.index].text += chunk;
+                updateStreaming(streamEl, fullText);
+              }
+            } catch(e) {}
+          }
+        }
+
+        clearTimeout(timeoutId);
+        finalizeMessage(streamEl, fullText);
+
+        const assistantContent = contentBlocks.filter(Boolean);
+        const assistantMsg = {
+          role: 'assistant',
+          content: assistantContent.length === 1 && assistantContent[0].type === 'text'
+            ? assistantContent[0].text
+            : assistantContent
+        };
+
+        setStatus('Ready', 'idle');
+        setLoading(false);
+        return assistantMsg;
+
+      } catch (err) {
+        clearTimeout(timeoutId);
+        lastErr = err;
+        console.error(`Founded API error (attempt ${attempt}):`, err);
+
+        // Don't retry on client errors (4xx except 429 rate-limit)
+        const status = err.status || 0;
+        const isClientError = status >= 400 && status < 500 && status !== 429;
+        if (isClientError) break;
+
+        // Wait before next retry (skip wait on last attempt)
+        if (attempt < MAX_ATTEMPTS) {
+          await new Promise(r => setTimeout(r, RETRY_DELAY_MS));
         }
       }
-
-      finalizeMessage(streamEl, fullText);
-
-      const assistantContent = contentBlocks.filter(Boolean);
-      const assistantMsg = {
-        role: 'assistant',
-        content: assistantContent.length === 1 && assistantContent[0].type === 'text'
-          ? assistantContent[0].text
-          : assistantContent
-      };
-
-      clearTimeout(timeoutId);
-      setStatus('Ready', 'idle');
-      return assistantMsg;
-
-    } catch (err) {
-      clearTimeout(timeoutId);
-      const isTimeout = err.name === 'AbortError';
-      const msg = isTimeout ? 'Request timed out after 90 seconds — try again.' : `Error: ${err.message}`;
-      const bubble = streamEl.querySelector('.msg-bubble');
-      if (bubble) { bubble.textContent = msg; bubble.style.color = '#FF3C3A'; }
-      setStatus(isTimeout ? 'Timed out — click Reset to retry' : 'Error — click Reset to retry', 'error');
-      document.getElementById('reset-btn').style.display = 'inline-flex';
-      console.error('Founded API error:', err);
-      return null;
-    } finally {
-      setLoading(false);
     }
+
+    // All attempts failed — show error and unlock UI
+    const isTimeout = lastErr?.name === 'AbortError';
+    const errMsg = isTimeout ? 'Timed out after 90s — all retries failed.' : `Error: ${lastErr?.message}`;
+    const bubble = streamEl?.querySelector('.msg-bubble');
+    if (bubble) { bubble.textContent = errMsg; bubble.style.color = '#FF3C3A'; }
+    setStatus('Failed — click Reset to unlock', 'error');
+    document.getElementById('reset-btn').style.display = 'inline-flex';
+    setLoading(false);
+    return null;
   }
 
   async function callTitlesAPI() {
