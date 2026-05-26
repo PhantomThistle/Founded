@@ -799,6 +799,9 @@
           <div class="status-dot" id="status-dot"></div>
           <div id="status-label">Idle — paste a URL to begin</div>
         </div>
+        <button id="reset-btn" onclick="handleReset()" style="display:none;margin-top:10px;width:100%;padding:8px 0;background:rgba(255,60,58,0.15);color:#FF3C3A;border:1px solid rgba(255,60,58,0.3);border-radius:8px;font-size:12px;cursor:pointer;align-items:center;justify-content:center;gap:6px;">
+          ↺ Reset &amp; Unlock
+        </button>
       </div>
     </div>
 
@@ -1893,6 +1896,10 @@ Do not add any explanation or next-step message. Just that one line.`;
     const streamEl = addStreamingMessage();
     let fullText = '';
 
+    document.getElementById('reset-btn').style.display = 'none';
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 90000);
+
     try {
       const onNetlify = window.location.protocol !== 'file:' && !window.location.hostname.includes('localhost');
       const apiUrl = onNetlify ? '/api/claude' : 'https://api.anthropic.com/v1/messages';
@@ -1903,12 +1910,13 @@ Do not add any explanation or next-step message. Just that one line.`;
       const res = await fetch(apiUrl, {
         method: 'POST',
         headers: apiHeaders,
+        signal: controller.signal,
         body: JSON.stringify({
           model: CONFIG.model,
           max_tokens: maxTokens,
           system,
           messages,
-          tools: [{ type: 'web_search_20260209', name: 'web_search' }],
+          tools: [{ type: 'web_search_20250305', name: 'web_search' }],
           stream: true
         })
       });
@@ -1969,13 +1977,18 @@ Do not add any explanation or next-step message. Just that one line.`;
           : assistantContent
       };
 
+      clearTimeout(timeoutId);
       setStatus('Ready', 'idle');
       return assistantMsg;
 
     } catch (err) {
+      clearTimeout(timeoutId);
+      const isTimeout = err.name === 'AbortError';
+      const msg = isTimeout ? 'Request timed out after 90 seconds — try again.' : `Error: ${err.message}`;
       const bubble = streamEl.querySelector('.msg-bubble');
-      if (bubble) { bubble.textContent = `Error: ${err.message}`; bubble.style.color = '#FF3C3A'; }
-      setStatus('Error — check console', 'error');
+      if (bubble) { bubble.textContent = msg; bubble.style.color = '#FF3C3A'; }
+      setStatus(isTimeout ? 'Timed out — click Reset to retry' : 'Error — click Reset to retry', 'error');
+      document.getElementById('reset-btn').style.display = 'inline-flex';
       console.error('Founded API error:', err);
       return null;
     } finally {
@@ -2078,6 +2091,13 @@ Do not add any explanation or next-step message. Just that one line.`;
       apiMessages.push({ role: 'user', content: text });
       await callAPI();
     }
+  }
+
+  function handleReset() {
+    isLoading = false;
+    setLoading(false);
+    setStatus('Reset — ready to try again', 'idle');
+    document.getElementById('reset-btn').style.display = 'none';
   }
 
   function handleNewStory() {
