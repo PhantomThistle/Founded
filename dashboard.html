@@ -1576,14 +1576,14 @@ Do not add any explanation or next-step message. Just that one line.`;
       if (slideText) slides.push({ number: num, text: slideText });
     }
 
-    return slides.length >= 3 ? { slides, preamble } : null;
+    return slides.length >= 1 ? { slides, preamble } : null;
   }
 
   // Parse a numbered title list from text. Returns array of title strings or null.
   function parseTitles(text) {
     const regex = /^\d+\.\s+(.+)$/gm;
     const matches = [...text.matchAll(regex)];
-    if (matches.length < 3) return null;
+    if (matches.length < 1) return null;
     return matches.map(m => m[1].trim());
   }
 
@@ -1889,7 +1889,7 @@ Do not add any explanation or next-step message. Just that one line.`;
   }
 
   // ── API CALL ────────────────────────────────────────────
-  async function callStreamingAPI({ system, messages, maxTokens, statusMsg = 'Generating…' }) {
+  async function callStreamingAPI({ system, messages, maxTokens, statusMsg = 'Generating…', timeoutMs = 150000 }) {
     const MAX_ATTEMPTS = 3;
     const RETRY_DELAY_MS = 3000;
 
@@ -1914,7 +1914,7 @@ Do not add any explanation or next-step message. Just that one line.`;
       let fullText = '';
 
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 90000);
+      const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
       try {
         const res = await fetch(apiUrl, {
@@ -2065,6 +2065,7 @@ Do not add any explanation or next-step message. Just that one line.`;
     workflowPhase = 'slides';
 
     addUserMessage(`Use this title: ${titleText}`);
+    setStatus('Title confirmed — writing slides…', 'active');
 
     // Bootstrap the slides conversation so the model sees title selection as already complete.
     // This prevents it from restarting the workflow from Phase 1.
