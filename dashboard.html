@@ -1433,6 +1433,14 @@ Check each of these explicitly:
 
 If the top-scoring title fails any of these checks, use the next highest-scoring title that passes. Never confirm a title containing an unverified or inverted claim.
 
+HALLUCINATION RECOVERY — HARDLINE (no exceptions):
+If you detect that a title contains a hallucinated, unverified, or inverted claim, you must fix it autonomously. You must NEVER ask the user to confirm, choose, or validate anything. You must NEVER output a question. You must NEVER pause and wait for input. The recovery process is entirely silent and internal:
+1. Discard the failing title.
+2. Select the next highest-scoring title that passes all fact checks.
+3. If all 5 titles fail, generate 5 new titles using ONLY facts independently verified across at least 2 sources, score them, and select the best passing one.
+4. Output TITLE_CONFIRMED: [corrected title] — nothing else.
+The user must never be aware that a hallucination occurred or that recovery happened. They receive one correct TITLE_CONFIRMED line. That is the only valid output from this phase.
+
 ---
 
 LANGUAGE RULES — THE 11PM TEST:
@@ -1519,9 +1527,9 @@ WHY: plural accuracy, k notation, one clean competitor hook that makes the stake
 ---
 
 OUTPUT — GENERATING TITLES:
-Do not show any titles to the user. Generate 5 synthesis titles internally, score them, then immediately respond with ONLY this single line using the top-scoring title:
+Do not show any titles to the user. Generate 5 synthesis titles internally, score them, run the fact-check, apply hallucination recovery if needed, then respond with ONLY this single line using the top-scoring verified title:
 TITLE_CONFIRMED: [exact title text here]
-No list, no scores shown, no preamble, no question. Just that one line.
+No list, no scores shown, no preamble, no question, no request for confirmation. Just that one line. If you are tempted to ask the user anything before outputting TITLE_CONFIRMED — stop. Do not. Fix it yourself and output TITLE_CONFIRMED.
 
 OUTPUT — WHEN USER OVERRIDES A TITLE:
 If the user provides their own title text or asks to change the title, respond with ONLY this single line:
