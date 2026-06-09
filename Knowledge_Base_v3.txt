@@ -315,6 +315,297 @@ Slide 12: Critics call it gambling. Others call it the future.
 
 ---
 
+## SENTENCE ARCHITECTURE — THE MOST IMPORTANT RULE
+
+The single biggest difference between correct and incorrect output is sentence length. The correct outputs are built from 3–8 word sentences. Most slides contain fragments. This is deliberate.
+
+**DEFAULT SENTENCE LENGTH: 3–8 words.**
+If your sentence does two jobs, split it into two sentences. If it does three, split it into three.
+
+- RIGHT: "Long hours. Small pay. No shortcuts."
+- WRONG: "He worked long hours for small pay with no shortcuts in sight."
+
+- RIGHT: "Crowds boo him out of buildings. / For most, that'd be the end. / Not for Johnson…"
+- WRONG: "Despite getting booed by crowds in his early WWE career, he persisted and eventually became one of the most famous entertainers in the world."
+
+Every line is a beat. Write it like you're telling the story out loud and pausing between each sentence.
+
+---
+
+## PRESENT TENSE IS THE DEFAULT FOR PAST EVENTS
+
+Tell past events in present tense. It creates immediacy. It pulls the reader into the scene.
+
+- RIGHT: "He lands back at his parents' apartment in Tampa, sinks into depression, stares at a future with no plan."
+- WRONG: "He landed back at his parents' apartment in Tampa, sank into depression, and stared at a future with no plan."
+
+- RIGHT: "Crowds boo him out of buildings."
+- WRONG: "Crowds booed him out of buildings."
+
+Apply this across all non-reflective slides. Only switch to past tense for reflective closes or when the current moment (today/now) is contrasted with the past.
+
+---
+
+## PIVOT PLACEMENT — PRECISION RULE
+
+The pivot ("For most, that'd be the end. Not for [Name]…") marks CHARACTER REVELATION — who this person is when things get hard.
+
+**Place it at the FIRST MAJOR SETBACK OVERCOME — not at peak achievement.**
+
+CORRECT: Johnson is booed out of WWE arenas in his first year. The pivot goes here. "For most, that'd be the end. Not for Johnson…"
+WRONG: Johnson has already become The Rock with $100M earnings. The pivot goes here. "For most, that would be the whole story." — Too late. The reader already knows he won. The tension is gone.
+
+Ask: at what moment would a normal person give up? Place the pivot there. That's when it reveals character.
+
+---
+
+## NUMBERS IN SLIDES — HOLD THEM BACK
+
+The title handles the biggest number. Slides 2–8 earn the right to reveal it through human story. Slides 9–10 deliver it.
+
+Do NOT front-load slides with financial figures. The journey is what makes the number meaningful.
+
+Save the hard numbers for the payoff phase. Let the person carry the early slides.
+
+---
+
+## CELEBRITY VALIDATION — OMIT IT
+
+Do not name-drop celebrities who used or endorsed the product to validate the story. The story is about the founder's journey. Celebrity validation dilutes the founder's own achievement.
+
+WRONG (Tatcha): "Meghan Markle used it. Selena Gomez. Jennifer Aniston."
+RIGHT (Tatcha): No celebrity names. The journey from broken skin to $500M sells itself.
+
+**Exception:** When the celebrity IS the anchor detail in the title and narrative (Jay-Z in Ronnie Fieg's story — he's in the title, the origin scene, and the credibility anchor). The celebrity is part of the story's architecture, not dropped in as social proof.
+
+---
+
+## COMPANY AND INSTITUTION NAMES — DESCRIBE FIRST
+
+Describe what a company or institution IS before (or instead of) naming it.
+
+- WRONG: "She joined Accel Partners as a partner." → RIGHT: "She joined one of Silicon Valley's most powerful investment firms."
+- WRONG: "He co-founded Aspect Ventures." → RIGHT: "She built her own investment firm."
+
+Name only what the general audience will instantly recognise (Apple, Google, McDonald's, YouTube, WWE). Everything else — describe it.
+
+---
+
+## THE OBSERVATIONAL DEVICE
+
+When the founder is in a humble setting (a job, a shop, an apartment), show their active mind:
+
+"But he was watching. Learning. Waiting for his moment…"
+"He's not just working. He's studying."
+"Studying what people buy, what they ignore, what makes them come back…"
+
+This creates a sense of inevitability — of course this person succeeded — and builds suspense for when the insight arrives.
+
+---
+
+## THE EMOTIONAL ANCHOR LINE
+
+Every story should contain one line so crystallised it could stand alone. Not always a fact — often an image or a reframe.
+
+"This club was family history with floodlights…"
+"with a twist too poetic to script, her daughter was born the very same day she launched Tatcha"
+"He didn't know it then, but that moment would define the rest of his life."
+
+When you find the emotional anchor, protect it. Give it a line of its own. Don't bury it between facts.
+
+---
+
+## BUILDING MOMENTUM THROUGH COMPRESSION
+
+Use short parallel lines to convey scale or sequence without slowing down:
+
+"New York to Miami. / Los Angeles to Tokyo…"
+"Nike. Adidas. Coca-Cola. Timberland."
+"Film after film, Johnson isn't just the star, he's the producer with a share of every dollar."
+
+These create a drumbeat — each item lands fast and the cumulative effect tells the story of scale.
+
+---
+
+## GOLD-STANDARD EXAMPLE 8: DWAYNE JOHNSON / SEVEN BUCKS
+Slides: 11 | Hook type: The Comeback + Callback Close
+
+Slide 1
+Dwayne Johnson was cut from the NFL with just $7 to his name. Today, he owns a $4.6B company called "Seven Bucks."
+
+Slide 2
+In 1995, a 23-year-old kid with a dream to play in the NFL gets cut by the Calgary Stampeders after just 2 months.
+In defeat, he flies home to Florida. Checks his wallet. Just $7 left.
+He didn't know it then, but that moment would define the rest of his life.
+
+Slide 3
+He lands back at his parents' apartment in Tampa, sinks into depression, and stares at a future with no plan.
+His football career was over before it even started.
+He was 22, broke, and living on his dad's sofa.
+Then with his Dad's help, he picks up the phone and calls a man named Vince McMahon.
+
+Slide 4
+Johnson went on to debut in the WWF in 1996, under the ring name Rocky Maivia.
+Crowds boo him out of buildings.
+For most, that'd be the end.
+Not for Johnson…
+
+Slide 5
+In 1997, he began referring to himself as "The Rock" and adopted a brash, sharp-tongued persona that caught on like wildfire among fans.
+By 1998, he's the WWF champion. By 2000, Hollywood came calling.
+
+Slide 6
+He hosted Saturday Night Live for the first time in 2000, and began getting acting offers from Hollywood studios.
+His first film, The Scorpion King, earned him $5.5M — a Guinness World Record for the highest salary for a debut lead role.
+
+Slide 7
+The money is big. But Johnson was still just a hired gun.
+Paid to show up, perform, and move on.
+Someone else owns everything he builds.
+For most actors, that deal is fine. But The Rock wasn't like most actors.
+
+Slide 8
+In 2012, he founded Seven Bucks Productions with his manager and ex-wife, Dany Garcia. The name is taken directly from that $7 moment in Florida — a reminder of exactly where the story started.
+
+Slide 9
+The slate builds fast. Jumanji. Red Notice. Jungle Cruise. Hobbs and Shaw. Film after film, Johnson isn't just the star, he's the producer with a share of every dollar the film earns.
+Between June 2017 and June 2018, he pulled in $125M. The highest-paid actor on the planet.
+
+Slide 10
+Seven Bucks' films gross $4.6B at the box office. Johnson's overall film total tops $11.4B worldwide.
+The company is now fully under the Walt Disney umbrella, with first-look deals covering both film and television.
+
+Slide 11
+Not bad for a 23-year-old who flew home from Calgary with $7 in his pocket.
+
+---
+
+## GOLD-STANDARD EXAMPLE 9: VICKY TSAI / TATCHA
+Slides: 12 | Hook type: Emotional Engine + Transformation
+
+Slide 1
+She sold her engagement ring to start a skincare brand.
+Now it's worth $500 million.
+
+Slide 2
+On paper, Vicky Tsai had everything.
+A top MBA.
+A high-paying job on Wall Street.
+The kind of life that looks impressive from the outside…
+
+Slide 3
+But behind the polish and prestige, stress was tearing her body apart.
+Her skin erupted into acute dermatitis so severe, she relied on daily steroids and antibiotics just to stop the flare-ups from consuming her face.
+
+Slide 4
+Days turned into months. Months turned into years.
+And nearly three years later, nothing was working.
+Then her life took a sudden turn.
+
+Slide 5
+Vicky fell pregnant. And with that came a new kind of urgency.
+She didn't just want to heal. She wanted to heal without risking her unborn child.
+
+Slide 6
+She tried everything. But nothing helped.
+With doctors telling her the damage to her face was irreversible.
+By 2009, she hit a breaking point.
+So she did something you wouldn't expect — without a plan, she quit her job.
+
+Slide 7
+Soon after, she travelled to Kyoto, Japan.
+There, she encountered something that would alter the course of her life.
+Not just skincare products. But a completely different way of life.
+
+Slide 8
+She discovered that treatment was care, not correction.
+A slow, intentional practice rooted in centuries of wisdom — not promises of overnight perfection.
+She couldn't believe this didn't exist back home. So she decided to build it herself.
+
+Slide 9
+After returning to the US, she got to work.
+She started the business with whatever she had — selling her engagement ring, working from her garage.
+And with a twist too poetic to script, her daughter was born the very same day she launched Tatcha.
+
+Slide 10
+But the climb was anything but easy.
+From Tatcha's 2010 launch through early 2019, Vicky led the company without taking a salary for the first nine years.
+
+Slide 11
+Then came the moment that changed everything.
+Unilever acquired Tatcha for a reported $500 million.
+
+Slide 12
+She didn't set out to build a $500 million company.
+She just set out to solve the pain she was living in every single day.
+
+---
+
+## GOLD-STANDARD EXAMPLE 10: TONY BLOOM / BRIGHTON
+Slides: 13 | Hook type: Identity Reveal + Transformation
+
+Slide 1
+MEET THE BILLIONAIRE POKER PRO WHO SAVED HIS BOYHOOD CLUB AND TOOK THEM TO THE PREMIER LEAGUE
+
+Slide 2
+In 2009, Tony Bloom bought 75% of his boyhood club Brighton and put in £80M.
+At the time they're in England's 3rd division, nowhere near the top flight.
+But Tony made the bet.
+
+Slide 3
+Long before the stadium and Premier League nights, Tony was just a kid from Brighton.
+Born in 1970. Raised in a family obsessed with the Seagulls.
+The club was in his blood…
+
+Slide 4
+He studies maths at the University of Manchester, where numbers click, and he develops an instinct for probability and patterns…
+
+Slide 5
+And in 2006, he builds a private betting operation powered by data, models, and relentless analysis.
+As a lifelong Brighton fan, Tony got thinking…
+
+Slide 6
+What if you applied that same logic, data, modelling and analysis to football?
+You'd recruit smarter. Spend sharper. Win more efficiently.
+For most owners, emotion clouds the judgement.
+For Bloom, the numbers cut through it.
+
+Slide 7
+So Bloom chases tiny advantages…
+
+Slide 8
+But this is not some cold data analysis story.
+Tony's grandfather had been Brighton's vice-chairman.
+His uncle was a director.
+This club was family history with floodlights…
+
+Slide 9
+So he personally funded a stadium and training ground for the club.
+The rescue turns into infrastructure — the kind that changes a club for decades…
+
+Slide 10
+And it paid off.
+First came promotion from the 3rd division in 2011.
+Then the biggest prize of all.
+In 2017, Brighton returned to the top flight after 34 years away…
+
+Slide 11
+Most hometown rescue stories end there.
+Not this one.
+Brighton stayed up, grew up, and became one of the smartest clubs in England…
+
+Slide 12
+By May 2025, Forbes values the club at $860M, roughly £655M.
+From third-tier uncertainty to one of the Premier League's most admired clubs.
+
+Slide 13
+He made his name reading odds.
+Then used that same brain to change his hometown club's fortunes.
+
+FOLLOW FOUNDED FOR MORE STORIES LIKE THIS.
+
+---
+
 ## COMMON MISTAKES TO AVOID
 
 1. **Bolted-on hooks**: "What happens next will surprise you..." or "Stay tuned..." — these kill the flow. The hook must be organic.
@@ -328,3 +619,9 @@ Slide 12: Critics call it gambling. Others call it the future.
 9. **Treating temporal signposts as hooks**: "Fast-forward to 2024…" is a transition device, not a hook. A hook is: "For most, that'd be enough. Not for [Name]…"
 10. **Same energy on every slide**: Vary the emotional register. Some slides should be punchy and fast. Some should breathe. Some should be just one devastating line.
 11. **Insider references that exclude the reader**: "Sand Hill Road", "magna cum laude", "Series A", "term sheet", "SoMa" — any word or phrase that requires specialist knowledge to understand breaks the spell. The reader should always feel inside the story, never outside it. Replace every insider reference with plain English: "Sand Hill Road" → "where Silicon Valley's biggest investors work", "magna cum laude" → "top of his class", "Series A" → "first major funding round". If you can't translate it simply, cut it.
+12. **Sentences that are too long**: If a sentence runs past 8 words, it almost certainly needs to be split. Two short sentences hit harder than one long one.
+13. **Past tense when present tense would create more drama**: "He landed back in Tampa" is flat. "He lands back in Tampa" pulls the reader into the scene. Default to present tense for all past events.
+14. **Pivot placed at peak achievement instead of at setback**: The pivot marks who this person is when things get hard — not when things are going well. Place it at the first major setback overcome, not at the moment of greatest success.
+15. **Celebrity name-dropping as social proof**: Naming celebrities who used the product to validate the story dilutes the founder's own achievement. The founder's journey is the story.
+16. **Naming companies and institutions the audience won't know**: "She joined Accel Partners" means nothing. "She joined one of Silicon Valley's most powerful investment firms" puts everyone inside the story. Describe what something IS before naming it — or instead of naming it.
+17. **Front-loading numbers into early slides**: The title establishes the big number. Slides 2–8 earn the right to deliver it through human story. Slides 9–10 pay it off.
