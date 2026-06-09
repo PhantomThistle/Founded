@@ -2298,12 +2298,11 @@ Do not add any explanation or next-step message. Just that one line.`;
         clearTimeout(timeoutId);
         finalizeMessage(streamEl, fullText);
 
-        const assistantContent = contentBlocks.filter(Boolean);
+        // Only store text content — tool_use blocks from web search must not be
+        // included in the message history or the API will reject subsequent calls.
         const assistantMsg = {
           role: 'assistant',
-          content: assistantContent.length === 1 && assistantContent[0].type === 'text'
-            ? assistantContent[0].text
-            : assistantContent
+          content: fullText
         };
 
         setStatus('Ready', 'idle');
@@ -2329,7 +2328,7 @@ Do not add any explanation or next-step message. Just that one line.`;
 
     // All attempts failed — show error and unlock UI
     const isTimeout = lastErr?.name === 'AbortError';
-    const errMsg = isTimeout ? 'Timed out after 90s — all retries failed.' : `Error: ${lastErr?.message}`;
+    const errMsg = isTimeout ? 'Timed out — all retries failed.' : `Error: ${lastErr?.message}`;
     const bubble = streamEl?.querySelector('.msg-bubble');
     if (bubble) { bubble.textContent = errMsg; bubble.style.color = '#FF3C3A'; }
     setStatus('Failed — click Reset to unlock', 'error');
