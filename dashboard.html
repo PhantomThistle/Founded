@@ -2006,7 +2006,7 @@ Do not add any explanation or next-step message. Just that one line.`;
       }
       // New list of titles — render as interactive cards
       const titles = parseTitles(text);
-      if (titles && titles.length >= 3) {
+      if (titles && titles.length >= 1) {
         renderTitleOptions(el, text, titles);
         return;
       }
@@ -2260,39 +2260,53 @@ Do not add any explanation or next-step message. Just that one line.`;
         let buffer = '';
         let contentBlocks = [];
 
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          buffer += decoder.decode(value, { stream: true });
-          const lines = buffer.split('\n');
-          buffer = lines.pop();
-
-          for (const line of lines) {
-            if (!line.startsWith('data: ')) continue;
-            const data = line.slice(6).trim();
-            if (data === '[DONE]') continue;
-            try {
-              const evt = JSON.parse(data);
-
-              if (evt.type === 'content_block_start') {
-                const blockType = evt.content_block?.type;
-                if (blockType === 'text') {
-                  contentBlocks[evt.index] = { type: 'text', text: '' };
-                } else if (blockType === 'tool_use') {
-                  contentBlocks[evt.index] = { type: 'tool_use', id: evt.content_block.id, name: evt.content_block.name, input: {} };
-                  setStatus('Researching article…', 'active');
-                }
-              }
-
-              if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta') {
-                const chunk = evt.delta.text;
-                fullText += chunk;
-                if (contentBlocks[evt.index]) contentBlocks[evt.index].text += chunk;
-                updateStreaming(streamEl, fullText);
-              }
-            } catch(e) {}
+        // Activity timeout: abort if no data received for 25 seconds mid-stream
+        let lastActivity = Date.now();
+        const activityCheck = setInterval(() => {
+          if (Date.now() - lastActivity > 25000) {
+            clearInterval(activityCheck);
+            controller.abort();
           }
+        }, 2000);
+
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            lastActivity = Date.now();
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split('\n');
+            buffer = lines.pop();
+
+            for (const line of lines) {
+              if (!line.startsWith('data: ')) continue;
+              const data = line.slice(6).trim();
+              if (data === '[DONE]') continue;
+              try {
+                const evt = JSON.parse(data);
+
+                if (evt.type === 'content_block_start') {
+                  const blockType = evt.content_block?.type;
+                  if (blockType === 'text') {
+                    contentBlocks[evt.index] = { type: 'text', text: '' };
+                  } else if (blockType === 'tool_use') {
+                    contentBlocks[evt.index] = { type: 'tool_use', id: evt.content_block.id, name: evt.content_block.name, input: {} };
+                    setStatus('Researching article…', 'active');
+                  }
+                }
+
+                if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta') {
+                  const chunk = evt.delta.text;
+                  fullText += chunk;
+                  if (contentBlocks[evt.index]) contentBlocks[evt.index].text += chunk;
+                  updateStreaming(streamEl, fullText);
+                }
+              } catch(e) {}
+            }
+          }
+        } finally {
+          clearInterval(activityCheck);
         }
 
         clearTimeout(timeoutId);
@@ -2339,7 +2353,7 @@ Do not add any explanation or next-step message. Just that one line.`;
 
   async function callTitlesAPI() {
     pendingConfirmedTitle = null;
-    const msg = await callStreamingAPI({ system: TITLE_PROMPT, messages: titleMessages, maxTokens: 2500, statusMsg: 'Generating titles…' });
+    const msg = await callStreamingAPI({ system: TITLE_PROMPT, messages: titleMessages, maxTokens: 2500, statusMsg: 'Generating titles…', timeoutMs: 60000 });
     if (msg) titleMessages.push(msg);
     if (pendingConfirmedTitle) {
       const title = pendingConfirmedTitle;
@@ -2349,7 +2363,7 @@ Do not add any explanation or next-step message. Just that one line.`;
   }
 
   async function callAPI() {
-    const msg = await callStreamingAPI({ system: SYSTEM_PROMPT, messages: apiMessages, maxTokens: CONFIG.maxTokens });
+    const msg = await callStreamingAPI({ system: SYSTEM_PROMPT, messages: apiMessages, maxTokens: CONFIG.maxTokens, timeoutMs: 90000 });
     if (msg) apiMessages.push(msg);
   }
 

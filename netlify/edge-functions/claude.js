@@ -21,6 +21,8 @@ export default async (request) => {
       headers: {
         'content-type': upstream.headers.get('content-type') ?? 'text/event-stream',
         'cache-control': 'no-cache',
+        'transfer-encoding': 'chunked',
+        'connection': 'keep-alive',
       },
     });
   } catch (err) {
