@@ -1998,7 +1998,7 @@ Do not add any explanation or next-step message. Just that one line.`;
     if (workflowPhase === 'titles') {
       // Model signals a confirmed title — store it and let callTitlesAPI trigger the handoff
       // after callStreamingAPI fully completes (isLoading will be false by then)
-      const confirmMatch = text.match(/^TITLE_CONFIRMED:\s*(.+)$/m);
+      const confirmMatch = text.match(/TITLE_CONFIRMED:\s*(.+)/);
       if (confirmMatch) {
         pendingConfirmedTitle = confirmMatch[1].trim();
         el.remove();
@@ -2260,10 +2260,11 @@ Do not add any explanation or next-step message. Just that one line.`;
         let buffer = '';
         let contentBlocks = [];
 
-        // Activity timeout: abort if no data received for 25 seconds mid-stream
+        // Activity timeout: abort if no data received for 45 seconds mid-stream
+        // (web searches can cause 5-10s silence per search × 6 searches = up to 60s)
         let lastActivity = Date.now();
         const activityCheck = setInterval(() => {
-          if (Date.now() - lastActivity > 25000) {
+          if (Date.now() - lastActivity > 45000) {
             clearInterval(activityCheck);
             controller.abort();
           }
