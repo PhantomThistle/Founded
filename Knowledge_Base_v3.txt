@@ -625,3 +625,338 @@ FOLLOW FOUNDED FOR MORE STORIES LIKE THIS.
 15. **Celebrity name-dropping as social proof**: Naming celebrities who used the product to validate the story dilutes the founder's own achievement. The founder's journey is the story.
 16. **Naming companies and institutions the audience won't know**: "She joined Accel Partners" means nothing. "She joined one of Silicon Valley's most powerful investment firms" puts everyone inside the story. Describe what something IS before naming it — or instead of naming it.
 17. **Front-loading numbers into early slides**: The title establishes the big number. Slides 2–8 earn the right to deliver it through human story. Slides 9–10 pay it off.
+
+---
+
+## THE THESIS CLOSE — END ON MEANING, NOT MONEY
+
+The final slide (before the CTA) should land as an idea, not a statistic or a witty detail.
+
+WRONG: "From $7 in a wallet to a $4.6B production company." — summary of facts, nothing to carry
+RIGHT: "He didn't just learn retail. He rewrote it." — thesis about who he became
+
+WRONG: "She built a $500M company from a garage." — fact
+RIGHT: "She didn't set out to build a $500 million company. She just set out to solve the pain she was living in every single day." — meaning
+
+Test: does the final slide give the reader something to carry away? A thesis close creates a takeaway. A facts close closes the browser tab.
+
+Escalating superlative variant: "Not just America's first female billionaire investor. The first in the history of the industry." — the second sentence expands the scope of the achievement. The reader re-reads it and the number gets bigger.
+
+---
+
+## THE CHRONOLOGICAL BUILD — NEVER LEAD WITH THE ENDING
+
+Start where the story starts. Build forward. Let the payoff arrive when it's earned.
+
+WRONG: Open with the peak moment, then rewind: "In 2025, King Charles invited him to the Royal Box for his 90th birthday. But let's rewind to 1956…"
+RIGHT: Open in 1956. Build through bus work, corner shop, wholesale, expansion, knighthood. The Royal Ascot moment arrives as the earned payoff.
+
+Why: The reader has no reason to invest in the journey if they already know the destination.
+
+Exception: Two-sentence Slide 1 for pure contrast stories — "She sold her engagement ring to start a skincare brand. / Now it's worth $500 million." This establishes the gap without revealing the full story. The HOW remains unknown.
+
+---
+
+## ESCALATION THROUGH REPETITION
+
+When something happens multiple times in sequence and the accumulation is the point, repeat the beat rather than listing or summarising.
+
+WRONG: "The limited-edition shoes sold out on multiple occasions between 2008 and 2011."
+RIGHT: "The shoes sell out. / Then another pair. / Then another."
+
+Each "then another" lands faster than the one before. The reader feels the acceleration. A list or summary cannot do this.
+
+---
+
+## CONTRADICTION FRAMING — DESCRIBE THE IMPOSSIBILITY, NOT THE ACHIEVEMENT
+
+When writing a breakthrough slide, don't just name the achievement. Name the gap between who they were and what they won.
+
+WRONG: "They landed Nike, Google, Amazon, Spotify, and Disney+."
+RIGHT: "They landed Nike, Google, Amazon, Spotify, and Disney+. / Brands a small UK agency had no business pitching to."
+
+"Had no business pitching to" makes the achievement feel impossible. The brand names alone are a list. The contradiction makes those names hit.
+
+How to apply: After naming the achievement, add a second line naming who should never have been able to win it. "A 23-year-old who had never managed a restaurant." "A two-man team from a bedroom in Brighton." "A company that didn't exist three years earlier."
+
+---
+
+## THE COMPANY NAME AS A STANDALONE REVEAL
+
+After the aha moment and the founding decision, hold the company name for the final beat of the slide — alone on its own line.
+
+WRONG: "They saw a gap in what we now call creator marketing. The moment they landed back in the UK, they registered the idea and called it Whalar."
+RIGHT: "They saw a gap in what we now call creator marketing. / The moment they landed back in the UK, they registered the idea.
+Whalar."
+
+The name drops as a full stop on the idea. The reader absorbs the setup first. The name lands with weight.
+
+When to use: At the founding/naming slide, when the company name is being introduced for the first time. Don't use if the name has already appeared earlier.
+
+---
+
+## INDUSTRY-AS-CHASER FRAMING
+
+At the acquisition or major validation beat, frame the event as the market arriving at the founder — not the founder arriving at the market.
+
+WRONG: "They accepted an acquisition offer from one of the world's biggest consulting firms."
+RIGHT: "And the industry had finally caught up."
+
+The first positions them as sellers. The second positions them as pioneers who were ahead of their time. Use this line (or a variation) immediately before naming the acquirer — it sets the tone before the fact lands.
+
+---
+
+## FRAGMENT ESCALATION — THE SECOND PUNCH
+
+After a strong factual claim, isolate the follow-on detail as its own fragment:
+
+WRONG: "They were named Agency of the Year three consecutive times."
+RIGHT: "Soon they were named Agency of the Year. Three years running."
+
+"Three years running." as a standalone fragment lands harder than a clause. The isolation signals that this detail is too important to share a sentence.
+
+Apply to: streaks, records, unexpected repeats. "Twice." "Back to back." "Before he turned 25."
+
+---
+
+## "THIS WEEK" — URGENCY MARKER FOR CURRENT-EVENT STORIES
+
+When a story culminates in a recent deal or announcement, open the slide with a time marker before the entity name:
+
+WRONG: "Accenture acquired Whalar's agency arm."
+RIGHT: "This week, Accenture — one of the world's largest consulting firms, $70B in annual revenue — acquired Whalar's agency arm."
+
+"This week" makes the story feel live. The reader is in the moment, not reading history.
+
+Inline appositive: When introducing an unfamiliar company, explain it in the same breath: "Accenture, one of the world's largest consulting firms, $70B in annual revenue." No separate slide needed — the credential lands without pausing the story.
+
+---
+
+## GOLD-STANDARD EXAMPLE 11: NEIL WALLER & JAMES STREET / WHALAR
+Slides: 11 | Hook type: Scale Shock + Industry-as-chaser close
+
+Slide 1
+Meet the college dropouts behind the biggest exit in creator economy history
+
+Slide 2
+In 2015, Neil Waller and James Street were on their 7th business together.
+Two serial builders. No clear direction.
+That was until they won an entrepreneurship competition, and were flown to Richard Branson's private island.
+
+Slide 3
+On the island, they spotted a pattern.
+Every successful business there had one thing in common — creators with loyal audiences were driving their sales.
+They saw a gap in what we now call creator marketing.
+The moment they landed back in the UK, they registered the idea.
+Whalar.
+
+Slide 4
+The idea was simple.
+Brands needed creators.
+Creators needed brands.
+Whalar would sit in the middle and make it happen properly, at global scale.
+
+Slide 5
+In the early days, nobody took creator marketing seriously.
+Traditional advertisers called it a fad.
+But Neil and James were bullish.
+They knew what others didn't.
+
+Slide 6
+It wasn't long before they landed Nike, Google, Amazon, Spotify, and Disney+.
+Brands a small UK agency had no business pitching to.
+Soon they were named Agency of the Year. Three years running.
+
+Slide 7
+Revenue grew to triple digits, year on year.
+By 2025, the Salesforce CEO and Shopify backed them at a $400M valuation.
+For most founders, that's the end of the story.
+Not for Neil and James.
+
+Slide 8
+They weren't building to sell.
+They were building to lead an industry that didn't exist yet.
+And the industry had finally caught up.
+
+Slide 9
+This week, Accenture — one of the world's largest consulting firms, $70B in annual revenue — acquired Whalar's agency arm.
+The largest creator economy deal ever done.
+
+Slide 10
+$600M in creator campaigns. 40+ countries. Tens of thousands of brand × creator partnerships.
+Now inside one of the most powerful firms on the planet.
+
+Slide 11
+Not bad for two dropouts everyone doubted.
+
+---
+
+## GOLD-STANDARD EXAMPLE 12: SIR ANWAR PERVEZ / BESTWAY
+Slides: 10 | Hook type: Identity Reveal + Transformation
+
+Slide 1
+This Pakistani immigrant went from a single corner shop to building a £4.5 billion global business empire
+
+Slide 2
+In 1956, a 21-year-old Anwar Pervez leaves Rawalpindi, Pakistan for Great Britain with little to no money in his pocket.
+Soon he was working on buses in Bradford, far from home.
+Chasing progress and a better life.
+
+Slide 3
+In Pakistan money was painfully tight.
+Bus work was progress.
+But Anwar wanted more from life than just a driver's seat…
+
+Slide 4
+Fast-forward seven years, it's 1963, and Anwar opens a small shop in West London selling masala and halal meat.
+But Anwar notices a problem fast.
+Whilst he's serving a small crowd, the high street had the majority of customers.
+
+Slide 5
+So he changes course.
+Not one shop. But ten.
+By the early 1970s, he opened 10 food stores across London, and quickly more opportunities began to reveal themselves…
+
+Slide 6
+He started to think less like a shopkeeper, and more like someone who supplies them.
+Wholesalers.
+So in 1976, he opened Bestway Wholesale in Acton — one warehouse that sold stock cheaper and served small shopkeepers better.
+The gamble starts paying off…
+
+Slide 7
+Through the 1980s and 1990s, warehouses spread across Britain.
+Later, the company expands with pharmacies, cement, banking and convenience stores.
+What began as one corner shop in London started turning into something much bigger.
+
+Slide 8
+By the year to June 2022, the group hits £4.5B.
+With more than 28,000 employees and 12M+ customers across the UK, Pakistan and the Middle East.
+Then comes another bold move…
+
+Slide 9
+Bestway buys the Co-op's pharmacy chain for £620M in 2014.
+Then completes its Costcutter takeover in 2021.
+In 2023, it also takes a roughly £200M stake in Sainsbury's…
+
+Slide 10
+The former bus worker is now Sir Anwar Pervez, knighted in 1999.
+In 2025, King Charles and Queen Camilla host him at Royal Ascot as he turns 90.
+And it all came from bus shifts in Bradford.
+
+FOLLOW FOUNDED FOR MORE STORIES LIKE THIS
+
+---
+
+## GOLD-STANDARD EXAMPLE 13: THERESIA GOUW
+Slides: 10 | Hook type: Identity Reveal + Escalating Superlative Close
+
+Slide 1
+This Indonesian refugee went from flipping burgers at Burger King to becoming America's first female billionaire investor
+
+Slide 2
+In 1971, a 3-year-old girl fled Indonesia with her family.
+They landed in a small town near Buffalo, New York, with almost nothing.
+Her name was Theresia Gouw.
+Nobody knew it yet, but she would change American finance forever.
+
+Slide 3
+Her father, a dentist back home, arrived in upstate New York washing dishes.
+Her mother waitressed.
+They rebuilt from zero — and made sure their daughter saw exactly what that took.
+
+Slide 4
+Determined to make her parents proud, she got into Brown University, graduating at the top of her class.
+Then an MBA from Stanford. Then a job at one of the most prestigious consulting firms in the world.
+
+Slide 5
+In 1999, she walked into the investing world, joining one of Silicon Valley's most powerful investment firms.
+In a room full of men, she became the firm's first female partner.
+
+Slide 6
+Then in 2005, a 21-year-old called Mark Zuckerberg walked in with a pitch.
+A college social network. Barely 10 people on the team.
+Theresia was in the room when her firm wrote the cheque.
+
+Slide 7
+That bet on Facebook turned out to be one of the most profitable investments in the history of the industry.
+Forbes later estimated she held around 8 million Facebook shares at the company's IPO in 2012.
+For most, a win like that would be enough. Not for Theresia.
+
+Slide 8
+In 2014, she walked away from one of the most powerful firms in Silicon Valley to build her own.
+Then in 2019, she launched Acrew Capital — a firm that now manages $1.7B in investments.
+83% of its founding team are women or people of colour.
+
+Slide 9
+In 2025, Forbes made it official.
+Theresia Gouw, $1.2B net worth.
+
+Slide 10
+Not just America's first female billionaire investor.
+The first in the history of the industry.
+
+FOLLOW FOUNDED FOR MORE STORIES LIKE THIS
+
+---
+
+## GOLD-STANDARD EXAMPLE 14: RONNIE FIEG / KITH
+Slides: 13 | Hook type: Journey Arc + Thesis Close
+
+Slide 1
+Meet the kid from Queens who sold shoes to Jay-Z at 13, and built a brand now worn by Lionel Messi
+
+Slide 2
+At 13, while most kids in Queens are outside playing, Ronnie Fieg is inside a shoe store — unpacking boxes, stacking shelves, watching customers closely.
+He's not just working. He's studying.
+
+Slide 3
+That kid's name?
+Ronnie Fieg.
+Raised in Queens, Ronnie was surrounded by hustle.
+No fashion school. No shortcuts. Just long days on the shop floor, learning game from the ground up…
+
+Slide 4
+Starting in the stockroom. Then the sales floor.
+But he wasn't just working retail — he was building his knowledge.
+Studying what people buy, what they ignore, what makes them come back…
+
+Slide 5
+Until one day, he notices something…
+The shoes people want don't exist yet.
+So he starts designing in collaboration with ASICS.
+Turning ideas into limited releases.
+
+Slide 6
+The shoes sell out.
+Then another pair.
+Then another.
+What started as a small experiment turned into something bigger…
+
+Slide 7
+A name people start to recognise…
+For most, that would be enough.
+Not for Ronnie…
+
+Slide 9
+In 2011, he launched Kith.
+Not just a store.
+A world.
+Clothing, sneakers, lifestyle — all under one roof. Built exactly how he always imagined it.
+
+Slide 10
+Then the brand starts spreading.
+New York to Miami.
+Los Angeles to Tokyo…
+
+Slide 11
+Big collaborations follow.
+Nike. Adidas. Coca-Cola. Timberland.
+
+Slide 12
+The kid from Queens was shaping global culture, not just selling to it…
+
+Slide 13
+He didn't just learn retail.
+He rewrote it.
+
+FOLLOW FOUNDED FOR MORE STORIES LIKE THIS
