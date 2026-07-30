@@ -512,6 +512,52 @@
     .copy-all-btn:hover, .download-btn:hover { border-color: var(--white-20); color: var(--white-60); }
     .copy-all-btn.copied { border-color: var(--green); color: var(--green); }
 
+    .caption-btn {
+      padding: 6px 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--white-60);
+      font-size: 11px;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.03em;
+    }
+    .caption-btn:hover { background: rgba(255,255,255,0.10); border-color: var(--white-20); color: var(--white-80); }
+    .caption-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .caption-block {
+      margin: 12px 0 0 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+    }
+    .caption-label {
+      padding: 10px 16px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white-40);
+      border-bottom: 1px solid var(--border);
+    }
+    .caption-text {
+      padding: 16px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--white-80);
+      white-space: pre-wrap;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .caption-actions {
+      padding: 10px 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+    }
+
     .slides-summary {
       display: flex;
       align-items: center;
@@ -1928,6 +1974,32 @@ FOLLOW FOUNDED FOR MORE STORIES LIKE THIS
 
   const SYSTEM_PROMPT = INSTRUCTIONS + '\n\n---\n\n' + KNOWLEDGE_BASE;
 
+  const CAPTION_PROMPT = `You write Instagram captions for the founder story brand FOUNDED. You will be given the confirmed slide story. Use it as your only source — do not invent facts, do not add details not present in the slides.
+
+Write the caption following this exact structure:
+
+1. OPENING HOOK (1 sentence): A striking contrast between where the subject started and where they ended up. Use a specific number or fact in each half. Format: "[Hardship/humble detail]. [Then/Now] [specific big outcome]."
+
+2. BACKSTORY (2–4 short lines, one sentence each): Where they came from. An early hardship or the moment the idea appeared. Keep it concrete and brief.
+
+3. THE TURN (2–4 short lines): The specific action, decision, or pivot that changed everything. Use precise figures (dollar amounts, percentages, years, ages) wherever they exist in the slides. Include real obstacles if they appear in the story.
+
+4. ESCALATION (1–3 short lines): Growth in concrete, quantified steps — revenue milestones, funding, valuation, acquisitions. Only use numbers that appear in the slides.
+
+5. PRESENT-DAY PAYOFF (1–2 lines): Where things stand now. Use a specific number or named institution for credibility.
+
+6. CLOSING LINE (1 sentence): Short and quotable. Mirrors or contrasts the opening hook using parallel structure ("They rejected X. Then Y.") or a universal lesson framed in the subject's specific terms — never generic advice.
+
+STYLE RULES:
+- Short paragraphs (1–2 sentences) with frequent line breaks for pacing
+- Third person, past tense for the story, present tense for current status
+- No hashtags. No heavy emoji use
+- Total length: 80–150 words
+- Never use generic motivational clichés — every claim must be grounded in a specific detail from the slides
+- End with: "Follow @founded for more stories like this."
+
+Output the caption only. No preamble, no explanation, no commentary before or after.`;
+
   const TITLE_PROMPT = `You generate title options for Instagram founder story posts for the brand FOUNDED.
 
 RESEARCH RULE: Before generating any titles, you must run ALL of the following web_search calls in sequence — do not skip any:
@@ -2199,6 +2271,7 @@ Do not add any explanation or next-step message. Just that one line.`;
   let currentArticleUrl = '';
   let isLoading = false;
   let pendingConfirmedTitle = null;
+  let lastFinalStoryText = ''; // stores confirmed final story for caption generation
 
   // ── AUTH ────────────────────────────────────────────────
   function tryLogin() {
@@ -2379,6 +2452,7 @@ Do not add any explanation or next-step message. Just that one line.`;
       // Reconstruct clean slides-only text for copy / download
       const rawSlides = slides.map(s => `Slide ${s.number}\n${s.text}`).join('\n\n');
       const isDraft = preamble.length > 0;
+      if (!isDraft) lastFinalStoryText = rawSlides;
       el.appendChild(buildSlideCards(slides, rawSlides, isDraft));
     } else {
       const bubble = el.querySelector('.msg-bubble');
@@ -2443,6 +2517,16 @@ Do not add any explanation or next-step message. Just that one line.`;
 
     actions.appendChild(copyBtn);
     actions.appendChild(dlBtn);
+
+    if (!isDraft) {
+      const capBtn = document.createElement('button');
+      capBtn.className = 'caption-btn';
+      capBtn.id = 'caption-btn';
+      capBtn.textContent = 'Generate Caption';
+      capBtn.onclick = () => handleGenerateCaption(rawText);
+      actions.appendChild(capBtn);
+    }
+
     header.appendChild(left);
     header.appendChild(actions);
     wrap.appendChild(header);
@@ -2779,6 +2863,62 @@ Do not add any explanation or next-step message. Just that one line.`;
     }
   }
 
+  async function handleGenerateCaption(storyText) {
+    if (isLoading) return;
+    const capBtn = document.getElementById('caption-btn');
+    if (capBtn) { capBtn.disabled = true; capBtn.textContent = 'Generating…'; }
+
+    const captionMessages = [
+      { role: 'user', content: `Here is the confirmed story:\n\n${storyText}\n\nWrite the Instagram caption now.` }
+    ];
+
+    const msg = await callStreamingAPI({
+      system: CAPTION_PROMPT,
+      messages: captionMessages,
+      maxTokens: 600,
+      statusMsg: 'Writing caption…',
+      timeoutMs: 45000
+    });
+
+    if (capBtn) { capBtn.disabled = false; capBtn.textContent = 'Regenerate Caption'; }
+
+    if (msg) {
+      // Render caption in its own block beneath the slide cards
+      const conv = document.getElementById('conversation');
+      const capBlock = document.createElement('div');
+      capBlock.className = 'caption-block';
+
+      const capLabel = document.createElement('div');
+      capLabel.className = 'caption-label';
+      capLabel.textContent = 'Instagram Caption';
+
+      const capText = document.createElement('div');
+      capText.className = 'caption-text';
+      capText.textContent = msg.content;
+
+      const capActions = document.createElement('div');
+      capActions.className = 'caption-actions';
+
+      const copyCap = document.createElement('button');
+      copyCap.className = 'copy-all-btn';
+      copyCap.textContent = 'Copy Caption';
+      copyCap.onclick = () => {
+        navigator.clipboard.writeText(msg.content).then(() => {
+          copyCap.textContent = 'Copied!';
+          copyCap.classList.add('copied');
+          setTimeout(() => { copyCap.textContent = 'Copy Caption'; copyCap.classList.remove('copied'); }, 2200);
+        });
+      };
+
+      capActions.appendChild(copyCap);
+      capBlock.appendChild(capLabel);
+      capBlock.appendChild(capText);
+      capBlock.appendChild(capActions);
+      conv.appendChild(capBlock);
+      scrollToBottom();
+    }
+  }
+
   async function handleSend() {
     const input = document.getElementById('chat-input');
     const text = input.value.trim();
@@ -2810,6 +2950,7 @@ Do not add any explanation or next-step message. Just that one line.`;
     titleMessages = [];
     workflowPhase = 'idle';
     currentArticleUrl = '';
+    lastFinalStoryText = '';
     document.getElementById('url-input').value = '';
     document.getElementById('chat-input').value = '';
 
