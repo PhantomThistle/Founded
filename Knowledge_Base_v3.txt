@@ -1038,5 +1038,20 @@ Perlmutter did the opposite.
 He continued buying struggling companies that others had written off."
 The pivot works through contrast — the shorter it is, the sharper the contrast lands.
 
+### PIVOT OMISSION — IF NO MOMENT TRULY QUALIFIES, CUT IT ENTIRELY
+The pivot is not a structural requirement. It is only earned when the story contains a moment where a normal person would genuinely stop and feel satisfied. If no such moment exists — or if the closest candidate is too minor, too early, or doesn't feel like a natural stopping point — omit the pivot entirely. A missing pivot is invisible. A forced pivot signals that the writer is following a template, not the story.
+EXAMPLE: Jack Clark's story has no obvious "most people would stop here" moment. His career arc moves continuously upward. The correct version drops the pivot entirely and lets the momentum flow.
+
+### PIVOT INTEGRATION — BUILD IT INTO THE MOTIVATION, NOT A STANDALONE SLIDE
+The pivot slide should not be two bare lines sitting between the previous beat and the next one. It should carry motivational weight — show WHY the founder kept going, not just that they did. Integrate the pivot into a slide that also reveals the emotional or personal driver.
+WRONG: "For most, that would be the whole story. / Not for Skoll." (standalone — no substance)
+RIGHT: "Skoll could retire, build mansions or even a sports team. / Instead he remembers a 14-year-old boy sitting across from his father… / And decides that money isn't the goal. / It's the fuel." (pivot + motivation = one slide)
+
+### PIVOT PLACEMENT — THE LARGEST PRIOR WIN, NOT THE FIRST MILESTONE
+The pivot marks the largest achievement the founder had BEFORE the main story arc begins — the point where most people would declare victory and stop. It is NOT the first milestone, not the first exit, not the first win. It is the BIGGEST prior win.
+WRONG: Vinod Khosla — placing the pivot after Daisy Systems going public (a smaller, earlier win)
+RIGHT: Vinod Khosla — placing the pivot after Sun Microsystems hits $1B in annual sales (the genuine peak before his investing era)
+Ask: if this founder had stopped at this moment, would people think they had a remarkable career? If yes — and it's the biggest "yes" in the story — that is the pivot moment.
+
 ### "HAD OTHER PLANS" / "HAD OTHER IDEAS" — USE AS A SLIDE CLOSE
 "Charles had other plans..." / "Vinod had other ideas." — these three-word closes are powerful because they are confident and simple. They set up the next slide without revealing it. Use them at the end of a slide that shows someone in a situation that should define them, but won't.
