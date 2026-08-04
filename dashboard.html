@@ -2531,7 +2531,8 @@ Do not add any explanation or next-step message. Just that one line.`;
 
       // Reconstruct clean slides-only text for copy / download
       const rawSlides = slides.map(s => `Slide ${s.number}\n${s.text}`).join('\n\n');
-      const isDraft = preamble.length > 0;
+      // Phase 2 drafts always end with a feedback question; Phase 4 finals have no question.
+      const isDraft = preamble.includes('?');
       if (!isDraft) lastFinalStoryText = rawSlides;
       el.appendChild(buildSlideCards(slides, rawSlides, isDraft));
     } else {
